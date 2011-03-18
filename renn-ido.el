@@ -1,0 +1,5 @@
+(when (require 'ido "ido" t)
+  (ido-mode 'buffer)
+  (setq ido-enable-flex-matching t)
+  (ido-mode t)
+  (define-key ctl-x-map "\C-v" 'ido-find-file))
