@@ -1,0 +1,4 @@
+DotEmacs
+========
+
+ln -s ~/.emacs.d/dotemacs ~/.emacs
