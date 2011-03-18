@@ -1,4 +1,12 @@
 DotEmacs
 ========
 
+Notice
+------
+
+Currently not completed. Do not clone this repository ;)
+
+Etc
+---
+
 ln -s ~/.emacs.d/dotemacs ~/.emacs
