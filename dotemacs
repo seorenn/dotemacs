@@ -10,6 +10,7 @@
 (load-library "renn-ido")
 (load-library "renn-autoinstall")
 
+;; system-type: gnu, gnu/linux, darwin, ms-dos, windows-nt, cygwin, ...
 (if (eq system-type 'darwin)
     (load-library "renn-osx")
 )
