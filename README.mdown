@@ -1,10 +1,12 @@
 DotEmacs
 ========
 
+Here are Seorenn's emacs-configurations
+
 Notice
 ------
 
-Currently not completed. Do not clone this repository ;)
+Currently works, but not completed
 
 Etc
 ---
