@@ -14,6 +14,7 @@
 (load-library "renn-encoding")
 (load-library "renn-korean")
 (load-library "renn-common")
+(load-library "renn-gui")
 (load-library "renn-ido")
 (load-library "renn-autoinstall")
 (load-library "renn-shell")

@@ -1,3 +1,9 @@
+(require 'hideshow)
+(setq hs-minor-mode-hook nil)
+
+(dynamic-completion-mode)
+(setq-default indent-tabs-mode nil)
+
 (setq next-line-add-newlines nil)
 (setq scroll-step 1)
 (setq hscroll-step 1)
