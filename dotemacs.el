@@ -17,6 +17,7 @@
 (load-library "renn-ido")
 (load-library "renn-autoinstall")
 (load-library "renn-shell")
+(load-library "renn-simplenote")
 
 ;; system-type: gnu, gnu/linux, darwin, ms-dos, windows-nt, cygwin, ...
 (if (eq system-type 'darwin)
