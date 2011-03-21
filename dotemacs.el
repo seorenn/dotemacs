@@ -19,8 +19,8 @@
 
 ;; system-type: gnu, gnu/linux, darwin, ms-dos, windows-nt, cygwin, ...
 (if (eq system-type 'darwin)
-    (load-library "renn-osx")
-)
+    (load-library "renn-osx"))
 (if (eq system-type 'windows-nt)
-    (load-library "renn-win32")
-)
+    (load-library "renn-win32"))
+(if (eq system-type 'gnu/linux)
+    (load-library "renn-linux"))
