@@ -1,3 +1,5 @@
 auto-save-list
 renn-simplenote-private.el
+url
+*.elc
 *.*~
