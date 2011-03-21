@@ -1,3 +1,10 @@
+;; USAGE
+;; 1) Create ~/.emacs, write these:
+;;    (add-to-list 'load-path "~/.emacs.d")
+;;    (load-library "dotemacs")
+;; 2) or Link dotemacs.el to ~/.emacs
+;;    (Here's were some problem what emacs over-writtable .emacs)
+
 (add-to-list 'load-path "~/.emacs.d")
 (progn (cd "~/.emacs.d")
        (normal-top-level-add-subdirs-to-load-path))
