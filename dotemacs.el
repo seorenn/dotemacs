@@ -21,6 +21,7 @@
 (load-my-library "renn-autoinstall")
 (load-my-library "renn-shell")
 (load-my-library "renn-simplenote")
+(load-my-library "renn-c")
 
 (if (file-exists-p "~/.emacs.d/vendor/twittering-mode/twittering-mode.el")
     (load-my-library "renn-twitter"))

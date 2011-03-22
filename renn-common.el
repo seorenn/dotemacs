@@ -1,16 +1,30 @@
 (require 'hideshow)
 (setq hs-minor-mode-hook nil)
-
 (dynamic-completion-mode)
-(setq-default indent-tabs-mode nil)
 
 (setq next-line-add-newlines nil)
 (setq scroll-step 1)
 (setq hscroll-step 1)
-(line-number-mode 1)
-(column-number-mode 1)
 (setq sentence-end-double-space nil)
 (setq confirm-kill-emacs 'y-or-n-p)
+(setq make-backup-files nil)
+(setq next-line-add-newlines nil)
+(setq track-eol nil)
+(setq default-tab-width 4)
+(setq isearch-allow-scroll t)
+
+(setq-default indent-tabs-mode nil)
+(setq-default case-fold-search t)
+
+(delete-selection-mode nil)
+(which-function-mode t)
+(global-font-lock-mode t)
+(transient-mark-mode t)
+(show-paren-mode t)
+(line-number-mode 1)
+(column-number-mode 1)
+
+(fset 'yes-or-no-p 'y-or-n-p)
 
 (global-set-key (kbd "M-1") 'delete-other-windows)
 (global-set-key (kbd "M-2") 'split-window-vertically)
