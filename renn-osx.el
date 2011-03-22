@@ -3,5 +3,7 @@
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier nil)
 
+(aquamacs-autoface-mode nil)
+
 (set-face-font 'default "Monaco-11")
 (set-fontset-font "fontset-default" '(#x1100 . #xffdc) "AppleGothic-14")
