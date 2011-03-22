@@ -12,3 +12,12 @@ Etc
 ---
 
 ln -s ~/.emacs.d/dotemacs ~/.emacs
+
+Not Served Files (for Private Configuration)
+----------------
+
+renn-simplenote-private.el:
+<pre>
+(setq simplenote-email "simplenote email")
+(setq simplenote-password "password or nil")
+</pre>

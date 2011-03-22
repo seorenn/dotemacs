@@ -10,15 +10,18 @@
        (normal-top-level-add-subdirs-to-load-path))
 (add-to-list 'load-path "~/.emacs.d/vendor")
 
+;; load default functions
 (load-library "renn-func")
-(load-library "renn-encoding")
-(load-library "renn-korean")
-(load-library "renn-common")
-(load-library "renn-gui")
-(load-library "renn-ido")
-(load-library "renn-autoinstall")
-(load-library "renn-shell")
-(load-library "renn-simplenote")
+
+(load-my-library "renn-encoding")
+(load-my-library "renn-korean")
+(load-my-library "renn-common")
+(load-my-library "renn-gui")
+(load-my-library "renn-ido")
+(load-my-library "renn-autoinstall")
+(load-my-library "renn-shell")
+(load-my-library "renn-simplenote")
+(load-my-library "renn-twitter")
 
 ;; system-type: gnu, gnu/linux, darwin, ms-dos, windows-nt, cygwin, ...
 (if (eq system-type 'darwin)

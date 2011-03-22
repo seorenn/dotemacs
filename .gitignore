@@ -1,5 +1,6 @@
 auto-save-list
 renn-simplenote-private.el
 url
+url/cookies
 *.elc
 *.*~

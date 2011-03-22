@@ -3,5 +3,5 @@
 ;; (setq simplenote-password "yourpassword")
 
 (require 'simplenote)
-(load-library "renn-simplenote-private.el")
+(load-my-library "renn-simplenote-private.el")
 (simplenote-setup)
