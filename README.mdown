@@ -25,10 +25,10 @@ renn-simplenote-private.el:
 3rd-party Extentions
 --------------------
 
-1. twittering-mode
+### twittering-mode
 
-http://www.emacswiki.org/emacs/TwitteringMode
-https://github.com/hayamiz/twittering-mode
+* <http://www.emacswiki.org/emacs/TwitteringMode>
+* <https://github.com/hayamiz/twittering-mode>
 
 Download twittering-mode. and put twittering-mode directory to ~/.emacs/vendor/
 
