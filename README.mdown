@@ -21,3 +21,18 @@ renn-simplenote-private.el:
 (setq simplenote-email "simplenote email")
 (setq simplenote-password "password or nil")
 </pre>
+
+3rd-party Extentions
+--------------------
+
+1. twittering-mode
+
+http://www.emacswiki.org/emacs/TwitteringMode
+https://github.com/hayamiz/twittering-mode
+
+Download twittering-mode. and put twittering-mode directory to ~/.emacs/vendor/
+
+<pre>
+$ git clone git://github.com/hayamiz/twittering-mode.git
+$ mv twittering-mode ~/.emacs.d/vendor/
+</pre>

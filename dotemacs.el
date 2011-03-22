@@ -21,7 +21,9 @@
 (load-my-library "renn-autoinstall")
 (load-my-library "renn-shell")
 (load-my-library "renn-simplenote")
-(load-my-library "renn-twitter")
+
+(if (file-exists-p "~/emacs.d/vendor/twittering-mode/twittering-mode.el")
+    (load-my-library "renn-twitter"))
 
 ;; system-type: gnu, gnu/linux, darwin, ms-dos, windows-nt, cygwin, ...
 (if (eq system-type 'darwin)
