@@ -39,3 +39,5 @@
 (global-set-key (kbd "M-O") 'find-file)
 (global-set-key (kbd "M-S") 'save-buffer)
 (global-set-key (kbd "M-?") 'apropos)
+
+(define-key global-map (kbd "RET") 'newline-and-indent)
