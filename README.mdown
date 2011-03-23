@@ -34,3 +34,28 @@ Download twittering-mode. and put twittering-mode directory to ~/.emacs/vendor/
 $ git clone git://github.com/hayamiz/twittering-mode.git
 $ mv twittering-mode ~/.emacs.d/vendor/
 </pre>
+
+### ropemacs
+
+rope:
+
+* Download from <http://rope.sourceforge.net/index.html> and install.
+* or <code>sudo apt-get install python-rope</code>
+
+ropemode:
+
+* Download from <http://pypi.python.org/pypi/ropemode>
+* Install: <code>sudo python setup.py install</code>
+
+pymacs:
+
+* Download from <http://pymacs.progiciels-bpi.ca/pymacs.html>
+* or Download by <code>git clone git://github.com/pinard/Pymacs.git</code>
+* <code>make check && sudo make install</code>
+* <code>cp pymacs.el ~/.emacs.d/vendor/</code>
+
+ropemacs:
+
+* Homepage: <http://rope.sourceforge.net/ropemacs.html>
+* Download by <code>hg clone https://bitbucket.org/agr/ropemacs</code>
+* Install: <code>sudo python setup.py install</code>

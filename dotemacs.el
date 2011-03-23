@@ -22,6 +22,7 @@
 (load-my-library "renn-shell")
 (load-my-library "renn-simplenote")
 (load-my-library "renn-c")
+(load-my-library "renn-python")
 (load-my-library "renn-autocomplete")
 
 (if (file-exists-p "~/.emacs.d/vendor/twittering-mode/twittering-mode.el")
