@@ -4,7 +4,11 @@
 
 (setq next-line-add-newlines nil)
 (setq scroll-step 1)
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
+(setq mouse-wheel-progressive-speed nil)
+(setq mouse-wheel-follow-mouse 't)
 (setq hscroll-step 1)
+(setq scroll-conservatively 10000)
 (setq sentence-end-double-space nil)
 (setq confirm-kill-emacs 'y-or-n-p)
 (setq make-backup-files nil)
