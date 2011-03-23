@@ -8,18 +8,16 @@ Notice
 
 Currently works, but not completed
 
-Etc
----
+Usage
+-----
 
-ln -s ~/.emacs.d/dotemacs ~/.emacs
+* Download: <code>git clone git://github.com/seorenn/dotemacs.git</code>
+* Install: <code>mv dotemacs ~/.emacs.d</code>
+* Configuration: write these to ~/.emacs
 
-Not Served Files (for Private Configuration)
-----------------
-
-renn-simplenote-private.el:
 <pre>
-(setq simplenote-email "simplenote email")
-(setq simplenote-password "password or nil")
+(add-to-list 'load-path "~/.emacs.d")
+(load-library "dotemacs")
 </pre>
 
 3rd-party Extentions
