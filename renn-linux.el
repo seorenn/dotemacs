@@ -6,5 +6,5 @@
 (set-face-font 'default "Bitstream Vera Sans Mono-9")
 ;(set-fontset-font "fontset-default" '(#x1100 . #xffdc) '("NanumGothic" . "unicode-bmp"))
 (set-fontset-font "fontset-default" '(#x1100 . #xffdc) "NanumGothic-11")
-;(set-fontset-font "fontset-default" 'kana ('("Meiryo" . "unicode-bmp"))
-;(set-fontset-font "fontset-default" 'han '("Microsoft YaHei" . "unicode-bmp"))
+(set-fontset-font "fontset-default" 'kana "Naver Dictionary-11")
+(set-fontset-font "fontset-default" 'han "Naver Dictionary-11")
