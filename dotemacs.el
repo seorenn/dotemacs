@@ -13,6 +13,10 @@
 ;; load default functions
 (load-library "renn-func")
 
+;; load private variables
+(load-my-library "renn-private")
+
+;; load configurations :)
 (load-my-library "renn-encoding")
 (load-my-library "renn-korean")
 (load-my-library "renn-common")

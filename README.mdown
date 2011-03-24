@@ -20,6 +20,16 @@ Usage
 (load-library "dotemacs")
 </pre>
 
+Not Served File
+---------------
+
+<code>renn-private.el</code> contains private informations. If you need, create this file and write these informations or other:
+
+<pre>
+(setq simplenote-email "SIMPLENOTE ID")
+(setq simplenote-password "SIMPLENOTE PASSWORD")
+</pre>
+
 3rd-party Extentions
 --------------------
 

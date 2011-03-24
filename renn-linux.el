@@ -4,5 +4,7 @@
 
 (set-face-font 'default "Bitstream Vera Sans Mono-9")
 (set-fontset-font "fontset-default" '(#x1100 . #xffdc) "NanumGothic-11")
-(set-fontset-font "fontset-default" 'kana "Sazanami Gothic-11")
-(set-fontset-font "fontset-default" 'han "Sazanami Gothic-11")
+;(set-fontset-font "fontset-default" 'kana "Sazanami Gothic-11")
+(set-fontset-font "fontset-default" 'kana "TakaoGothic-11")
+;(set-fontset-font "fontset-default" 'han "Sazanami Gothic-11")
+(set-fontset-font "fontset-default" 'han "TakaoGothic-11")
