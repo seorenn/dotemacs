@@ -27,6 +27,7 @@
 (load-my-library "renn-simplenote")
 (load-my-library "renn-c")
 (load-my-library "renn-autocomplete")
+(load-my-library "renn-colortheme")
 
 (if (file-exists-p "~/.emacs.d/vendor/pymacs.el")
     (load-my-library "renn-python"))
