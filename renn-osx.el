@@ -5,7 +5,7 @@
 
 (aquamacs-autoface-mode nil)
 
-(set-face-font 'default "Monaco-11")
+(Set-face-font 'default "Monaco-11")
 (set-fontset-font "fontset-default" '(#x1100 . #xffdc) "AppleGothic-14")
 (set-fontset-font "fontset-default" 'kana "Hiragino Kaku Gothic Pro-14")
 (set-fontset-font "fontset-default" 'han "Hiragino Kaku Gothic Pro-14")
