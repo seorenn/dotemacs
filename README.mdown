@@ -33,6 +33,10 @@ Not Served File
 3rd-party Extentions
 --------------------
 
+### vim-mode (packaged)
+
+<https://bitbucket.org/lyro/vim-mode/>
+
 ### twittering-mode
 
 * <http://www.emacswiki.org/emacs/TwitteringMode>
