@@ -35,6 +35,7 @@
 (load-my-library "renn-markdown")
 (load-my-library "renn-anything")
 (load-my-library "renn-twitter")
+(load-my-library "renn-texttranslator")
 
 ;; system-type: gnu, gnu/linux, darwin, ms-dos, windows-nt, cygwin, ...
 (if (eq system-type 'darwin)
