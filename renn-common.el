@@ -38,8 +38,15 @@
 (global-set-key (kbd "M-N") 'other-window)
 ;(global-set-key (kbd "M-P") 'windmove-up)
 (global-set-key (kbd "M-P") '(lambda () (interactive) (other-window -1)))
+(global-set-key (kbd "C-O") 'find-file-at-point)
 (global-set-key (kbd "M-O") 'find-file)
 (global-set-key (kbd "M-S") 'save-buffer)
 (global-set-key (kbd "M-?") 'apropos)
 
 (define-key global-map (kbd "RET") 'newline-and-indent)
+
+
+
+
+
+
