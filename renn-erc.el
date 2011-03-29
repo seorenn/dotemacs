@@ -4,6 +4,10 @@
 ;; (setq my-irc-server "irc.hanirc.org")
 ;; (setq my-irc-port 6667)
 ;; (setq my-irc-nick "seorenn")
+
+;; reference doc:
+;; http://mwolson.org/static/doc/erc.html
+
 (defun my-irc ()
   "Connect IRC"
   (erc :server my-irc-server
