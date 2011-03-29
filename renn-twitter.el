@@ -7,6 +7,8 @@
 (setq twittering-use-native-retweet t)
 (setq twittering-scroll-mode t)
 
+(setq twittering-status-format "%i %s, %r%R %@:\n%FILL[  ]{%T}\n ")
+
 (add-hook 'twittering-mode-hook
           (lambda ()
             (mapc (lambda (pair)
