@@ -3,6 +3,10 @@
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/vendor/auto-complete/ac-dict")
 (ac-config-default)
 
+(global-auto-complete-mode t)
+
+(require 'auto-complete-etags)
+
 ;;http://www.cx4a.org/pub/auto-complete-yasnippet.el
 
 (defun ac-yasnippet-candidate-1 (table)
