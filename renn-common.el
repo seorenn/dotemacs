@@ -16,6 +16,8 @@
 (setq track-eol nil)
 (setq default-tab-width 4)
 (setq isearch-allow-scroll t)
+(setq visible-bell nil)
+(setq ring-bell-function 'ignore)
 
 (setq-default indent-tabs-mode nil)
 (setq-default case-fold-search t)
@@ -29,6 +31,8 @@
 (column-number-mode 1)
 
 (fset 'yes-or-no-p 'y-or-n-p)
+
+(add-to-list 'default-frame-alist '(cursor-type . 'box))
 
 (global-set-key (kbd "M-1") 'delete-other-windows)
 (global-set-key (kbd "M-2") 'split-window-vertically)

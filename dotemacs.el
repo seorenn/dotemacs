@@ -26,18 +26,15 @@
 (load-my-library "renn-shell")
 (load-my-library "renn-simplenote")
 (load-my-library "renn-c")
+(load-my-library "renn-python")
+(load-my-library "renn-yasnippet")
 (load-my-library "renn-autocomplete")
 (load-my-library "renn-colortheme")
 (load-my-library "renn-vim")
 (load-my-library "renn-org")
 (load-my-library "renn-markdown")
 (load-my-library "renn-anything")
-
-(if (file-exists-p "~/.emacs.d/vendor/pymacs.el")
-    (load-my-library "renn-python"))
-
-(if (file-exists-p "~/.emacs.d/vendor/twittering-mode/twittering-mode.el")
-    (load-my-library "renn-twitter"))
+(load-my-library "renn-twitter")
 
 ;; system-type: gnu, gnu/linux, darwin, ms-dos, windows-nt, cygwin, ...
 (if (eq system-type 'darwin)
