@@ -10,6 +10,10 @@
        (normal-top-level-add-subdirs-to-load-path))
 (add-to-list 'load-path "~/.emacs.d/vendor")
 
+(add-to-list 'load-path "~/.emacs.d/elpa")
+(progn (cd "~/.emacs.d/elpa")
+       (normal-top-level-add-subdirs-to-load-path))
+
 ;; load default functions
 (load-library "renn-func")
 
@@ -17,6 +21,7 @@
 (load-my-library "renn-private")
 
 ;; load configurations :)
+(load-my-library "renn-elpa")
 (load-my-library "renn-encoding")
 (load-my-library "renn-korean")
 (load-my-library "renn-common")
@@ -36,6 +41,7 @@
 (load-my-library "renn-anything")
 (load-my-library "renn-twitter")
 (load-my-library "renn-texttranslator")
+(load-my-library "renn-erc")
 
 ;; system-type: gnu, gnu/linux, darwin, ms-dos, windows-nt, cygwin, ...
 (if (eq system-type 'darwin)
