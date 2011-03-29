@@ -29,6 +29,9 @@
 (load-my-library "renn-autocomplete")
 (load-my-library "renn-colortheme")
 (load-my-library "renn-vim")
+(load-my-library "renn-org")
+(load-my-library "renn-markdown")
+(load-my-library "renn-anything")
 
 (if (file-exists-p "~/.emacs.d/vendor/pymacs.el")
     (load-my-library "renn-python"))
