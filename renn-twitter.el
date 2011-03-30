@@ -6,6 +6,7 @@
 (setq twittering-timer-interval 60)
 (setq twittering-use-native-retweet t)
 (setq twittering-scroll-mode t)
+(setq twittering-fill-column 60)
 
 (setq twittering-status-format "%i %s, %r%R %@:\n%FILL[  ]{%T}\n ")
 
