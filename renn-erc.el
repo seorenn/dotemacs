@@ -1,9 +1,9 @@
 (require 'erc)
 
 ;; put these info to renn-private.el
-;; (setq my-irc-server "irc.hanirc.org")
-;; (setq my-irc-port 6667)
-;; (setq my-irc-nick "seorenn")
+;; (setq erc-my-irc-server "irc.hanirc.org")
+;; (setq erc-my-irc-port 6667)
+;; (setq erc-my-irc-nick "seorenn")
 
 ;; reference doc:
 ;; http://mwolson.org/static/doc/erc.html
@@ -11,6 +11,6 @@
 (defun my-irc ()
   "Connect IRC"
   (interactive)
-  (erc :server my-irc-server
-       :port my-irc-port
-       :nick my-irc-nick))
+  (erc :server erc-my-irc-server
+       :port erc-my-irc-port
+       :nick erc-my-irc-nick))
