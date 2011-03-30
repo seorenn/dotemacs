@@ -10,6 +10,7 @@
 
 (defun my-irc ()
   "Connect IRC"
+  (interactive)
   (erc :server my-irc-server
        :port my-irc-port
-       :nick my_irc_nick))
+       :nick my-irc-nick))
