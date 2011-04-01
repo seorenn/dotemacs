@@ -8,7 +8,7 @@
 ;; reference doc:
 ;; http://mwolson.org/static/doc/erc.html
 
-(defun my-irc ()
+(defun erc-my-irc ()
   "Connect IRC"
   (interactive)
   (erc :server erc-my-irc-server
