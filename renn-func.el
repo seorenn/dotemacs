@@ -25,3 +25,17 @@
   "load-library if file(fname) was exists..."
   (if (file-exists-p (concat (concat "~/.emacs.d/" fname) ".el")) (progn
                                              (load-library fname))))
+
+(defun open-google-translate ()
+  "Translate current word using Google Translator"
+  (interactive)
+  (let (sel-word target-url)
+    (setq sel-word
+          (if (and transient-mark-mode mark-active)
+              (buffer-substring-no-properties (region-beginning) (region-end))
+            (thing-at-point 'symbol)))
+
+    (setq sel-word (replace-regexp-in-string " " "%20" sel-word))
+    (setq target-url (concat "http://translate.google.com/#auto|ko|" sel-word))
+
+    (browse-url target-url)))
