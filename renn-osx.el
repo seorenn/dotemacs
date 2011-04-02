@@ -2,8 +2,12 @@
 (set-keyboard-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
+;; Aquamacs options
 (setq inhibit-startup-echo-area-message t)
 (aquamacs-autoface-mode nil)
+(tabbar-mode nil)
+(one-buffer-one-frame-mode 0)
+
 ;(set-face-font 'default "Monaco-11")
 (set-face-font 'default "-apple-Monaco-medium-normal-normal-*-12-120-72-72-m-120-iso10646-1")
 
