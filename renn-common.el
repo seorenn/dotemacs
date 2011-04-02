@@ -1,6 +1,10 @@
+;(add-to-list 'load-path "~/.emacs.d/vendor/apel")
+;(add-to-list 'load-path "~/.emacs.d/vendor/flim")
+;(add-to-list 'load-path "~/.emacs.d/vendor/semi")
+
 (require 'hideshow)
 (setq hs-minor-mode-hook nil)
-(dynamic-completion-mode)
+(dynamic-completion-mode t)
 
 (setq next-line-add-newlines nil)
 (setq scroll-step 1)
