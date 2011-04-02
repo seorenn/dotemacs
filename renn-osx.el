@@ -2,6 +2,7 @@
 (set-keyboard-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
+(setq inhibit-startup-echo-area-message t)
 (aquamacs-autoface-mode nil)
 ;(set-face-font 'default "Monaco-11")
 (set-face-font 'default "-apple-Monaco-medium-normal-normal-*-12-120-72-72-m-120-iso10646-1")
@@ -12,7 +13,8 @@
 
 ;; Unicode User Area
 (set-fontset-font "fontset-default" '(#xe0bc . #xf66e)
-                  "-apple-AppleGothic-medium-normal-normal-*-14-120-72-72-p-120-*-*")
+                  "-apple-Hiragino_Kaku_Gothic_Pro-medium-normal-normal-*-14-120-72-72-p-120-iso10646-1")
+;                  "-apple-AppleGothic-medium-normal-normal-*-14-120-72-72-p-120-*-*")
 
 ;; Japanese & Chinese
 ;; (set-fontset-font "fontset-default" 'kana "Hiragino Kaku Gothic Pro-14")
@@ -21,4 +23,3 @@
                   "-apple-Hiragino_Kaku_Gothic_Pro-medium-normal-normal-*-14-120-72-72-p-120-iso10646-1")
 (set-fontset-font "fontset-default" 'han
                   "-apple-Hiragino_Kaku_Gothic_Pro-medium-normal-normal-*-14-120-72-72-p-120-iso10646-1-*")
-

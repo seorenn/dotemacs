@@ -42,6 +42,7 @@
 (load-my-library "renn-twitter")
 (load-my-library "renn-texttranslator")
 (load-my-library "renn-erc")
+(load-my-library "renn-w3m")
 
 ;; system-type: gnu, gnu/linux, darwin, ms-dos, windows-nt, cygwin, ...
 (if (eq system-type 'darwin)

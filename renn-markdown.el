@@ -6,3 +6,5 @@
 (setq auto-mode-alist (cons '("\\.mdown$" . markdown-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.mdwn$" . markdown-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.mdt$" . markdown-mode) auto-mode-alist))
+
+(setq markdown-command "Markdown.pl")
