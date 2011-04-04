@@ -7,8 +7,10 @@
 (setq twittering-use-native-retweet t)
 (setq twittering-scroll-mode t)
 (setq twittering-fill-column 60)
+(setq twittering-number-of-tweets-on-retrieval 100)
 
-(setq twittering-status-format "%i %s, %r%R %@:\n%FILL[  ]{%T}\n ")
+(setq twittering-status-format "%i %s %R\n%FILL[  ]{%T\n}          %@%r\n ")
+(setq twittering-retweet-format "RT @%s %t")
 
 (add-hook 'twittering-mode-hook
           (lambda ()

@@ -26,7 +26,7 @@
 (load-my-library "renn-korean")
 (load-my-library "renn-common")
 (load-my-library "renn-gui")
-(load-my-library "renn-ido")
+;;(load-my-library "renn-ido")
 (load-my-library "renn-autoinstall")
 (load-my-library "renn-shell")
 (load-my-library "renn-simplenote")
@@ -38,12 +38,11 @@
 (load-my-library "renn-vim")
 (load-my-library "renn-org")
 (load-my-library "renn-markdown")
-;;(load-my-library "renn-anything")
+(load-my-library "renn-anything")
 (load-my-library "renn-twitter")
 (load-my-library "renn-texttranslator")
 (load-my-library "renn-erc")
 (load-my-library "renn-w3m")
-(load-my-library "renn-gnus")
 
 ;; system-type: gnu, gnu/linux, darwin, ms-dos, windows-nt, cygwin, ...
 (if (eq system-type 'darwin)
