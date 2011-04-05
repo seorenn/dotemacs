@@ -1,4 +1,6 @@
-; Localization
+(require 'hangul)
+
+;; Localization
 (set-language-environment "Korean")
 
 (global-set-key (kbd "S-SPC") 'toggle-input-method)
