@@ -35,7 +35,8 @@
               (buffer-substring-no-properties (region-beginning) (region-end))
             (thing-at-point 'symbol)))
 
-    (setq sel-word (replace-regexp-in-string " " "%20" sel-word))
+    ;(setq sel-word (replace-regexp-in-string " " "%20" sel-word))
+    (setq sel-word (url-hexify-string sel-word))
     (setq target-url (concat "http://translate.google.com/#auto|ko|" sel-word))
 
     (browse-url target-url)))
