@@ -42,7 +42,7 @@
       (background-mode . dark)
       (border-color . "black")
       (cursor-color . "yellow")
-      (foreground-color . "White")
+      (foreground-color . "lightgrey")
       (mouse-color . "sienna1"))
      ((buffers-tab-face . buffers-tab)
       (cperl-here-face . font-lock-string-face)
