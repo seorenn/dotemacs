@@ -50,3 +50,5 @@
     (load-library "renn-win32"))
 (if (eq system-type 'gnu/linux)
     (load-library "renn-linux"))
+
+(cd "~/")
