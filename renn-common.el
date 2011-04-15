@@ -1,7 +1,3 @@
-;(add-to-list 'load-path "~/.emacs.d/vendor/apel")
-;(add-to-list 'load-path "~/.emacs.d/vendor/flim")
-;(add-to-list 'load-path "~/.emacs.d/vendor/semi")
-
 (require 'hideshow)
 (setq hs-minor-mode-hook nil)
 (dynamic-completion-mode t)
@@ -35,6 +31,9 @@
 (column-number-mode 1)
 
 (fset 'yes-or-no-p 'y-or-n-p)
+
+(add-to-list 'auto-mode-alist '("\\.outline'" . outline-mode))
+(add-hook 'outline-mode-hook 'hide-body)
 
 ;(global-set-key (kbd "M-1") 'delete-other-windows)
 ;(global-set-key (kbd "M-2") 'split-window-vertically)
