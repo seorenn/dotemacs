@@ -39,7 +39,6 @@
 (load-my-library "renn-markdown")
 (load-my-library "renn-anything")
 (load-my-library "renn-twitter")
-(load-my-library "renn-texttranslator")
 (load-my-library "renn-erc")
 (load-my-library "renn-w3m")
 
