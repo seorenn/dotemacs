@@ -1,4 +1,7 @@
-;; ------- follows code under development ----------------------
+;; Scratch Files
+;; This file contains some harm-ful(?) contents ;-)
+;; Yes! This codes under developmenting, or under testing, or under studying...
+
 
 (defun renn-buffer-setup ()
   "test"
