@@ -37,8 +37,7 @@
 ;;(load-my-library "renn-ido")
 (load-my-library "renn-autoinstall")
 (load-my-library "renn-shell")
-(load-my-library "renn-c")
-(load-my-library "renn-python")
+(load-my-library "renn-devel")
 (load-my-library "renn-yasnippet")
 (load-my-library "renn-autocomplete")
 (load-my-library "renn-colortheme")
@@ -47,7 +46,6 @@
 (load-my-library "renn-markdown")
 (load-my-library "renn-anything")
 (load-my-library "renn-twitter")
-(load-my-library "renn-texttranslator")
 (load-my-library "renn-erc")
 (load-my-library "renn-w3m")
 
