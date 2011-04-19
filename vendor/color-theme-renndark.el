@@ -133,6 +133,9 @@
      (font-lock-warning-face ((t (:bold t :foreground "Pink"))))
      (fringe ((t (:background "black"))))
      (qt-classes-face ((t (:foreground "Red"))))
+     ;; twittering-mode
+     (twittering-uri-face ((t (:foreground "gray30"))))
+     ;; gnus
      (gnus-cite-attribution-face ((t (nil))))
      (gnus-cite-face-1 ((t (:bold nil :foreground "deep sky blue"))))
      (gnus-cite-face-10 ((t (:foreground "medium purple"))))
