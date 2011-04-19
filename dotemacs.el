@@ -5,6 +5,14 @@
 ;; 2) or Link dotemacs.el to ~/.emacs
 ;;    (Here's were some problem what emacs over-writtable .emacs)
 
+;; system-type: gnu, gnu/linux, darwin, ms-dos, windows-nt, cygwin, ...
+(if (eq system-type 'darwin)
+    (load-library "renn-osx"))
+(if (eq system-type 'windows-nt)
+    (load-library "renn-win32"))
+(if (eq system-type 'gnu/linux)
+    (load-library "renn-linux"))
+
 (add-to-list 'load-path "~/.emacs.d")
 (progn (cd "~/.emacs.d")
        (normal-top-level-add-subdirs-to-load-path))
@@ -40,13 +48,5 @@
 (load-my-library "renn-twitter")
 (load-my-library "renn-erc")
 (load-my-library "renn-w3m")
-
-;; system-type: gnu, gnu/linux, darwin, ms-dos, windows-nt, cygwin, ...
-(if (eq system-type 'darwin)
-    (load-library "renn-osx"))
-(if (eq system-type 'windows-nt)
-    (load-library "renn-win32"))
-(if (eq system-type 'gnu/linux)
-    (load-library "renn-linux"))
 
 (cd "~/")
