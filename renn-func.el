@@ -101,14 +101,17 @@
     ;; return the filenames
     el-files-list))
 
-(defun string-match-list (src-string pattern-list)
-  "Evaluate src-string matches pattern-list's each pattern."
-  (let (result)
-    (setq result nil)
-    (if pattern-list (mapcar
-                      (lambda (tmpdir) (setq result (string-match tmpdir src-string)))
-                      pattern-list)
-      (setq result t))
+;; TODO: add to list when file, not directory.
+;;       recursive navigation not works well...
+(defun string-not-match-list (src-string pattern-list)
+  "Evaluate src-string not matches pattern-list's each pattern."
+  (let (result (tmp-pattern-list pattern-list))
+    (setq result t)
+    (while tmp-pattern-list
+      (if (string-match (car tmp-pattern-list) src-string)
+          (progn (setq result nil)
+                 (setq tmp-pattern-list nil)))
+      (setq tmp-pattern-list (cdr tmp-pattern-list)))
     result))
 
 ; TODO - check exception list
@@ -118,14 +121,19 @@
   (let (tmp-files-list
         (current-directory-list
          (directory-files-and-attributes directory t)))
+    ;; test
+    (message (concat "navigate " directory))
     ;; while we are in the current directory
     (while current-directory-list
       (cond
        ;; check to see whether filename ends in `.el'
        ;; and if so, append its name to a list.
-       ((equal ".el" (substring (car (car current-directory-list)) -3))
-        (setq tmp-files-list
-              (cons (car (car current-directory-list)) tmp-files-list)))
+       ;; ((equal ".el" (substring (car (car current-directory-list)) -3))
+       ;;  (setq tmp-files-list
+       ;;        (cons (car (car current-directory-list)) tmp-files-list)))
+       ((string-not-match-list (car (car current-directory-list)) except-list)
+           (setq tmp-files-list
+                 (cons (car (car current-directory-list)) tmp-files-list)))
        ;; check whether filename is that of a directory
        ((eq t (car (cdr (car current-directory-list))))
         ;; decide whether to skip or recurse
@@ -137,9 +145,14 @@
             ()
           ;; else descend into the directory and repeat the process
           (setq tmp-files-list
+                ;; (append
+                ;;  (files-in-below-directory
+                ;;   (car (car current-directory-list)))
+                ;;  tmp-files-list)))))
                 (append
-                 (files-in-below-directory
-                  (car (car current-directory-list)))
+                 (files-under-dir-with-except
+                  (car (car current-directory-list))
+                  except-list)
                  tmp-files-list)))))
       ;; move to the next filename in the list; this also
       ;; shortens the list so the while loop eventually comes to an end
