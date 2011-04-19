@@ -1,4 +1,4 @@
-;;; color-theme-renndark.el --- Seorenn's preferred coor theme
+;;; color-theme-renndark.el --- Seorenn's Color Theme
 ;;; Based on color-theme-arjen.el
 
 ;; Original Copyrights here:
@@ -48,7 +48,7 @@
       (background-mode . dark)
       (border-color . "black")
       (cursor-color . "yellow")
-      (foreground-color . "#999988")
+      (foreground-color . "gray60")
       (mouse-color . "sienna1"))
      ((buffers-tab-face . buffers-tab)
       (cperl-here-face . font-lock-string-face)
@@ -116,8 +116,8 @@
 		 (flymake-warnline ((t (:underline "yellow"))))
      (font-lock-builtin-face ((t (:foreground "LightSteelBlue"))))
      ;; these used to be Indian Red...
-     (font-lock-comment-delimiter-face ((t (:foreground "#999988"))))
-     (font-lock-comment-face ((t (:foreground "#999988"))))
+     (font-lock-comment-delimiter-face ((t (:foreground "gray30"))))
+     (font-lock-comment-face ((t (:foreground "gray30"))))
      (font-lock-constant-face ((t (:foreground "Aquamarine"))))
      (font-lock-doc-face ((t (:foreground "gray30"))))
      (font-lock-doc-string-face ((t (:foreground "DarkOrange"))))

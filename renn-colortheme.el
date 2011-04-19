@@ -1,6 +1,8 @@
 ;; check running on GUI system
 (if (eq (symbol-value 'window-system) nil)
-    (add-to-list 'load-path "~/.emacs.d/vendor/color-theme")
+    (require 'highlight)
+    (require 'facemenu+)
+  (add-to-list 'load-path "~/.emacs.d/vendor/color-theme")
   (require 'color-theme)
   (color-theme-initialize)
 
