@@ -8,5 +8,6 @@
 
 (setq org-log-done t)
 
+(setq org-directory "~/Dropbox/notes")
 (setq org-agenda-files (list "~/Dropbox/notes/todo.org"
                              "~/Dropbox/notes/worktodo.org"))
