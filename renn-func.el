@@ -106,8 +106,6 @@
     ;; return the filenames
     el-files-list))
 
-;; TODO: add to list when file, not directory.
-;;       recursive navigation not works well...
 (defun string-not-match-list (src-string pattern-list)
   "Evaluate src-string not matches pattern-list's each pattern."
   (let (result (tmp-pattern-list pattern-list))
@@ -119,48 +117,41 @@
       (setq tmp-pattern-list (cdr tmp-pattern-list)))
     result))
 
-; TODO - check exception list
+;; TODO: add to list when file, not directory.
+;;       recursive navigation not works well...
 (defun files-under-dir-with-except (directory except-list)
   "List the files in DIRECTORY and in its sub-directories except some directories and extensions"
   (interactive)
   (let (tmp-files-list
+        cur-path
+        cur-path-type
         (current-directory-list
          (directory-files-and-attributes directory t)))
     ;; test
-    (message (concat "navigate " directory))
+    (message (concat "navigate: " directory))
     ;; while we are in the current directory
     (while current-directory-list
-      (cond
-       ;; check to see whether filename ends in `.el'
-       ;; and if so, append its name to a list.
-       ;; ((equal ".el" (substring (car (car current-directory-list)) -3))
-       ;;  (setq tmp-files-list
-       ;;        (cons (car (car current-directory-list)) tmp-files-list)))
-       ((string-not-match-list (car (car current-directory-list)) except-list)
-           (setq tmp-files-list
-                 (cons (car (car current-directory-list)) tmp-files-list)))
-       ;; check whether filename is that of a directory
-       ((eq t (car (cdr (car current-directory-list))))
-        ;; decide whether to skip or recurse
-        (if
-            (equal "."
-                   (substring (car (car current-directory-list)) -1))
-            ;; then do nothing since filename is that of
-            ;;   current directory or parent, "." or ".."
-            ()
-          ;; else descend into the directory and repeat the process
-          (setq tmp-files-list
-                ;; (append
-                ;;  (files-in-below-directory
-                ;;   (car (car current-directory-list)))
-                ;;  tmp-files-list)))))
-                (append
-                 (files-under-dir-with-except
-                  (car (car current-directory-list))
-                  except-list)
-                 tmp-files-list)))))
-      ;; move to the next filename in the list; this also
-      ;; shortens the list so the while loop eventually comes to an end
-      (setq current-directory-list (cdr current-directory-list)))
-    ;; return the filenames
+      (progn
+        (setq cur-path (car (car current-directory-list)))
+        (setq cur-path-type (nth 1 (car current-directory-list)))
+        (when (string-not-match-list cur-path except-list)
+          ;; if type is file, append to tmp-files-list
+          (if (not cur-path-type)
+              ;; true
+              (setq tmp-files-list
+                    (cons cur-path tmp-files-list))
+            ;; false
+            ;; recursive-indexing
+            (unless
+                (equal "."
+                       (substring cur-path -1))
+              (setq tmp-files-list
+                    (append
+                     tmp-files-list
+                     (files-under-dir-with-except
+                      cur-path
+                      except-list))))))
+        ;; pop from current-directory-list
+        (setq current-directory-list (cdr current-directory-list))))
+    ;; return
     tmp-files-list))
