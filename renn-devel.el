@@ -1,6 +1,13 @@
 ;; renn-devel.el
 ;; This files set the Environment for Software Develomentation to Emacs
 
+;; dot-mode.el
+;; "C-." dot-mode-excute
+;; "C-M-." dot-mode-override
+;; "C-c-." dot-mode-copy-to-last-kbd-macro
+(require 'dot-mode)
+(add-hook 'find-file-hooks 'dot-mode-on)
+
 ;; ----- C
 
 (setq-default c-basic-offset 4
