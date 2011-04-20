@@ -35,16 +35,13 @@
 (add-to-list 'auto-mode-alist '("\\.outline'" . outline-mode))
 (add-hook 'outline-mode-hook 'hide-body)
 
-;(global-set-key (kbd "M-1") 'delete-other-windows)
-;(global-set-key (kbd "M-2") 'split-window-vertically)
-;(global-set-key (kbd "M-3") 'split-window-horizontally)
-(global-set-key (kbd "M-)") 'delete-window)
-;(global-set-key (kbd "M-N") 'windmove-down)
-(global-set-key (kbd "M-S-N") 'other-window)
-;(global-set-key (kbd "M-P") 'windmove-up)
-(global-set-key (kbd "M-S-P") '(lambda () (interactive) (other-window -1)))
+(global-set-key (kbd "C->") 'other-window)
+(global-set-key (kbd "C-<") 'other-window-reverse) ; in renn-func.el
 (global-set-key (kbd "C-S-O") 'find-file-at-point)
-(global-set-key (kbd "M-?") 'apropos)
+(global-set-key (kbd "M-\?") 'apropos)
+
+;; move window using meta-arrow
+(windmove-default-keybindings 'meta)
 
 (define-key global-map (kbd "RET") 'newline-and-indent)
 

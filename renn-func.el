@@ -41,6 +41,11 @@
 
     (browse-url target-url)))
 
+;; reverse other-window
+(defun other-window-reverse ()
+  (interactive)
+  (other-window -1))
+
 ;; I-search with initial contents.
 ;; original source: http://platypope.org/blog/2007/8/5/a-compendium-of-awesomeness
 (defvar isearch-initial-string nil)
