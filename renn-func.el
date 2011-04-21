@@ -82,7 +82,7 @@
   (let (result (tmp-attr file-attr))
     (setq result nil)
     (when (stringp (car tmp-attr))
-      (setq tmp-attr (file-attributes (car tmp-attr))))
+        (setq tmp-attr (file-attributes (car tmp-attr) t)))
     (unless (car tmp-attr) (setq result t))
     result))
 
@@ -140,6 +140,65 @@
                       (point-max)
                       target-file-name)))))
 
+(defun files-from-attr-list-with-except (file-attrs excepts)
+  "File list of inputed file-attrs except containing excepts pattern"
+  (interactive)
+  (let (result)
+    (mapcar
+     (lambda (each-attr)
+       (when (string-not-match-list (car each-attr) excepts)
+         (when (is-file-attr (cdr each-attr))
+           (append result (list (car each-attr))))))
+     file-attrs)
+    result))
+
+(defun files-each-dir-with-except (target-dirs excepts)
+  "Files list of target-dirs's each directory except containing user defined pattern"
+  (interactive)
+  (let (result tmp-files tmp-file-name)
+    (mapcar
+     (lambda (dir)
+       (setq dir (expand-file-name dir))
+       (message (concat "Contacting directory " dir))
+       (setq result (append result (list dir)))
+       (setq tmp-files (directory-files-and-attributes dir t))
+       (mapcar
+        (lambda (each-attr)
+          (when (string-not-match-list (car each-attr) excepts)
+            ;;(when (is-file-attr (cdr each-attr))
+            (when (not (file-accessible-directory-p (car each-attr)))
+              (setq result (append result (list (car each-attr)))))))
+        tmp-files))
+     target-dirs)
+    result))
+       
+(setq my-index-paths '("~/.emacs.d"
+                       "~/Devel/apiserver"
+                       "~/Dropbox/notes"))
+(setq my-index-excepts
+      '("\\(\\.pyc\\|\\.elc\\|\\.out\\)$"
+        "\\(\\.jpg\\|\\.gif\\|\\.png\\|\\.jpeg\\|\\.bmp\\)$"
+        "\\(\\.mpg\\|\\.mpeg\\|\\.mp4\\|\\.avi\\|\\.wmv\\|\\.mkv\\)$"
+        "\\(\\.mp3\\|\\.wav\\|\\.aac\\)$"))
+
+(setq my-index-output-file "~/.myfiles-index")
+
+(defun index-my-files ()
+  (interactive)
+  (let (tmp-list)
+    (with-temp-buffer
+      (message (concat "Writing " my-index-output-file))
+      (setq tmp-list
+            (files-each-dir-with-except my-index-paths my-index-excepts))
+      (mapcar
+       (lambda (x)
+         (insert x)
+         (insert "\n"))
+       tmp-list)
+      (write-region (point-min)
+                    (point-max)
+                    my-index-output-file))))
+      
 ;; (defun index-home-files ()
 ;;   "Index all files without some directory and file."
 ;;   (interactive)
