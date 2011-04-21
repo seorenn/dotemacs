@@ -8,6 +8,12 @@
             (define-key ido-buffer-completion-map [(ctrl tab)] 'ido-next-match)
             (define-key ido-buffer-completion-map [(ctrl shift tab)] 'ido-prev-match)))
 
-(ido-mode t)
 (setq ido-enable-flex-matching t)
-
+(setq ido-everywhere t)
+(setq ido-work-directory-list
+      '("~/.emacs.d"
+        "~/Dropbox/notes"
+        "~/Devel/apiserver"))
+(setq ido-max-work-directory-list 100)
+(setq ido-max-work-file-list 1000)
+(ido-mode t)
