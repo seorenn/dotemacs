@@ -10,10 +10,10 @@
 
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
-(setq ido-work-directory-list
-      '("~/.emacs.d"
-        "~/Dropbox/notes"
-        "~/Devel/apiserver"))
+;; (setq ido-work-directory-list
+;;       '("~/.emacs.d"
+;;         "~/Dropbox/notes"
+;;         "~/Devel/apiserver"))
 (setq ido-max-work-directory-list 100)
-(setq ido-max-work-file-list 1000)
+(setq ido-max-work-file-list 20)
 (ido-mode t)
