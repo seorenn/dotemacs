@@ -32,6 +32,9 @@
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
+;; auto reload opened file on buffer when file edited by outside of emacs...
+(global-auto-revert-mode t)
+
 (add-to-list 'auto-mode-alist '("\\.outline'" . outline-mode))
 (add-hook 'outline-mode-hook 'hide-body)
 
