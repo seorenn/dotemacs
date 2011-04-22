@@ -33,13 +33,27 @@
 (setq ropemacs-enable-autoimport t)
 
 ;; ----- Objective-C
-;; this environments refered to http://sakito.jp/emacs/emacsobjectivec.html
 
-;; bind objective-c mode to extensions .h, .m, .mm
-;; note) objective-c has C syntax by super-set. So, it's compatible with C and C++
-;; magic-mode-alist was turn-on mode when found some strings in buffers
-;; (.m file is not objective-c only extensions)
-(add-to-list 'magic-mode-alist '("\\(.\\|\n\\)*\n@implementation" . objc-mode))
-(add-to-list 'magic-mode-alist '("\\(.\\|\n\\)*\n@interface" . objc-mode))
-(add-to-list 'magic-mode-alist '("\\(.\\|\n\\)*\n@protocol" . objc-mode))
+(setq auto-mode-alist (cons '("\\.m$" . objc-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.mm$" . objc-mode) auto-mode-alist))
 
+;; Refered from:
+;; https://github.com/jmjeong/jmjeong-emacs/blob/master/jmjeong-objc.el
+(defun my-header-file-mode-hook ()  
+  (if (string-equal (file-name-extension buffer-file-name) "h")  
+	  (let ((filebase (file-name-sans-extension buffer-file-name)))  
+		(cond
+		 ((file-exists-p (concat filebase ".c"))  
+		  (c-mode))
+		 ((file-exists-p (concat filebase ".cpp"))  
+		  (c++-mode))  
+		 ((file-exists-p (concat filebase ".cc"))  
+		  (c++-mode))  
+		 ((file-exists-p (concat filebase ".m"))  
+		  (objc-mode))  
+		 ((file-exists-p (concat filebase ".mm"))  
+		  (objc-mode))  
+		 (t  
+		  (objc-mode))))))
+
+(add-hook 'find-file-hook 'my-header-file-mode-hook)
