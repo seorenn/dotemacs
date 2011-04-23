@@ -40,7 +40,6 @@
 (load-my-library "renn-devel")
 (load-my-library "renn-yasnippet")
 (load-my-library "renn-autocomplete")
-(load-my-library "renn-colortheme")
 (load-my-library "renn-vim")
 (load-my-library "renn-org")
 (load-my-library "renn-markdown")
@@ -48,5 +47,7 @@
 (load-my-library "renn-twitter")
 (load-my-library "renn-erc")
 (load-my-library "renn-w3m")
+(load-my-library "renn-textmate")
+(load-my-library "renn-colortheme")
 
 (cd "~/")
