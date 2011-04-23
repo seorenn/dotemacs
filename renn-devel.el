@@ -1,6 +1,11 @@
 ;; renn-devel.el
 ;; This files set the Environment for Software Develomentation to Emacs
 
+;; autopair - automatic balance braces/quotes pair
+(require 'autopair)
+(autopair-global-mode t)
+(autopair-autowrap t)
+
 ;; icicles
 (require 'icicles)
 (icicle-mode 1)
