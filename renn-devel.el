@@ -1,6 +1,10 @@
 ;; renn-devel.el
 ;; This files set the Environment for Software Develomentation to Emacs
 
+;; icicles
+(require 'icicles)
+(icicle-mode 1)
+
 ;; dot-mode.el
 ;; "C-." dot-mode-excute
 ;; "C-M-." dot-mode-override
