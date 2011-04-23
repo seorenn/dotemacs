@@ -7,10 +7,6 @@
 
 (setq multi-term-program "/bin/bash")
 
-;; turn-off autopair on term-mode
-;; (add-hook 'term-mode-hook
-;;           '(lambda () (setq autopair-dont-activate t)))
-
 ;; [C-c t] command open new term or switch next if one or more terms running
 (global-set-key (kbd "C-c t") 'multi-term-next)
 (global-set-key (kbd "C-c T") 'multi-term)
