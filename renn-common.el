@@ -29,6 +29,7 @@
 (show-paren-mode t)
 (line-number-mode 1)
 (column-number-mode 1)
+(global-visual-line-mode t)
 
 (fset 'yes-or-no-p 'y-or-n-p)
 

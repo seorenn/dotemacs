@@ -11,3 +11,5 @@
 (setq org-directory "~/Dropbox/notes")
 (setq org-agenda-files (list "~/Dropbox/notes/todo.org"
                              "~/Dropbox/notes/worktodo.org"))
+
+(setq org-startup-truncated t)
