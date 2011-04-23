@@ -1,46 +1,9 @@
 (add-to-list 'load-path "~/.emacs.d/vendor/auto-complete")
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/vendor/auto-complete/ac-dict")
-(ac-config-default)
+(when (require 'auto-complete-config nil 'noerror)
+  (add-to-list 'ac-dictionary-directories "~/.emacs.d/vendor/auto-complete/ac-dict")
+  (setq ac-comphist-file "~/.emacs.d/vendor/auto-complete/ac-comphist.dat")
+  (ac-config-default)
 
-(global-auto-complete-mode t)
+  (global-auto-complete-mode t)
 
-(require 'auto-complete-etags)
-
-;;http://www.cx4a.org/pub/auto-complete-yasnippet.el
-
-;; (defun ac-yasnippet-candidate-1 (table)
-;;   (let ((hashtab (yas/snippet-table-hash table))
-;;         (parent (yas/snippet-table-parent table))
-;;         candidates)
-;;     (maphash (lambda (key value)
-;;                (push key candidates))
-;;              hashtab)
-;;     (setq candidates (all-completions ac-prefix (nreverse candidates)))
-;;     (if parent
-;;         (setq candidates
-;;               (append candidates (ac-yasnippet-candidate-1 parent))))
-;;     candidates))
-
-;; (defun ac-yasnippet-candidate ()
-;;   (let ((table (yas/snippet-table major-mode)))
-;;     (if table
-;;         (ac-yasnippet-candidate-1 table))))
-
-;; (defface ac-yasnippet-candidate-face
-;;   '((t (:background "sandybrown" :foreground "black")))
-;;   "Face for yasnippet candidate.")
-
-;; (defface ac-yasnippet-selection-face
-;;   '((t (:background "coral3" :foreground "white")))
-;;   "Face for the yasnippet selected candidate.")
-
-;; (defvar ac-source-yasnippet
-;;   '((candidates . ac-yasnippet-candidate)
-;;     (action . yas/expand)
-;;     (limit . 3)
-;;     (candidate-face . ac-yasnippet-candidate-face)
-;;     (selection-face . ac-yasnippet-selection-face))
-;;   "Source for Yasnippet.")
-
-;; (provide 'auto-complete-yasnippet)
+  (require 'auto-complete-etags))
