@@ -250,6 +250,7 @@
      (yellow ((t (:foreground "yellow"))))
      (zmacs-region ((t (:background "snow" :foreground "blue"))))
      (markdown-link-face ((t (:foreground "LightSteelBlue4"))))
+     (markdown-reference-face ((t (:foreground "LightSteelBlue3"))))
      (org-link ((t (:foreground "LightSteelBlue4"))))
      (comint-highlight-prompt ((t (:foreground "bisque2"))))
      )))

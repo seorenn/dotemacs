@@ -38,6 +38,7 @@
 (load-my-library "renn-autoinstall")
 (load-my-library "renn-shell")
 (load-my-library "renn-devel")
+(load-my-library "renn-magit")
 (load-my-library "renn-yasnippet")
 (load-my-library "renn-autocomplete")
 (load-my-library "renn-vim")
