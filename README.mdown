@@ -28,9 +28,13 @@ Not Served File
 3rd-party Extentions
 --------------------
 
-### vim-mode (packaged)
+### vim-mode (packaged in this REPO)
 
 <https://bitbucket.org/lyro/vim-mode/>
+
+### magit (packaged in this REPO)
+
+<http://philjackson.github.com/magit/>
 
 ### twittering-mode
 
