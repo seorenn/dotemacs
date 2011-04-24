@@ -1,12 +1,6 @@
 ;;; color-theme-renndark.el --- Seorenn's Color Theme
-;;; Based on color-theme-arjen.el
 
-;; Original Copyrights here:
-;;; Based on color-theme-arjen.el --- Arjen Wiersma's preferred color theme
-;; Copyright (C) 2001 -- 2008  Arjen Wiersma
-
-;; Author: Arjen Wiersma <arjen@wiersma.org>
-;; Keywords: local
+;; Author: Seorenn <hirenn@gmail.com>
 
 ;; This file is NOT part of GNU Emacs
 
@@ -25,17 +19,10 @@
 ;; the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 ;; Boston, MA 02110-1301, USA.
 
-;;; Commentary:
-
-;; This was my first color theme. It has been hacked into shape over
-;; the last couple of years and I still use it every single day.
-;;
-;; Any comments/feedback are greatly appreciated
-
-;;; from Seorenn:
-;;; Changed color for foreground and comment, string...
-
-;;; Code:
+;; USAGE:
+;; (require 'color-theme)
+;; (require 'color-theme-renndark)
+;; (color-theme-renndark)
 
 (require 'color-theme)
 
@@ -59,7 +46,7 @@
      (default ((t (:background "black" :foreground "AntiqueWhite4"))))
      (blue ((t (:foreground "blue"))))
      (bold ((t (:bold t))))
-     (bold-italic ((t (:bold t))))
+     (bold-italic ((t (:bold t :italic t))))
      (border-glyph ((t (nil))))
      (buffers-tab ((t (:background "black" :foreground "white"))))
      (calendar-today-face ((t (:underline t))))
@@ -115,9 +102,8 @@
 		 (flymake-errline ((t (:underline "red"))))
 		 (flymake-warnline ((t (:underline "yellow"))))
      (font-lock-builtin-face ((t (:foreground "tan"))))
-     ;; these used to be Indian Red...
      (font-lock-comment-delimiter-face ((t (:foreground "gray30"))))
-     (font-lock-comment-face ((t (:foreground "gray30"))))
+     (font-lock-comment-face ((t (:foreground "gray30" :italic t))))
      (font-lock-constant-face ((t (:foreground "NavajoWhite3"))))
      (font-lock-doc-face ((t (:foreground "gray30"))))
      (font-lock-doc-string-face ((t (:foreground "DarkOrange"))))
@@ -224,7 +210,7 @@
      (message-header-xheader-face ((t (:bold t :foreground "light blue"))))
      (message-mml-face ((t (:bold t :foreground "Green3"))))
      (message-separator-face ((t (:foreground "blue3"))))
-     (modeline ((t (:background "DarkRed" :foreground "white" :box (:line-width 1 :style released-button)))))
+     (modeline ((t (:background "DarkOrange4" :foreground "ivory2" :box (:line-width 1 :style released-button)))))
      (modeline-mousable ((t (:background "DarkRed" :foreground "white"))))
      (modeline-mousable-minor-mode ((t (:background "DarkRed" :foreground "white"))))
      (nxml-comment-content-face ((t (:inherit font-lock-doc-face))))
@@ -263,8 +249,9 @@
      (woman-unknown-face ((t (:foreground "LightSalmon"))))
      (yellow ((t (:foreground "yellow"))))
      (zmacs-region ((t (:background "snow" :foreground "blue"))))
-     (markdown-link-face ((t (:foreground "cornflower blue"))))
+     (markdown-link-face ((t (:foreground "LightSteelBlue4"))))
+     (org-link ((t (:foreground "LightSteelBlue4"))))
+     (comint-highlight-prompt ((t (:foreground "bisque2"))))
      )))
 
 (provide 'color-theme-renndark)
-;;; color-theme-renndark.el ends here
