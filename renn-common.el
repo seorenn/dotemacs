@@ -41,7 +41,8 @@
 
 (global-set-key (kbd "C->") 'other-window)
 (global-set-key (kbd "C-<") 'other-window-reverse) ; in renn-func.el
-(global-set-key (kbd "C-S-O") 'find-file-at-point)
+;; (global-set-key (kbd "C-S-O") 'find-file-at-point)
+(global-set-key (kbd "C-S-O") 'renn-open-url)
 (global-set-key (kbd "M-\?") 'apropos)
 
 ;; move window using meta-arrow

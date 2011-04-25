@@ -46,6 +46,16 @@
   (interactive)
   (other-window -1))
 
+;; open url in current line
+(defun renn-open-url ()
+  (interactive)
+  (let (line url)
+    (save-excursion
+      ;(setq line (thing-at-point 'line))
+      (setq line (buffer-substring-no-properties (line-beginning-position) (line-end-position)))
+      (string-match "\\([a-z]+\\:\\/\\/[^\s-]+\\)" line)
+      (browse-url (match-string 1 line)))))
+
 ;; I-search with initial contents.
 ;; original source: http://platypope.org/blog/2007/8/5/a-compendium-of-awesomeness
 (defvar isearch-initial-string nil)
