@@ -5,4 +5,5 @@
 ;; (require 'magit-topgit)
 
 ;; disable vc-git
-(eval-after-load "vc" '(remove-hook 'find-file-hook 'vc-find-file-hook))
+;; ... not works! (T _ T)
+;;(eval-after-load "vc" '(remove-hook 'find-file-hook 'vc-find-file-hook))

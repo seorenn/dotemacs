@@ -249,10 +249,15 @@
      (woman-unknown-face ((t (:foreground "LightSalmon"))))
      (yellow ((t (:foreground "yellow"))))
      (zmacs-region ((t (:background "snow" :foreground "blue"))))
+     ;; markdown-mode
      (markdown-link-face ((t (:foreground "LightSteelBlue4"))))
      (markdown-reference-face ((t (:foreground "LightSteelBlue3"))))
+     ;; org-mode
      (org-link ((t (:foreground "LightSteelBlue4"))))
      (comint-highlight-prompt ((t (:foreground "bisque2"))))
+     ;; magit-mode
+     (magit-item-highlight ((t (:background "gray15" :foreground "ivory2"))))
+     (magit-section-title ((t (:foreground "wheat2"))))
      )))
 
 (provide 'color-theme-renndark)

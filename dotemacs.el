@@ -48,7 +48,6 @@
 (load-my-library "renn-twitter")
 (load-my-library "renn-erc")
 (load-my-library "renn-w3m")
-(load-my-library "renn-textmate")
 (load-my-library "renn-colortheme")
 
 (cd "~/")
