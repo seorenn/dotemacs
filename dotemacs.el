@@ -34,7 +34,7 @@
 (load-my-library "renn-korean")
 (load-my-library "renn-common")
 (load-my-library "renn-gui")
-(load-my-library "renn-ido")
+;;(load-my-library "renn-ido")
 (load-my-library "renn-autoinstall")
 (load-my-library "renn-shell")
 (load-my-library "renn-devel")

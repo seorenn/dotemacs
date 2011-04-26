@@ -18,3 +18,6 @@
   (require 'color-theme-renndark)
   (color-theme-renndark)
   )
+
+(require 'face-list)
+;; M-x list-faces-display
