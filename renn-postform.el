@@ -36,6 +36,22 @@
 ;;
 ;; This is not Markdown Compiler.
 ;; `postform-markup' was not process line-break or paragraph.
+;;
+;; ...
+;;
+;; 아악 귀찮아서 한글로 할래!
+;;
+;; 이 파일은 postform-markup 함수를 제공합니다.
+;; 이 함수는 그냥 markdown 문법의 일부 만 적용하여 HTML화 시켜버립니다.
+;; 영역을 선택한 후 M-x postform-markup 커맨드를 실행시키는 것으로 사용법은 끝입니다.
+;;
+;; 이걸 만든 이유는...
+;; 블로깅 할 내용을 한 파일에 여러개 적는게 제 스타일인데
+;; 이걸 markdown으로 컴파일 해 버리니 뭔가 좀 복잡하고
+;; 특히 제가 블로깅 하는 blogger(blogspot.com)의 글쓰기 옵션과
+;; markdown으로 컴파일한 내용이 모양이 맞지 않기 때문입니다.
+;;
+;; 즉, 블로거 안쓰시는 분은 거의 쓸 모 없는 함수입니다. ㅋㅋㅋ
 
 (defun postform-escape-html (line)
   "Escape HTML Special Characters in line"
