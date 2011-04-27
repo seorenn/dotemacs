@@ -1,5 +1,6 @@
 (require 'ido)
 
+(global-set-key (kbd "C-x b") 'ido-switch-buffer)
 (global-set-key [(ctrl tab)] 'ido-switch-buffer)
 (global-set-key [(ctrl shift tab)] 'ido-switch-buffer)
 
