@@ -29,8 +29,13 @@
 
 ;;; Commentary
 ;;
-;; Select region, then command `M-x postform-markup'
-;; Selected text will be converted to HTML format
+;; This script provide `postform-markup' function only.
+;;
+;; Select region, then command `M-x' `postform-markup'
+;; This command will convert selected text to HTML Style format
+;;
+;; This is not Markdown Compiler.
+;; `postform-markup' was not process line-break or paragraph.
 
 (defun postform-escape-html (line)
   "Escape HTML Special Characters in line"
