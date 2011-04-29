@@ -47,6 +47,7 @@
 (load-my-library "renn-anything")
 (load-my-library "renn-twitter")
 (load-my-library "renn-erc")
+(load-my-library "renn-maxframe")
 (load-my-library "renn-colortheme")
 
 (cd "~/")
