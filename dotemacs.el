@@ -45,9 +45,11 @@
 (load-my-library "renn-org")
 (load-my-library "renn-markdown")
 ;;(load-my-library "renn-anything")
+(load-my-library "renn-autopair")
 (load-my-library "renn-twitter")
 (load-my-library "renn-erc")
 (load-my-library "renn-maxframe")
 (load-my-library "renn-colortheme")
+(load-my-library "renn-shortcuts")
 
 (cd "~/")
