@@ -17,12 +17,12 @@
 ;;       '("~/.emacs.d"
 ;;         "~/Dropbox/notes"
 ;;         "~/Devel/apiserver"))
-(setq ido-max-work-directory-list 100)
-(setq ido-max-work-file-list 20)
+(setq ido-max-work-directory-list 150)
+(setq ido-max-work-file-list 30)
 
 (ido-mode t)
 (ido-everywhere t)
 (icomplete-mode t)
 
-(set-face-foreground 'ido-first-match "white")
-(set-face-background 'ido-first-match "SaddleBrown")
+;; (set-face-foreground 'ido-first-match "white")
+;; (set-face-background 'ido-first-match "SaddleBrown")
