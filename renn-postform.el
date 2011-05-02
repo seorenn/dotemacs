@@ -126,13 +126,16 @@
         (unless in-ul
           (setq output (append output (list "<ul>"))))
         (setq in-ul t))
-       ((and in-ul (not postform-ul? line))
+       ((and in-ul (not (postform-ul? line)))
         (setq in-ul nil)
-        (setq append-ul-end)))
+        (setq append-ul-end t)))
       (setq line (postform-markup-line line in-pre))
-      (setq output (append output (list line)))
       (when append-ul-end
-        (setq output (append output (list "</ul>")))))
+        (progn
+          (setq output (append output (list "</ul>")))
+          (setq append-ul-end nil)))
+      (setq output (append output (list line)))
+      )
     output))
       
 (defun postform-markup ()
@@ -140,6 +143,7 @@
   (interactive)
   (let (regbuf
         lines)
+    (if (and transient-mark-mode mark-active)
     (save-excursion
       (setq regbuf (buffer-substring-no-properties
                     (region-beginning) (region-end)))
@@ -150,6 +154,7 @@
       ;; change selected text to result of mark-up
       (delete-region (region-beginning) (region-end))
       (setq regbuf (mapconcat 'identity lines "\n"))
-      (insert regbuf))))
+      (insert regbuf))
+    (message "Select region first!"))))
 
 (provide 'postform-markup)
