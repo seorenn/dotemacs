@@ -22,5 +22,6 @@
                   '(("1" . twittering-home-timeline)
                     ("2" . twittering-replies-timeline)
                     ("3" . twittering-direct-messages-timeline)
-                    ("t" . twittering-retweet)))))
+                    ("t" . twittering-retweet)
+                    ("q" . delete-window)))))
 
