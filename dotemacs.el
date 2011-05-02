@@ -28,6 +28,10 @@
 ;; load private variables
 (load-my-library "renn-private")
 
+;; load my custom extensions
+(load-my-library "renn-postform.el")
+(load-my-library "renn-explorefile.el")
+
 ;; load configurations :)
 (load-my-library "renn-encoding")
 (load-my-library "renn-korean")
