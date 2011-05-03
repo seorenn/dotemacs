@@ -42,3 +42,37 @@
     result))
 
 (provide 'explore-file)
+
+(defvar appended-tag-path (list) "TAG Path List")
+
+(defun str-in-list? (str l)
+  (interactive)
+  (let (result cur)
+    (setq cur (car l))
+    (while (and cur (not result))
+      (progn
+        (when (string= cur str)
+          (setq result t))
+        (setq l (cdr l))
+        (setq cur (car l))))
+    result))
+
+(defun find-tag-and-add-table ()
+  "Find TAG file and return if not found file path"
+  (interactive)
+  (let (fpath result)
+    (setq fpath (explore-file "TAGS" t))
+    (unless (str-in-list? fpath appended-tag-path)
+      (add-to-list 'appended-tag-path fpath)
+      (setq result fpath))
+    result))
+
+(defun explore-tag ()
+  "Find TAG and set to Tag Table"
+  (interactive)
+  (let (fpath)
+    (setq fpath (find-tag-and-add-table))
+    (when fpath
+      (visit-tags-table fpath nil))))
+
+(add-hook 'python-mode-hook 'explore-tag)
