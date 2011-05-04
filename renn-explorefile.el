@@ -75,4 +75,4 @@
     (when fpath
       (visit-tags-table fpath nil))))
 
-(add-hook 'python-mode-hook 'explore-tag)
+;;(add-hook 'python-mode-hook 'explore-tag)

@@ -36,6 +36,8 @@
 (pymacs-load "ropemacs" "rope-")
 (setq ropemacs-enable-autoimport t)
 
+(add-hook 'python-mode-hook 'explore-tag)
+
 ;; ----- Objective-C
 
 (setq auto-mode-alist (cons '("\\.m$" . objc-mode) auto-mode-alist))
