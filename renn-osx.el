@@ -28,38 +28,28 @@
 ;; EUC-KR(cp949)은 조잡한 미완성 한글 스펙입니다.
 ;; 쓰지맙시다. 윈도우를 죽입시다. 나쁜 윈도우!
 
-;; Mac OS X 기본 글꼴인 애플고딕 설정 예. 꼭 X-Font 스타일로 적을 필요는 없음.
-;; (set-fontset-font "fontset-default" '(#x1100 . #xffdc)
-;;                   "-apple-AppleGothic-medium-normal-normal-*-14-120-72-72-p-120-*-*")
-
 ;; 나눔고딕(네이버 나눔글꼴 패키지)을 기본 한글 서체로 사용.
 (set-fontset-font "fontset-default" '(#x1100 . #xffdc)
                   '("NanumGothicOTF" . "iso10646-1"))
 
 ;; Unicode User Area
-;; (set-fontset-font "fontset-default" '(#xe0bc . #xf66e)
-;;                   "-apple-Hiragino_Kaku_Gothic_Pro-medium-normal-normal-*-14-120-72-72-p-120-iso10646-1")
-
 (set-fontset-font "fontset-default" '(#xe0bc . #xf66e)
                   '("NanumGothicOTF" . "iso10646-1"))
 
 ;; Japanese & Chinese
 ;; I don't know Chinese. So configured all type of Chinese/Kanji/Han to Japanese Font Spec
 ;; 일본어나 특수 한자를 쓰지 않는다면 이 설정은 의미 없을지도 모른답니다. ;)
-
-;; (set-fontset-font "fontset-default" 'kana "Hiragino Kaku Gothic Pro-14")
-;; (set-fontset-font "fontset-default" 'han "Hiragino Kaku Gothic Pro-14")
-;; (set-fontset-font "fontset-default" 'kana
-;;                   "-apple-Hiragino_Kaku_Gothic_Pro-medium-normal-normal-*-14-120-72-72-p-120-iso10646-1")
-;; (set-fontset-font "fontset-default" 'han
-;;                   "-apple-Hiragino_Kaku_Gothic_Pro-medium-normal-normal-*-14-120-72-72-p-120-iso10646-1-*")
-
 (set-fontset-font "fontset-default" 'kana
                   '("Hiragino Kaku Gothic Pro" . "iso10646-1"))
 (set-fontset-font "fontset-default" 'han
                   '("Hiragino Kaku Gothic Pro" . "iso10646-1"))
 (set-fontset-font "fontset-default" 'japanese-jisx0208
                   '("Hiragino Kaku Gothic Pro" . "iso10646-1"))
+(set-fontset-font "fontset-default" 'japanese-jisx0213.2004-1
+                  '("Hiragino Kaku Gothic Pro" . "iso10646-1"))
+(set-fontset-font "fontset-default" 'japanese-jisx0213-2
+                  '("Hiragino Kaku Gothic Pro" . "iso10646-1"))
+;; half-width katakana
 (set-fontset-font "fontset-default" 'katakana-jisx0201
                   '("Hiragino Kaku Gothic Pro" . "iso10646-1"))
 
