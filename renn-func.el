@@ -46,6 +46,18 @@
   (interactive)
   (other-window -1))
 
+;; goto matched parenthesis
+(defun goto-match-paren (arg)
+  "Go to the matching parenthesis if on (){}[], similar to vi style of %."
+  (interactive "p")
+  ;; first, check for "outside of bracket" positions expected by forward-sexp, etc.
+  (cond ((looking-at "[\[\(\{]") (forward-sexp))
+        ((looking-back "[\]\)\}]" 1) (backward-sexp))
+        ;; now, try to succeed from inside of a bracket
+        ((looking-at "[\]\)\}]") (forward-char) (backward-sexp))
+        ((looking-back "[\[\(\{]" 1) (backward-char) (forward-sexp))
+        (t nil)))
+
 ;; open url in current line
 (defun renn-open-url ()
   (interactive)
@@ -53,7 +65,8 @@
     (save-excursion
       ;(setq line (thing-at-point 'line))
       (setq line (buffer-substring-no-properties (line-beginning-position) (line-end-position)))
-      (string-match "\\([a-z]+\\:\\/\\/[^\s-]+\\)" line)
+      ;;(string-match "\\([a-z]+\\:\\/\\/[^\s-]+\\)" line)
+      (string-match "\\([a-z]+\\:\\/\\/[^\r\n\t ]+\\)" line)
       (browse-url (match-string 1 line)))))
 
 ;; I-search with initial contents.

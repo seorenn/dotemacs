@@ -19,3 +19,6 @@
   (dired "~"))
 
 (global-set-key (kbd "C-x d") 'my-dired-home)
+
+;; goto match paren
+(global-set-key (kbd "C-%") 'goto-match-paren)
