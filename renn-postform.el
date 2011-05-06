@@ -64,8 +64,8 @@
 (defun postform-markup-text-syntax (line)
   "Mark-up line"
   (let ((tmpline line))
-    (setq tmpline (replace-regexp-in-string "`\\(.+\\)`" "<code>\\1</code>" tmpline t))
-    (setq tmpline (replace-regexp-in-string "\\*\\(.+\\)\\*" "<bold>\\1</bold>" tmpline t))
+    (setq tmpline (replace-regexp-in-string "`\\([^`]+\\)`" "<code>\\1</code>" tmpline t))
+    (setq tmpline (replace-regexp-in-string "\\*\\([^*]+\\)\\*" "<bold>\\1</bold>" tmpline t))
     tmpline))
 
 (defun postform-markup-ul-item (line)

@@ -5,22 +5,15 @@
 ;; 2) or Link dotemacs.el to ~/.emacs
 ;;    (Here's were some problem what emacs over-writtable .emacs)
 
-;; system-type: gnu, gnu/linux, darwin, ms-dos, windows-nt, cygwin, ...
-(if (eq system-type 'darwin)
-    (load-library "renn-osx"))
-(if (eq system-type 'windows-nt)
-    (load-library "renn-win32"))
-(if (eq system-type 'gnu/linux)
-    (load-library "renn-linux"))
-
 (add-to-list 'load-path "~/.emacs.d")
-(progn (cd "~/.emacs.d")
-       (normal-top-level-add-subdirs-to-load-path))
+(add-to-list 'load-path "~/.emacs.d/elpa")
 (add-to-list 'load-path "~/.emacs.d/vendor")
 
-(add-to-list 'load-path "~/.emacs.d/elpa")
-(progn (cd "~/.emacs.d/elpa")
-       (normal-top-level-add-subdirs-to-load-path))
+;; system-type: gnu, gnu/linux, darwin, ms-dos, windows-nt, cygwin, ...
+(cond
+ ((eq system-type 'darwin) (load-library "renn-osx"))
+ ((eq system-type 'windows-nt) (load-library "renn-win32"))
+ ((eq system-type 'gnu/linux) (load-library "renn-linux")))
 
 ;; load default functions
 (load-library "renn-func")
@@ -31,6 +24,9 @@
 ;; load my custom extensions
 (load-my-library "renn-postform.el")
 (load-my-library "renn-explorefile.el")
+
+;; load other vendor's functions
+;;(load-my-library "renn-lively")
 
 ;; load configurations :)
 (load-my-library "renn-encoding")
@@ -51,6 +47,7 @@
 (load-my-library "renn-markdown")
 ;;(load-my-library "renn-anything")
 (load-my-library "renn-erc")
+(load-my-library "renn-zencoding")
 (load-my-library "renn-maxframe")
 (load-my-library "renn-colortheme")
 (load-my-library "renn-shortcuts")
