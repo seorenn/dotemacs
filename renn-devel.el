@@ -36,6 +36,7 @@
 (pymacs-load "ropemacs" "rope-")
 (setq ropemacs-enable-autoimport t)
 
+(load "~/.emacs.d/renn-explorefile")
 (add-hook 'python-mode-hook 'explore-tag)
 
 ;; ----- Objective-C
