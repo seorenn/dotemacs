@@ -54,3 +54,9 @@ ropemacs:
 * Homepage: <http://rope.sourceforge.net/ropemacs.html>
 * Download by <code>hg clone https://bitbucket.org/agr/ropemacs</code>
 * Install: <code>sudo python setup.py install</code>
+
+pyflakes:
+
+* download: <http://pypi.python.org/pypi/pyflakes>
+* Install: <code>sudo python setup.py install</code>
+* or <code>easy_install pyflakes</code>
