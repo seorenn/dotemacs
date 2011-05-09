@@ -4,6 +4,12 @@
 ;; flymake mode
 (require 'flymake)
 
+(defun my-flymake-show-error ()
+  "Display flymake message from current line."
+  (interactive)
+  (flymake-display-err-menu-for-current-line))
+(global-set-key [?\C-`] 'my-flymake-show-error)
+
 ;; icicles
 (require 'icicles)
 (icicle-mode 1)
