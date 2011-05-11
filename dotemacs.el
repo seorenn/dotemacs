@@ -22,8 +22,9 @@
 (load-my-library "renn-private")
 
 ;; load my custom extensions
-(load-my-library "renn-postform.el")
-(load-my-library "renn-explorefile.el")
+(load-my-library "renn-postform")
+(load-my-library "renn-explorefile")
+(load-my-library "renn-moveregion")
 
 ;; load other vendor's functions
 ;;(load-my-library "renn-lively")
