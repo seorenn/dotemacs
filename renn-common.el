@@ -2,6 +2,7 @@
 (setq hs-minor-mode-hook nil)
 (dynamic-completion-mode t)
 
+(setq inhibit-splash-screen t)          ;hide splash screen
 (setq next-line-add-newlines nil)
 (setq scroll-step 1)
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
