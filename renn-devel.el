@@ -64,6 +64,11 @@
 (add-hook 'python-mode-hook 'flymake-find-file-hook)
 ;;(add-hook 'find-file-hook 'flymake-find-file-hook)
 
+;; iPython
+(setq ansi-color-for-comint-mode t)
+(setq py-python-command-args '("-colors" "NoColor"))
+(require 'ipython)
+
 ;; ----- Objective-C
 
 (setq auto-mode-alist (cons '("\\.m$" . objc-mode) auto-mode-alist))
