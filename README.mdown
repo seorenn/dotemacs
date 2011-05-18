@@ -30,6 +30,10 @@ Not Packaged 3rd-party Extentions
 
 Sorry, I use many extentions, but not remember each name. Here's list what not packaged extentions used this REPO.
 
+### iPython
+
+`sudo easy_install ipython`: It's easy to install :)
+
 ### ropemacs
 
 rope:
@@ -60,3 +64,4 @@ pyflakes:
 * download: <http://pypi.python.org/pypi/pyflakes>
 * Install: <code>sudo python setup.py install</code>
 * or <code>easy_install pyflakes</code>
+
