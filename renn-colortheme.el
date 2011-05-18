@@ -11,12 +11,12 @@
   ;;(color-theme-gtk)
   ;;(require 'color-theme-arjen)
   ;;(color-theme-arjen)
-  (require 'color-theme-solarized)
-  (color-theme-solarized-light)
+  ;;(require 'color-theme-solarized)
+  ;;(color-theme-solarized-light)
   ;;(color-theme-solarized-dark)
 
-  ;; (require 'color-theme-renndark)
-  ;; (color-theme-renndark)
+  (require 'color-theme-renndark)
+  (color-theme-renndark)
   )
 
 (require 'face-list)
