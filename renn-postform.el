@@ -68,6 +68,26 @@
     (setq tmpline (replace-regexp-in-string "\\*\\([^*]+\\)\\*" "<bold>\\1</bold>" tmpline t))
     tmpline))
 
+(defun postform-markup-heading (line)
+  "Mark-up heading syntax"
+  (let ((tmpline line)
+        (hstr nil)
+        (hlevel 0)
+        (fmtstr nil))
+    (setq hstr (replace-regexp-in-string "\\(^#+ \\).+" "\\1" tmpline t))
+    (when hstr
+      (progn
+        (setq hlevel (length hstr))
+        (when (> hlevel 1)
+          (progn
+            (setq hlevel (1- hlevel))
+            (setq fmtstr
+                  (format "<h%d>\\2</h%d>" hlevel hlevel))
+            (setq tmpline (replace-regexp-in-string "\\(^#+ \\)\\(.+\\)" fmtstr tmpline t))))
+        ))
+    tmpline
+    ))
+
 (defun postform-markup-ul-item (line)
   "Mark-up item in UL block"
   (progn
@@ -98,8 +118,9 @@
       (unless (postform-pre-end? line)
         (progn
           (setq line (postform-escape-html line))
-          (when (postform-ul? line)
-            (setq line (postform-markup-ul-item line)))
+          (if (postform-ul? line)
+            (setq line (postform-markup-ul-item line))
+            (setq line (postform-markup-heading line)))
           (setq line (postform-markup-text-syntax line)))))
      (in-pre
       (unless (postform-pre-start? line)
