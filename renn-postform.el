@@ -107,7 +107,12 @@
   "check line containts ul syntax"
   (cond
    ((< (length line) 2) nil)
-   ((string= (substring line 0 2) "* ") t)
+   (
+    (or
+    (string= (substring line 0 2) "* ")
+    (string= (substring line 0 2) "- ")
+    )
+    t)
    (t nil)))
 
 (defun postform-markup-line (line in-pre)
