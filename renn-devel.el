@@ -26,49 +26,6 @@
 (setq-default c-basic-offset 4
               indent-tabs-mode nil)
 
-;; ----- Python
-
-;; python-mode on launchpad
-;; https://launchpad.net/python-mode
-(require 'python-mode)
-(autoload 'python-mode "python-mode" "Python Mode." t)
-(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
-(add-to-list 'interpreter-mode-alist '("python" . python-mode))
-
-;; Pymacs + Ropemode
-(autoload 'pymacs-apply "pymacs")
-(autoload 'pymacs-call "pymacs")
-(autoload 'pymacs-eval "pymacs" nil t)
-(autoload 'pymacs-exec "pymacs" nil t)
-(autoload 'pymacs-load "pymacs" nil t)
-
-(pymacs-load "ropemacs" "rope-")
-(setq ropemacs-enable-autoimport t)
-
-(load "~/.emacs.d/renn-explorefile")
-(add-hook 'python-mode-hook 'explore-tag)
-
-;; flymake using pyflakes
-(when (load "flymake" t)
-  (defun flymake-pyflakes-init () 
-    (let* ((temp-file (flymake-init-create-temp-buffer-copy 
-                       'flymake-create-temp-inplace)) 
-           (local-file (file-relative-name 
-                        temp-file 
-                        (file-name-directory buffer-file-name)))) 
-      (list "pyflakes" (list local-file)))) 
-
-  (add-to-list 'flymake-allowed-file-name-masks 
-               '("\\.py\\'" flymake-pyflakes-init))) 
-
-(add-hook 'python-mode-hook 'flymake-find-file-hook)
-;;(add-hook 'find-file-hook 'flymake-find-file-hook)
-
-;; iPython
-(setq ansi-color-for-comint-mode t)
-(setq py-python-command-args '("-colors" "NoColor"))
-(require 'ipython)
-
 ;; ----- Objective-C
 
 (setq auto-mode-alist (cons '("\\.m$" . objc-mode) auto-mode-alist))
