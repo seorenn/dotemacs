@@ -8,8 +8,8 @@
 (setq multi-term-program "/bin/bash")
 
 ;; [C-c t] command open new term or switch next if one or more terms running
-(global-set-key (kbd "C-c t") 'multi-term-next)
-(global-set-key (kbd "C-c T") 'multi-term)
+(global-set-key (kbd "C-x t") 'multi-term-next)
+(global-set-key (kbd "C-x T") 'multi-term)
 
 (add-hook 'term-mode-hook
           #'(lambda () (setq autopair-dont-activate t)))
