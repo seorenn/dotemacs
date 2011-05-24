@@ -11,8 +11,8 @@ Currently works, but not completed
 Usage
 -----
 
-* Download: <code>git clone git://github.com/seorenn/dotemacs.git</code>
-* Install: <code>mv dotemacs ~/.emacs.d</code>
+* Download: `git clone git://github.com/seorenn/dotemacs.git`
+* Install: `mv dotemacs ~/.emacs.d`
 * Configuration: write these to ~/.emacs
 
 <pre>
@@ -23,7 +23,7 @@ Usage
 Not Served File
 ---------------
 
-<code>renn-private.el</code> contains private informations. If you need, create this file and write these informations or other.
+`renn-private.el` contains private informations. If you need, create this file and write these informations or other.
 
 Not Packaged 3rd-party Extentions
 ---------------------------------
@@ -39,29 +39,31 @@ Sorry, I use many extentions, but not remember each name. Here's list what not p
 rope:
 
 * Download from <http://rope.sourceforge.net/index.html> and install.
-* or <code>sudo apt-get install python-rope</code>
+* or `sudo apt-get install python-rope`
+* or `pip install rope`
 
 ropemode:
 
 * Download from <http://pypi.python.org/pypi/ropemode>
-* Install: <code>sudo python setup.py install</code>
+* Install: `sudo python setup.py install`
+* or `pip install ropemode`
 
 pymacs:
 
 * Download from <http://pymacs.progiciels-bpi.ca/pymacs.html>
-* or Download by <code>git clone git://github.com/pinard/Pymacs.git</code>
-* <code>make check && sudo make install</code>
-* <code>cp pymacs.el ~/.emacs.d/vendor/</code>
+* or Download by `git clone git://github.com/pinard/Pymacs.git`
+* `make check && sudo make install`
+* `cp pymacs.el ~/.emacs.d/vendor/`
 
 ropemacs:
 
 * Homepage: <http://rope.sourceforge.net/ropemacs.html>
-* Download by <code>hg clone https://bitbucket.org/agr/ropemacs</code>
-* Install: <code>sudo python setup.py install</code>
+* Download by `hg clone https://bitbucket.org/agr/ropemacs`
+* Install: `sudo python setup.py install`
 
 pyflakes:
 
 * download: <http://pypi.python.org/pypi/pyflakes>
-* Install: <code>sudo python setup.py install</code>
-* or <code>easy_install pyflakes</code>
-
+* Install: `sudo python setup.py install`
+* or `easy_install pyflakes`
+* or `pip install pyflakes`
