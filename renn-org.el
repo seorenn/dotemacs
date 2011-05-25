@@ -25,13 +25,5 @@
 			"." 
 			1)))
 
-(add-hook 'org-mode-hook
-		  (let ((original-command (lookup-key org-mode-map [tab])))
-			`(lambda ()
-			   (setq yas/fallback-behavior
-					 '(apply ,original-command))
-			   (auto-fill-mode)
-			   (local-set-key [tab] 'yas/expand))))
-
 ;; for MacTexs
 (setq org-export-latex-default-class "article")
