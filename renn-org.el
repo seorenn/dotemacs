@@ -13,3 +13,25 @@
                              "~/Dropbox/notes/worktodo.org"))
 
 (setq org-startup-truncated t)
+
+(setq org-return-follows-link t)
+(setq org-tab-follows-link t)
+
+(eval-after-load "org"
+  '(setq  org-emphasis-regexp-components
+		  '(" \t('\"{" 
+			"- \t.,:!?;'\")}[:multibyte:]" 
+			" \t\r\n,\"'" 
+			"." 
+			1)))
+
+(add-hook 'org-mode-hook
+		  (let ((original-command (lookup-key org-mode-map [tab])))
+			`(lambda ()
+			   (setq yas/fallback-behavior
+					 '(apply ,original-command))
+			   (auto-fill-mode)
+			   (local-set-key [tab] 'yas/expand))))
+
+;; for MacTexs
+(setq org-export-latex-default-class "article")
