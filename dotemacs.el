@@ -33,6 +33,7 @@
 (load-my-library "renn-encoding")
 (load-my-library "renn-korean")
 (load-my-library "renn-common")
+(load-my-library "renn-grep")
 (load-my-library "renn-autopair")
 (load-my-library "renn-ibuffer")
 (load-my-library "renn-uniquify")

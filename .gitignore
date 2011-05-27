@@ -7,3 +7,4 @@ url
 url/cookies
 *.elc
 *.*~
+/history
