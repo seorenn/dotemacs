@@ -20,18 +20,32 @@
 (setq isearch-allow-scroll t)
 (setq visible-bell nil)
 (setq ring-bell-function 'ignore)
+(setq delete-auto-save-files t)
+
+(setq history-length 1000)
+(savehist-mode t)
+(setq recentf-max-saved-items 1000)
+
+(setq ediff-window-setup-function 'ediff-setup-windows-plain)
+(setq diff-switches '("-u" "-p" "-N"))
 
 (setq-default indent-tabs-mode nil)
 (setq-default case-fold-search t)
+(setq-default show-trailing-whitespace t)
 
+(setq eval-expression-print-length nil)
+
+(auto-image-file-mode t)
 (delete-selection-mode nil)
 (which-function-mode t)
 (global-font-lock-mode t)
 (transient-mark-mode t)
 (show-paren-mode t)
+(setq show-paren-style 'mixed)
 (line-number-mode 1)
 (column-number-mode 1)
 (global-visual-line-mode t)
+(global-hl-line-mode t)
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
