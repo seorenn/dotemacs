@@ -113,4 +113,4 @@
   (set (make-local-variable 'ac-auto-start) t))
 (defadvice ac-cleanup (after advice-turn-off-auto-start activate)
   (set (make-local-variable 'ac-auto-start) nil))
-(define-key py-mode-map "\t" 'ryan-python-tab)
+;;(define-key py-mode-map "\t" 'ryan-python-tab)
