@@ -11,8 +11,8 @@
 
 (setq ido-confirm-unique-completion t)
 (setq ido-enable-flex-matching t)
-(setq ido-default-buffer-method 'samewindow)
-(setq ido-use-filename-at-point t)
+;;(setq ido-default-buffer-method 'samewindow)
+;;(setq ido-use-filename-at-point t)
 ;; (setq ido-work-directory-list
 ;;       '("~/.emacs.d"
 ;;         "~/Dropbox/notes"
