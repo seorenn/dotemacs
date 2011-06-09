@@ -249,3 +249,18 @@
 ;;                           "\\.rar$"
 ;;                           "\\.zip$"
 ;;                           "\\.7z$")))
+
+;; Convert kanji to hiragana
+(defun japanese-to-kanji (string)
+  "Return t if string contains Japanese kanji"
+  (let ((length (length string))
+        (count 0)
+        (ret nil)
+        (char ?a))
+    (while (< count length)
+      (setq char (aref string count))
+      (if (and (< char ?\u9fa5)
+               (> char ?\u4e00))
+          (setq ret t))
+      (setq count (1+ count)))
+    ret))
