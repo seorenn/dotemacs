@@ -31,7 +31,7 @@
 
 (setq-default indent-tabs-mode nil)
 (setq-default case-fold-search t)
-(setq-default show-trailing-whitespace t)
+;;(setq-default show-trailing-whitespace t)
 
 (setq eval-expression-print-length nil)
 
@@ -45,7 +45,7 @@
 (line-number-mode 1)
 (column-number-mode 1)
 (global-visual-line-mode t)
-(global-hl-line-mode t)
+;;(global-hl-line-mode t)
 
 (fset 'yes-or-no-p 'y-or-n-p)
 

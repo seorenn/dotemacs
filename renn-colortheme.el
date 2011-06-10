@@ -15,9 +15,9 @@
   ;;(color-theme-solarized-light)
   ;;(color-theme-solarized-dark)
 
-  ;;(require 'color-theme-renndark)
-  ;;(color-theme-renndark)
-  (color-theme-vim-colors)
+  (require 'color-theme-renndark)
+  (color-theme-renndark)
+  ;;(color-theme-vim-colors)
   )
 
 (require 'face-list)
