@@ -35,6 +35,9 @@
 
 (setq eval-expression-print-length nil)
 
+;; copy/paste with GUI Applications compatible
+(setq x-select-enable-clipboard t)
+
 (auto-image-file-mode t)
 (delete-selection-mode nil)
 (which-function-mode t)
