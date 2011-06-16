@@ -53,6 +53,11 @@
 ;;
 ;; 즉, 블로거 안쓰시는 분은 거의 쓸 모 없는 함수입니다. ㅋㅋㅋ
 
+(if (not (fboundp 'replace-in-string))
+    (defun replace-in-string (string regexp replacement &optional literal)
+      "Replace regex in string with replacement"
+      (replace-regexp-in-string regexp replacement string t literal)))
+
 (defun postform-escape-html (line)
   "Escape HTML Special Characters in line"
   (let ((tmpline line))
