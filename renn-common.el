@@ -36,7 +36,12 @@
 (setq eval-expression-print-length nil)
 
 ;; copy/paste with GUI Applications compatible
+;; (setq x-select-enable-primary nil)
 (setq x-select-enable-clipboard t)
+;;(setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
+;; (global-set-key "\C-w" 'clipboard-kill-region)
+;; (global-set-key "\M-w" 'clipboard-kill-ring-save)
+;; (global-set-key "\C-y" 'clipboard-yank)
 
 (auto-image-file-mode t)
 (delete-selection-mode nil)
