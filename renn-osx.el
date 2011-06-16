@@ -69,6 +69,8 @@
         '((".*hiragino.*" . 1.2)
           (".*nanum.*" . 1.3))))
 
+;; Copy/Paste Integration for Emacs in Terminal
+
 (defun mac-copy ()
   (shell-command-to-string "pbpaste"))
 
