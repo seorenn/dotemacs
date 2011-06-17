@@ -8,3 +8,4 @@ url/cookies
 *.elc
 *.*~
 /history
+/#renn-shell.el#
