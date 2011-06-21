@@ -5,7 +5,10 @@
 
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
-(define-key org-mode-map "\C-co" 'renn-open-url)
+
+(add-hook 'org-load-hook
+          (lambda ()
+            (define-key org-mode-map "\C-co" 'renn-open-url)))
 
 (setq org-log-done t)
 
