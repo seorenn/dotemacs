@@ -49,7 +49,7 @@
 (global-font-lock-mode t)
 (transient-mark-mode t)
 (show-paren-mode t)
-(setq show-paren-style 'mixed)
+(setq show-paren-style 'parenthesis)
 (line-number-mode 1)
 (column-number-mode 1)
 (global-visual-line-mode t)
