@@ -45,7 +45,7 @@
 (load-my-library "renn-devel")
 (load-my-library "renn-css")
 (load-my-library "renn-python")
-(load-my-library "renn-js2mode")
+(load-my-library "renn-js")
 (load-my-library "renn-magit")
 (load-my-library "renn-yasnippet")
 (load-my-library "renn-autocomplete")
