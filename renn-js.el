@@ -10,4 +10,10 @@
 (setq js2-enter-indents-newline t)
 (setq js2-basic-offset 2)
 
+;; jade-mode
+(require 'sws-mode)
+(require 'jade-mode)
+(add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
+(add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
+
 (provide 'renn-js2mode)
