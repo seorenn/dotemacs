@@ -25,7 +25,7 @@
 ;; and some python-mode settings
 (add-hook 'python-mode-hook
           (lambda ()
-            (set-variable 'py-indent-offset 4)
+            (set-variable 'py-indent-offset 2)
             (set-variable 'indent-tabs-mode nil)))
             ;;(smart-operator-mode-on)))
 
