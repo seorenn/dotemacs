@@ -13,7 +13,6 @@
 (setq js2-mirror-mode t)
 (setq js2-bounce-indent-p t)
 
-
 ;; jade-mode
 (require 'sws-mode)
 (require 'jade-mode)
