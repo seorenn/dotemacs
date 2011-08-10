@@ -5,6 +5,7 @@
 
 (setq js2-enter-indents-newline t)
 (setq js2-basic-offset 2)
+(setq js2-idle-timer-delay 5)
 
 ;; jade-mode
 (require 'sws-mode)
