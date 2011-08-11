@@ -1,7 +1,9 @@
 (require 'hideshow)
 (setq hs-minor-mode-hook nil)
 (dynamic-completion-mode t)
-(scroll-bar-mode -1)                    ;hide scroll-bar
+(when window-system
+  (scroll-bar-mode -1)                    ;hide scroll-bar
+  )
 
 (setq inhibit-splash-screen t)          ;hide splash screen
 (setq next-line-add-newlines nil)
