@@ -70,7 +70,7 @@
   "Mark-up line"
   (let ((tmpline line))
     (setq tmpline (replace-regexp-in-string "`\\([^`]+\\)`" "<code>\\1</code>" tmpline t))
-    (setq tmpline (replace-regexp-in-string "\\*\\([^*]+\\)\\*" "<bold>\\1</bold>" tmpline t))
+    (setq tmpline (replace-regexp-in-string "\\*\\([^*]+\\)\\*" "<b>\\1</b>" tmpline t))
     tmpline))
 
 (defun postform-markup-heading (line)
