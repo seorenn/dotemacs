@@ -8,7 +8,7 @@
   (interactive)
   (when buffer-file-name
     (bookmark-set "search-point"))
-  (isearch-forward))
+  (isearch-backward))
 
 (defun back-to-search-point ()
   (interactive)
