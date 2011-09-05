@@ -37,11 +37,11 @@
 
   ;; 나눔고딕(네이버 나눔글꼴 패키지)을 기본 한글 서체로 사용.
   (set-fontset-font "fontset-default" '(#x1100 . #xffdc)
-                    '("NanumGothicOTF" . "iso10646-1"))
+                    '("NanumGothic" . "iso10646-1"))
 
   ;; Unicode User Area
   (set-fontset-font "fontset-default" '(#xe0bc . #xf66e)
-                    '("NanumGothicOTF" . "iso10646-1"))
+                    '("NanumGothic" . "iso10646-1"))
 
   ;; Japanese & Chinese
   ;; I don't know Chinese. So configured all type of Chinese/Kanji/Han to Japanese Font Spec
