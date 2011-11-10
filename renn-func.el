@@ -26,6 +26,23 @@
   (if (file-exists-p (concat (concat "~/.emacs.d/" fname) ".el")) (progn
                                              (load-library fname))))
 
+(defun smart-beginning-of-line ()
+  "Move point to first non-whitespace character or beginning-of-line."
+  (interactive)
+  (let ((oldpos (point)))
+    (back-to-indentation)
+    (and (= oldpos (point))
+         (beginning-of-line))))
+
+(defun smart-beginning-of-line2 ()
+  "Move cursor to beginning of line"
+  (interactive)
+  (if (and (eq last-command 'smart-beginning-of-line)
+           (/= (line-beginning-position) (point)))
+      (beginning-of-line)
+    (beginning-of-line-text))
+  )
+
 (defun open-google-translate ()
   "Translate current word using Google Translator"
   (interactive)

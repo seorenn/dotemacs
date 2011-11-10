@@ -24,7 +24,7 @@
 
 ;; ----- C
 
-(setq-default c-basic-offset 2
+(setq-default c-basic-offset 4
               indent-tabs-mode nil)
 
 ;; ----- Objective-C

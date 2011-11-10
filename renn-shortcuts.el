@@ -22,3 +22,7 @@
 
 ;; goto match paren
 (global-set-key (kbd "C-%") 'goto-match-paren)
+
+;; smart-beginning-of-line
+(global-set-key (kbd "C-a") 'smart-beginning-of-line)
+(global-set-key [home] 'smart-beginning-of-line)

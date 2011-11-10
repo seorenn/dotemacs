@@ -25,7 +25,7 @@
 ;; and some python-mode settings
 (add-hook 'python-mode-hook
           (lambda ()
-            (set-variable 'py-indent-offset 2)
+            (set-variable 'py-indent-offset 4)
             (set-variable 'indent-tabs-mode nil)))
             ;;(smart-operator-mode-on)))
 
@@ -44,6 +44,7 @@
                '("\\.py\\'" flymake-pyflakes-init)))
 
 (add-hook 'python-mode-hook 'flymake-find-file-hook)
+
 ;;(add-hook 'find-file-hook 'flymake-find-file-hook)
 
 ;; iPython
