@@ -31,12 +31,69 @@ nil, zero or negative means none.
                  (const :tag "Include Properties" 2)
                  (const :tag "Include Functions" 3)))
 
-(defvar js3-mode-dev-mode-p nil
-  "Non-nil if running in development mode.  Normally nil.")
-
 (defgroup js3-mode nil
   "An improved JavaScript mode."
   :group 'languages)
+
+(defcustom js3-mode-dev-mode-p nil
+  "Non-nil if running in development mode.  Normally nil."
+  :group 'js3-mode
+  :type 'boolean)
+
+(defcustom js3-compact t
+  "Printing variable.
+If set to t, try to shorten as much as possible onto one line.
+Overrides other compact settings."
+  :group 'js3-mode
+  :type 'boolean)
+
+(defcustom js3-compact-while nil
+  "Printing variable.
+If set to t, try to shorten while statements onto one line."
+  :group 'js3-mode
+  :type 'boolean)
+
+(defcustom js3-compact-for nil
+  "Printing variable.
+If set to t, try to shorten for statements onto one line."
+  :group 'js3-mode
+  :type 'boolean)
+
+(defcustom js3-compact-if nil
+  "Printing variable.
+If set to t, try to shorten if statements onto one line."
+  :group 'js3-mode
+  :type 'boolean)
+
+(defcustom js3-compact-infix nil
+  "Printing variable.
+If set to t, try to shorten infix expressions onto one line."
+  :group 'js3-mode
+  :type 'boolean)
+
+(defcustom js3-compact-expr nil
+  "Printing variable.
+If set to t, try to shorten expressions onto one line."
+  :group 'js3-mode
+  :type 'boolean)
+
+(defcustom js3-compact-list nil
+  "Printing variable.
+If set to t, try to shorten lists onto one line."
+  :group 'js3-mode
+  :type 'boolean)
+
+(defcustom js3-compact-case nil
+  "Printing variable.
+If set to t, try to shorten case statements onto one line."
+  :group 'js3-mode
+  :type 'boolean)
+
+(defcustom js3-max-columns 72
+  "Printing variable.
+Max number of columns per line."
+  :group 'js3-mode
+  :type 'boolean)
 
 (defcustom js3-indent-tabs-mode nil
   "Default setting for indent-tabs-mode for js3-mode."
@@ -984,6 +1041,12 @@ rather than trying to line up to dots."
   :group 'js3-mode)
 (js3-mark-safe-local 'js3-lazy-dots 'booleanp)
 
+(defcustom js3-indent-dots nil
+  "Whether `js3-mode' should line up dots at all"
+  :type 'boolean
+  :group 'js3-mode)
+(js3-mark-safe-local 'js3-indent-dots 'booleanp)
+
 (defvar js3-mode-map
   (let ((map (make-sparse-keymap))
         keys)
@@ -1147,6 +1210,16 @@ First match-group is the leading whitespace.")
   "List of functions waiting to be notified that parse is finished.")
 
 (defvar js3-mode-last-indented-line -1)
+
+;; Printing variables
+(defvar js3-multiln-case nil)
+(defvar js3-looking-at-parent-for-update nil)
+(defvar js3-node-found-for-update nil)
+(defvar js3-node-for-update nil)
+(defvar js3-pos-for-update 0)
+(defvar js3-multiln nil)
+(defvar js3-current-buffer nil)
+(defvar js3-temp-buffer "js3-temp")
 
 (eval-when-compile
   (defvar c-paragraph-start nil)

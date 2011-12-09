@@ -36,5 +36,6 @@
 (setq js3-auto-indent-p t)
 (setq js3-enter-indents-newline t)
 (setq js3-indent-on-enter-key t)
+(setq js3-indent-level 2)
 
 (provide 'renn-js)

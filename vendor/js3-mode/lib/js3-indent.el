@@ -387,7 +387,7 @@ nil."
       (if (not node)
 	  0
 	(let ((char (following-char))
-	      (abs (js3-node-abs node))
+	      (abs (js3-node-abs-pos node))
 	      (type (js3-node-type node)))
 	  (cond
 
@@ -408,6 +408,11 @@ nil."
 	   ;;inside a string - indent to 0 since you can't do that.
 	   ((nth 8 parse-status) 0)
 
+	   ((and (not js3-indent-dots)
+		 (= (following-char) ?\.))
+	    (goto-char abs)
+	    (current-column))
+
 	   ;;comma-first and operator-first
 	   ((or
 	     (and (not js3-lazy-commas)
@@ -415,7 +420,8 @@ nil."
 	     (and (not js3-lazy-operators)
 		  (looking-at js3-indent-operator-first-re)
 		  (or (not (= (following-char) ?\.))
-		      (not js3-lazy-dots))))
+		      (and js3-indent-dots
+			   (not js3-lazy-dots)))))
 	    (cond
 	     ;;bare statements
 	     ((= type js3-VAR)
@@ -433,7 +439,8 @@ nil."
 	     ((= type js3-FUNCTION)
 	      (js3-back-offset-re abs "("))
 	     ((= type js3-CALL)
-	      (js3-back-offset-re abs "("))
+	      (goto-char (+ abs (js3-call-node-lp node)))
+	      (current-column))
 
 	     ;;operators
 	     ((and (>= type 9)
@@ -509,7 +516,8 @@ nil."
 	      (+ js3-indent-level js3-expr-indent-offset))))
 
 	   ;;lazy dot-first
-	   ((and js3-lazy-dots
+	   ((and js3-indent-dots
+		 js3-lazy-dots
 		 (= (following-char) ?\.))
 	    (save-excursion
 	      (js3-backward-sexp)
@@ -567,56 +575,69 @@ nil."
 	   ((nth 1 parse-status)
 	    ;; A single closing paren/bracket should be indented at the
 	    ;; same level as the opening statement.
-	    (let ((same-indent-p (looking-at
-				  "[]})]"))
+	    (let ((same-indent-p (looking-at "[]})]"))
 		  (continued-expr-p (js3-continued-expression-p)))
 	      (goto-char (nth 1 parse-status)) ; go to the opening char
 	      (if (looking-at "[({[]\\s-*\\(/[/*]\\|$\\)")
 		  (progn ; nothing following the opening paren/bracket
 		    (skip-syntax-backward " ")
-		    (when (eq (char-before) ?\)) (backward-list)) ;skip arg list
-		    (if (and (not js3-consistent-level-indent-inner-bracket)
-			     (js3-looking-back (concat
-						"\\(:\\|,\\)"
-						js3-skip-newlines-re
-						"\\<function\\>"
-						js3-skip-newlines-re)))
-			(progn
-			  (js3-re-search-backward (concat
-						   "\\(:\\|,\\)"
-						   js3-skip-newlines-re
-						   "\\<function\\>"
-						   js3-skip-newlines-re))
-			  (js3-backward-clean)
-			  (if (looking-back "[{[(,][^{[(,\n]*")
-			      (progn
-				(js3-re-search-backward "[{[(,][^{[(,\n]*")
-				(forward-char)
-				(js3-re-search-forward "[ \t]*"))
-			    (progn
-			      (js3-re-search-backward "^")
-			      (back-to-indentation)
-			      (while (\= (char-after) ?f)
-				(forward-char)))))
-		      (back-to-indentation))
-		    (cond (same-indent-p
-			   (current-column))
-			  (continued-expr-p
-			   (+ (current-column) (* 2 js3-indent-level)
-			      js3-expr-indent-offset))
-			  (t
-			   (+ (current-column) js3-indent-level
-			      (case (char-after (nth 1 parse-status))
-				    (?\( js3-paren-indent-offset)
-				    (?\[ js3-square-indent-offset)
-				    (?\{ js3-curly-indent-offset))))))
-		;; If there is something following the opening
-		;; paren/bracket, everything else should be indented at
-		;; the same level.
-		(unless same-indent-p
-		  (forward-char)
-		  (skip-chars-forward " \t"))
-		(current-column))))
+	    	    (when (eq (char-before) ?\)) (backward-list)) ;skip arg list
+	    	    (if (and (not js3-consistent-level-indent-inner-bracket)
+	    		     (js3-looking-back (concat
+	    					"\\<function\\>"
+	    					js3-skip-newlines-re)))
+	    		(progn
+	    		  (js3-re-search-backward (concat
+	    					   "\\<function\\>"
+	    					   js3-skip-newlines-re))
+			  (let* ((fnode (js3-node-at-point))
+				 (fnabs (js3-node-abs-pos fnode))
+				 (fparent (js3-node-parent (js3-node-at-point)))
+				 (fpabs (js3-node-abs-pos fparent))
+				 (fptype (js3-node-type fparent)))
+			    (cond
+			     ((or (eq fptype js3-VAR)
+				  (eq fptype js3-RETURN)
+				  (eq fptype js3-COLON)
+				  (and (<= fptype js3-ASSIGN_URSH)
+				       (>= fptype js3-ASSIGN)))
+			      (goto-char fpabs))
+
+			     ((eq fptype js3-CALL)
+			      (let* ((target (js3-call-node-target fparent))
+				     (ttype (js3-node-type target)))
+				(if (eq ttype js3-GETPROP)
+				    (let* ((tright
+					    (js3-prop-get-node-right target))
+					   (trabs (js3-node-abs-pos tright)))
+				      (if (<= (count-lines trabs fnabs) 1)
+					  (goto-char fpabs)
+					(goto-char fnabs)))
+				  (if (<= (count-lines fpabs fnabs) 1)
+				      (goto-char fpabs)
+				    (goto-char fnabs)))))
+
+			     (t
+			      (goto-char fnabs)))))
+	    	      (back-to-indentation))
+	    	    (cond (same-indent-p
+	    		   (current-column))
+	    		  (continued-expr-p
+	    		   (+ (current-column) (* 2 js3-indent-level)
+	    		      js3-expr-indent-offset))
+	    		  (t
+	    		   (+ (current-column) js3-indent-level
+	    		      (case (char-after (nth 1 parse-status))
+	    			    (?\( js3-paren-indent-offset)
+	    			    (?\[ js3-square-indent-offset)
+	    			    (?\{ js3-curly-indent-offset))))))
+	    	;; If there is something following the opening
+	    	;; paren/bracket, everything else should be indented at
+	    	;; the same level.
+	    	(unless same-indent-p
+	    	  (forward-char)
+	    	  (skip-chars-forward " \t"))
+	    	(current-column))))
 
 	   ;;in a continued expression not handled by earlier cases
 	   ((js3-continued-expression-p)

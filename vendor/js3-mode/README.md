@@ -6,6 +6,8 @@ The goal of this project was to get a javascript mode working that supports [npm
 
 Notably, js3-mode does not support js2-mode's bounce-indent, though it does support several popular indentation styles.
 
+Documentation is on the [wiki](https://github.com/thomblake/js3-mode/wiki/).
+
 ## Credits ##
 
 Created by [Thom Blake](https://github.com/thomblake).
@@ -24,7 +26,7 @@ Right now, all commits are the 'current development build' - so far, nothing tha
 
 If your JS is in error, the indentation might look wrong.  I tend to regard this as a feature.
 
-I use the default settings, plus the following which are turned off by default for historical reasons:
+I use the default settings, plus the following which are turned off by default for historical reasons: (note that they might be annoying if js3-mode doesn't *quite* line up where you want it to)
 
 ```elisp
  '(js3-auto-indent-p t)         ; it's nice for commas to right themselves.

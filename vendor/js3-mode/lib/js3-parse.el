@@ -356,6 +356,17 @@ Scanner should be initialized."
     (let ((js3-additional-externs js3-additional-externs))
       (dolist (callback js3-post-parse-callbacks)
 	(funcall callback))
+      (let ((btext
+	     (replace-regexp-in-string
+	      "[\n\t ]+" " "
+	      (buffer-substring-no-properties
+	       1 (buffer-size)) t t)))
+	(setq js3-additional-externs
+	      (split-string
+	       (if (string-match "/\\* *global \\(.*?\\)\\*/" btext)
+		   (match-string-no-properties 1 btext)
+		 "")
+	       "[ ,]+" t)))
       (js3-highlight-undeclared-vars))
     root))
 
@@ -1252,10 +1263,10 @@ but not BEFORE."
 (defun js3-parse-block ()
   "Parser for a curly-delimited statement block.
 Last token matched must be js3-LC."
-  (let ((pos js3-token-beg)
-        (pn (make-js3-scope)))
+  (let* ((pos js3-token-beg)
+	 (pn (make-js3-block-node :pos pos)))
     (js3-consume-token)
-    (js3-push-scope pn)
+    (js3-push-scope (make-js3-scope))
     (unwind-protect
         (progn
           (js3-parse-statements pn)
@@ -1851,7 +1862,7 @@ Returns the list in reverse order.  Consumes the right-paren token."
               end (js3-node-end init)
               (js3-new-node-initializer pn) init)
         (js3-node-add-children pn init))
-      (setf (js3-node-len pn) (- beg pos)))  ; end outer if
+      (setf (js3-node-len pn) (- end beg)))  ; end outer if
     (js3-parse-member-expr-tail allow-call-syntax pn)))
 
 (defun js3-parse-member-expr-tail (allow-call-syntax pn)

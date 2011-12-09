@@ -55,18 +55,18 @@ function commaFirstStyle () {
       }
 
   //test c5
-  //dot lines up under dot
+  //dot lines up under dot if js3-indent-dots is t
   a.b
-   .c()
+  .c()
 
   //test c6
   //commas lined up under 'n' in 'return'.
   //please don't ever do this
   if (a) {
     return 1
-           , 2
-           , 3
-           , 4 // returns the last value, 4
+         , 2
+         , 3
+         , 4 // returns the last value, 4
   }
 
   //test c7
@@ -109,9 +109,9 @@ function commaFirstStyle () {
    )
 
   //test c11
-  //line up with correct dot
+  //line up with correct dot if js3-indent-dots is t
   a.b( c.d )
-   .e()
+  .e()
 
   //test c12
   //line up with correct brace
@@ -233,6 +233,7 @@ function commaFirstStyle () {
   // are multiple arguments.  However, in the general case of passing only
   // one function to a method, one would normally want it to indent
   // only one indent for convenience.
+  // Just make functions take a first argument that's not a function to fix
   //issue #31
 
   something({ value: "data"
@@ -337,25 +338,25 @@ function commaFirstStyle () {
   var someKindOfObject = {}
 
   //test c31
-  //dots should line up
+  //dots should line up if js3-indent-dots is t
 
   var xyz = someKindOfObject.foo("asdf")
-                            .bar("bloo")
-                            .bloo("blerg")
+            .bar("bloo")
+            .bloo("blerg")
 
   //test c32
-  //dots should be indented once from the object name
+  //dots should be indented once from the object name if js3-indent-dots is t
 
   var xyx = someKindOfObject
-              .foo("asdf")
-              .bar("bloo")
+            .foo("asdf")
+            .bar("bloo")
 
   //test c33
-  //dots should line up
+  //dots should line up if js3-indent-dots is t
 
   someKindOfObject.doSomething()
-                  .doSomethingElse()
-                  .yetAnotherSomething()
+  .doSomethingElse()
+  .yetAnotherSomething()
 
   //test c34
   //function body should be indented once past 'function' keyword
@@ -386,6 +387,48 @@ function commaFirstStyle () {
   var logStream = fs.createWriteStream(argv.log, { flags: 'a'
                                                  , mode: 0644
                                                  })
+
+  //test c37
+  // this issue actually appears in non-comma-first too
+  // 'var' in the function should line up appropriately with 'function'
+  //issue #40
+
+  var text = text.replace( /https?\:\/\/[^"\s\<\>]*[^.,;'">\:\s\<\>\)\]\!]/g
+                         , function (wholeMatch,matchIndex) {
+                             var left = text.slice(0, matchIndex)
+                               , right = text.slice(matchIndex)
+                           }
+                         )
+
+  //test c38
+  // the comma before 'function' should line up with the parens for '.bind',
+  // not the parens for '.e'
+  //issue #42
+  var player = Crafty.e( '2D'
+                       , 'DOM'
+                       )
+               .bind( 'enterframe'
+                    , function (e) {})
+
+  //test c39
+  // the function body should be intended past 'function' keyword
+  // (according to assumptions of current implementation)
+  //issue #41
+  Crafty.load(['sprite.png'], function () {
+    Crafty.scene('main')
+  })
+
+  //test c40
+  // the function bodies should be indented consistently
+  // and .bind should be indented equivalent to this
+  //issue #43
+  //issue #44
+  this.bind('enterframe', function () {
+    return 1;
+  })
+  .bind('keydown', function (e) {
+    return 2;
+  })
 
   //end comma-first tests
 
@@ -491,12 +534,12 @@ function otherTests () {
   /* Cases that affect all style types */
 
   //test t1
-  //the function body should be indented one step from var
-  //and the closing brace should be on the same level as var
+  //the function body should be indented one step from function name
+  //and the closing brace should be on the same level as function name
   //Issue #26
-  var f = function () {
-    return 1
-  }
+  var function_name = function () {
+        return 1
+      }
 
   //end other tests
 
@@ -525,5 +568,3 @@ function otherTests () {
 ( 1
 + 2
 )
-
-//
