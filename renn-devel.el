@@ -2,13 +2,13 @@
 ;; This files set the Environment for Software Develomentation to Emacs
 
 ;; Auto Indentation for Development
-(defun set-newline-and-indent ()
-  (local-set-key (kbd "RET") 'newline-and-indent))
-(add-hook 'lisp-mode-hook 'set-newline-and-indent)
-(add-hook 'python-mode-hook 'set-newline-and-indent)
-(add-hook 'c-mode-hook 'set-newline-and-indent)
-(add-hook 'c++-mode-hook 'set-newline-and-indent)
-(add-hook 'html-mode-hook 'set-newline-and-indent)
+;(defun set-newline-and-indent ()
+  ;(local-set-key (kbd "RET") 'newline-and-indent))
+;(add-hook 'lisp-mode-hook 'set-newline-and-indent)
+;(add-hook 'python-mode-hook 'set-newline-and-indent)
+;(add-hook 'c-mode-hook 'set-newline-and-indent)
+;(add-hook 'c++-mode-hook 'set-newline-and-indent)
+;(add-hook 'html-mode-hook 'set-newline-and-indent)
 
 ;; flymake mode
 (require 'flymake)
