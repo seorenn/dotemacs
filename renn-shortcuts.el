@@ -9,7 +9,7 @@
 ;; move window using meta-arrow
 (windmove-default-keybindings 'meta)
 
-(define-key global-map (kbd "RET") 'newline-and-indent)
+;(define-key global-map (kbd "RET") 'newline-and-indent)
 
 (global-set-key (kbd "C-S-T") 'open-google-translate)
 
