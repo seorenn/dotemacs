@@ -3,6 +3,7 @@
   (progn
     (require 'facemenu+)
     (add-to-list 'load-path "~/.emacs.d/vendor/color-theme")
+    (add-to-list 'load-path "~/.emacs.d/vendor/tomorrow-theme")
     (require 'color-theme)
     (color-theme-initialize)
 
@@ -15,9 +16,12 @@
     ;;(color-theme-solarized-light)
     ;;(color-theme-solarized-dark)
 
-    (require 'color-theme-renndark)
-    (color-theme-renndark)
+    ;;(require 'color-theme-renndark)
+    ;;(color-theme-renndark)
     ;;(color-theme-vim-colors)
+
+    (require 'color-theme-tomorrow)
+    (color-theme-tomorrow-real 'night-bright)
     ))
 
 (require 'face-list)
