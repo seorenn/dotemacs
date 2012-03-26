@@ -1,5 +1,5 @@
 Name:		magit
-Version:	@VERSION@
+Version:	
 Release:	1%{?dist}
 Summary:	An Emacs Extension for Git
 BuildArch: noarch
