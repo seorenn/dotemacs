@@ -170,7 +170,7 @@
                    target-dir
                    except-list)))
     (with-temp-buffer
-      (mapcar (lambda (f)
+      (mapc (lambda (f)
                 (insert f)
                 (insert "\n"))
               tmp-list)
@@ -184,7 +184,7 @@
   "File list of inputed file-attrs except containing excepts pattern"
   (interactive)
   (let (result)
-    (mapcar
+    (mapc
      (lambda (each-attr)
        (when (string-not-match-list (car each-attr) excepts)
          (when (is-file-attr (cdr each-attr))
@@ -202,7 +202,7 @@
        (message (concat "Contacting directory " dir))
        (setq result (append result (list dir)))
        (setq tmp-files (directory-files-and-attributes dir t))
-       (mapcar
+       (mapc
         (lambda (each-attr)
           (when (string-not-match-list (car each-attr) excepts)
             ;;(when (is-file-attr (cdr each-attr))
@@ -230,7 +230,7 @@
       (message (concat "Writing " my-index-output-file))
       (setq tmp-list
             (files-each-dir-with-except my-index-paths my-index-excepts))
-      (mapcar
+      (mapc
        (lambda (x)
          (insert x)
          (insert "\n"))

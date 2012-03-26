@@ -18,7 +18,7 @@
 (setq make-backup-files nil)
 (setq next-line-add-newlines nil)
 (setq track-eol nil)
-(setq default-tab-width 4)
+(setq tab-width 4)
 (setq isearch-allow-scroll t)
 (setq visible-bell nil)
 (setq ring-bell-function 'ignore)
