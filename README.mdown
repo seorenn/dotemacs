@@ -1,12 +1,7 @@
 DotEmacs
 ========
 
-Here are Seorenn's emacs-configurations
-
-Notice
-------
-
-Currently works, but not completed
+Here are Seorenn's emacs-configurations included many extensions.
 
 Usage
 -----
@@ -24,46 +19,3 @@ Not Served File
 ---------------
 
 `renn-private.el` contains private informations. If you need, create this file and write these informations or other.
-
-Not Packaged 3rd-party Extentions
----------------------------------
-
-Sorry, I use many extentions, but not remember each name. Here's list what not packaged extentions used this REPO.
-
-### iPython
-
-`sudo easy_install ipython`: It's easy to install :)
-
-### ropemacs
-
-rope:
-
-* Download from <http://rope.sourceforge.net/index.html> and install.
-* or `sudo apt-get install python-rope`
-* or `pip install rope`
-
-ropemode:
-
-* Download from <http://pypi.python.org/pypi/ropemode>
-* Install: `sudo python setup.py install`
-* or `pip install ropemode`
-
-pymacs:
-
-* Download from <http://pymacs.progiciels-bpi.ca/pymacs.html>
-* or Download by `git clone git://github.com/pinard/Pymacs.git`
-* `make check && sudo make install`
-* `cp pymacs.el ~/.emacs.d/vendor/`
-
-ropemacs:
-
-* Homepage: <http://rope.sourceforge.net/ropemacs.html>
-* Download by `hg clone https://bitbucket.org/agr/ropemacs`
-* Install: `sudo python setup.py install`
-
-pyflakes:
-
-* download: <http://pypi.python.org/pypi/pyflakes>
-* Install: `sudo python setup.py install`
-* or `easy_install pyflakes`
-* or `pip install pyflakes`
