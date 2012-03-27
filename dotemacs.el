@@ -59,6 +59,7 @@
 (load-my-library "renn-maxframe")
 (load-my-library "renn-colortheme")
 (load-my-library "renn-shortcuts")
+(load-my-library "renn-speedbar")
 (load-my-library "renn-elpa")
 
 (cd "~/")
