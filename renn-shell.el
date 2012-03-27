@@ -19,6 +19,16 @@
 
 (setenv "PAGER" "cat")
 
+;; eshell
+
+(defun m-eshell-hook ()
+  (define-key eshell-mode-map [(control p)] 'eshell-previous-matching-input-from-input)
+  (define-key eshell-mode-map [(control n)] 'eshell-next-matching-input-from-input)
+  (define-key eshell-mode-map [up] 'previous-line)
+  (define-key eshell-mode-map [down] 'next-line))
+
+(add-hook 'eshell-mode-hook 'm-eshell-hook)
+
 ;; multi-term
 ;;(autoload 'multi-term "multi-term" nil t)
 ;;(autoload 'multi-term-next "multi-term" nil t)

@@ -368,7 +368,7 @@
   "Current editing property.")
 
 (defun ac-css-prefix ()
-  (when (save-excursion (re-search-backward "\\_<\\(.+?\\)\\_>\\s *:.*\\=" nil t))
+  (when (save-excursion (re-search-backward "\\_<\\(.+?\\)\\_>\\s *:[^;]*\\=" nil t))
     (setq ac-css-property (match-string 1))
     (or (ac-prefix-symbol) (point))))
 
@@ -470,7 +470,8 @@
 ;;;; Default settings
 
 (defun ac-common-setup ()
-  (add-to-list 'ac-sources 'ac-source-filename))
+  ;(add-to-list 'ac-sources 'ac-source-filename)
+  )
 
 (defun ac-emacs-lisp-mode-setup ()
   (setq ac-sources (append '(ac-source-features ac-source-functions ac-source-yasnippet ac-source-variables ac-source-symbols) ac-sources)))
