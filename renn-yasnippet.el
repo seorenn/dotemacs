@@ -7,3 +7,6 @@
 
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/vendor/yasnippet/snippets")
+
+; for nxhtml-mode
+(yas/define-snippets 'nxhtml-mode nil 'html-mode)
