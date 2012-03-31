@@ -5,7 +5,6 @@ renn-private.el
 renn-simplenote-private.el
 url
 url/cookies
-*.elc
 *.*~
 /history
 \#*\#

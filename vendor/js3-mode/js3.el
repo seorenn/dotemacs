@@ -431,6 +431,13 @@ Note that this forces a reparse so should be turned off if not being used"
   :type 'boolean)
 (js3-mark-safe-local 'js3-pretty-vars 'booleanp)
 
+(defcustom js3-pretty-lazy-vars t
+  "Non-nil to try to indent comma-first continued var statements correctly
+when `js3-lazy-commas' is t"
+  :group 'js3-mode
+  :type 'boolean)
+(js3-mark-safe-local 'js3-pretty-lazy-vars 'booleanp)
+
 (defcustom js3-cleanup-whitespace t
   "Non-nil to invoke `delete-trailing-whitespace' before saves."
   :type 'boolean
@@ -1348,6 +1355,13 @@ rather than trying to line up to braces."
   :group 'js3-mode)
 (js3-mark-safe-local 'js3-lazy-commas 'booleanp)
 
+(defcustom js3-lazy-semicolons nil
+  "Whether `js3-mode' should line up semicolons to the indent-minus-2,
+rather than trying to line up to braces, in for loop defs."
+  :type 'boolean
+  :group 'js3-mode)
+(js3-mark-safe-local 'js3-lazy-semicolons 'booleanp)
+
 (defcustom js3-lazy-operators nil
   "Whether `js3-mode' should line up operators to the indent-minus-2,
 rather than trying to line up to braces."
@@ -1368,6 +1382,12 @@ rather than trying to line up to dots."
   :group 'js3-mode)
 (js3-mark-safe-local 'js3-indent-dots 'booleanp)
 
+(defcustom js3-dont-rebind-backtick nil
+  "Whether `js3-mode' should bind C-c C-` to js3-next-error"
+  :type 'boolean
+  :group 'js3-mode)
+(js3-mark-safe-local 'js3-dont-rebind-backtick 'booleanp)
+
 (defvar js3-mode-map
   (let ((map (make-sparse-keymap))
         keys)
@@ -1383,7 +1403,8 @@ rather than trying to line up to dots."
     (define-key map (kbd "C-c C-t") #'js3-mode-toggle-hide-comments)
     (define-key map (kbd "C-c C-o") #'js3-mode-toggle-element)
     (define-key map (kbd "C-c C-w") #'js3-mode-toggle-warnings-and-errors)
-    (define-key map (kbd "C-c C-`") #'js3-next-error)
+    (when (not js3-dont-rebind-backtick)
+      (define-key map (kbd "C-c C-`") #'js3-next-error))
     ;; also define user's preference for next-error, if available
     (if (setq keys (where-is-internal #'next-error))
         (define-key map (car keys) #'js3-next-error))
@@ -3317,7 +3338,7 @@ the correct number of ARGS must be provided."
 
 ;;; Code:
 
-(eval-and-compile
+(eval-when-compile
   (require 'cl))
 
 
@@ -5905,9 +5926,10 @@ Function also calls `js3-node-add-children' to add the parent link."
     (unless buf
       (error "No buffer available for node %s" node))
     (save-excursion
-      (set-buffer buf)
-      (buffer-substring-no-properties (setq pos (js3-node-abs-pos node))
-                                      (+ pos (js3-node-len node))))))
+      (let ()
+	(set-buffer buf)
+	(buffer-substring-no-properties (setq pos (js3-node-abs-pos node))
+					(+ pos (js3-node-len node)))))))
 
 ;; Container for storing the node we're looking for in a traversal.
 (defvar js3-discovered-node nil)
@@ -6301,7 +6323,10 @@ You should use `js3-print-tree' instead of this function."
        ;; I'll wait for people to notice incorrect warnings.
        ((and (= tt js3-EXPR_VOID)
              (js3-expr-stmt-node-p node)) ; but not if EXPR_RESULT
-        (js3-node-has-side-effects (js3-expr-stmt-node-expr node)))
+	(let ((expr (js3-expr-stmt-node-expr node)))
+	  (or (js3-node-has-side-effects expr)
+	      (when (js3-string-node-p expr)
+		(string= "use strict" (js3-string-node-value expr))))))
        ((= tt js3-COMMA)
         (js3-node-has-side-effects (js3-infix-node-right node)))
        ((or (= tt js3-AND)
@@ -6684,7 +6709,7 @@ nor always false."
           end (max (point-min) end))
     (if record
         (push (list beg end face) js3-mode-fontifications)
-      (put-text-property beg end 'face face))))
+      (put-text-property beg end 'font-lock-face face))))
 
 (defsubst js3-set-kid-face (pos kid len face)
   "Set-face on a child node.
@@ -6700,7 +6725,7 @@ FACE is the face to fontify with."
   (js3-set-face start (+ start length) 'font-lock-keyword-face))
 
 (defsubst js3-clear-face (beg end)
-  (remove-text-properties beg end '(face nil
+  (remove-text-properties beg end '(font-lock-face nil
                                          help-echo nil
                                          point-entered nil
                                          c-in-sws nil)))
@@ -7427,7 +7452,7 @@ For instance, following a 'this' reference requires a parent function node."
 ;; a nested sub-alist element looks like (INDEX-NAME SUB-ALIST).
 ;; The sub-alist entries immediately follow INDEX-NAME, the head of the list.
 
-(defsubst js3-treeify (lst)
+(defun js3-treeify (lst)
   "Convert (a b c d) to (a ((b ((c d)))))"
   (if (null (cddr lst))  ; list length <= 2
       lst
@@ -7585,7 +7610,7 @@ i.e. one or more nodes, and an integer position as the list tail."
 
 ;;; Code
 
-(eval-and-compile
+(eval-when-compile
   (require 'cl))  ; for delete-if
 
 
@@ -7825,29 +7850,29 @@ leaving a statement, an expression, or a function definition."
         (max-specpdl-size (max max-specpdl-size 3000))
         (case-fold-search nil)
         ast)
-    (or buf (setq buf (current-buffer)))
     (message nil)  ; clear any error message from previous parse
     (save-excursion
-      (set-buffer buf)
-      (setq js3-scanned-comments nil
-            js3-parsed-errors nil
-            js3-parsed-warnings nil
-            js3-imenu-recorder nil
-            js3-imenu-function-map nil
-            js3-label-set nil)
-      (js3-init-scanner)
-      (setq ast (js3-with-unmodifying-text-property-changes
-                 (js3-do-parse)))
-      (unless js3-ts-hit-eof
-        (js3-report-error "msg.got.syntax.errors" (length js3-parsed-errors)))
-      (setf (js3-ast-root-errors ast) js3-parsed-errors
-            (js3-ast-root-warnings ast) js3-parsed-warnings)
-      ;; if we didn't find any declarations, put a dummy in this list so we
-      ;; don't end up re-parsing the buffer in `js3-mode-create-imenu-index'
-      (unless js3-imenu-recorder
-        (setq js3-imenu-recorder 'empty))
-      (run-hooks 'js3-parse-finished-hook)
-      ast)))
+      (let ()
+	(when buf (set-buffer buf))
+	(setq js3-scanned-comments nil
+	      js3-parsed-errors nil
+	      js3-parsed-warnings nil
+	      js3-imenu-recorder nil
+	      js3-imenu-function-map nil
+	      js3-label-set nil)
+	(js3-init-scanner)
+	(setq ast (js3-with-unmodifying-text-property-changes
+		   (js3-do-parse)))
+	(unless js3-ts-hit-eof
+	  (js3-report-error "msg.got.syntax.errors" (length js3-parsed-errors)))
+	(setf (js3-ast-root-errors ast) js3-parsed-errors
+	      (js3-ast-root-warnings ast) js3-parsed-warnings)
+	;; if we didn't find any declarations, put a dummy in this list so we
+	;; don't end up re-parsing the buffer in `js3-mode-create-imenu-index'
+	(unless js3-imenu-recorder
+	  (setq js3-imenu-recorder 'empty))
+	(run-hooks 'js3-parse-finished-hook)
+	ast))))
 
 ;; Corresponds to Rhino's Parser.parse() method.
 (defun js3-do-parse ()
@@ -10287,6 +10312,12 @@ nil."
 	    (goto-char abs)
 	    (current-column))
 
+	   ;;semicolon-first in for loop def
+	   ((and (not js3-lazy-semicolons)
+		 (= (following-char) ?\;)
+		 (= type js3-FOR))
+	    (js3-back-offset-re abs "("))
+
 	   ;;comma-first and operator-first
 	   ((or
 	     (and (not js3-lazy-commas)
@@ -10362,11 +10393,46 @@ nil."
 	      (goto-char abs)
 	      (+ (current-column) js3-indent-level js3-expr-indent-offset))))
 
+	   ;;lazy semicolon-first in for loop def
+	   ((and js3-lazy-semicolons
+		 (= (following-char) ?\;)
+		 (= type js3-FOR))
+	    (js3-backward-sexp)
+	    (cond
+
+	     ((js3-looking-back (concat "^[ \t]*;.*"
+					js3-skip-newlines-re))
+	      (js3-re-search-backward (concat "^[ \t]*;.*"
+					      js3-skip-newlines-re)
+				      (point-min) t)
+	      (back-to-indentation)
+	      (current-column))
+
+	     ((looking-back (concat "^[ \t]*[^ \t\n].*"
+				    js3-skip-newlines-re))
+	      (re-search-backward (concat "^[ \t]*[^ \t\n].*"
+					  js3-skip-newlines-re)
+				  (point-min) t)
+	      (back-to-indentation)
+	      (if (< (current-column) 2)
+		  (current-column)
+		(- (current-column) 2)))
+
+	     (t
+	      (+ js3-indent-level js3-expr-indent-offset))))
+
+
 	   ;;lazy comma-first
 	   ((and js3-lazy-commas
 		 (= (following-char) ?\,))
 	    (js3-backward-sexp)
 	    (cond
+
+	     ((and js3-pretty-lazy-vars
+		   (= js3-VAR type))
+	      (save-excursion
+		(js3-re-search-backward "\\<var\\>" (point-min) t)
+		(+ (current-column) 2)))
 
 	     ((js3-looking-back (concat "^[ \t]*,.*"
 					js3-skip-newlines-re))
@@ -10402,7 +10468,9 @@ nil."
 						js3-skip-newlines-re)
 					(point-min) t)
 		    (back-to-indentation)
-		    (+ (current-column) js3-indent-level))
+		    (if (= (following-char) ?\.)
+			(current-column)
+		      (+ (current-column) js3-indent-level)))
 		(+ js3-indent-level js3-expr-indent-offset))))
 
 	   ;;lazy operator-first
@@ -10436,6 +10504,83 @@ nil."
 	      (js3-re-search-backward "\\<var\\>" (point-min) t)
 	      (+ (current-column) 4)))
 
+	   ;;inside a parenthetical grouping
+	   ((nth 1 parse-status)
+	    ;; A single closing paren/bracket should be indented at the
+	    ;; same level as the opening statement.
+	    (let ((same-indent-p (looking-at "[]})]"))
+		  (continued-expr-p (js3-continued-expression-p))
+		  (ctrl-statement-indentation (js3-ctrl-statement-indentation)))
+	      (if (and (not same-indent-p) ctrl-statement-indentation)
+		  ;;indent control statement body without braces, if applicable
+		  ctrl-statement-indentation
+		(progn
+		  (goto-char (nth 1 parse-status)) ; go to the opening char
+		  (if (looking-at "[({[]\\s-*\\(/[/*]\\|$\\)")
+		      (progn ; nothing following the opening paren/bracket
+			(skip-syntax-backward " ")
+			;;skip arg list
+			(when (eq (char-before) ?\)) (backward-list))
+			(if (and (not js3-consistent-level-indent-inner-bracket)
+				 (js3-looking-back (concat
+						    "\\<function\\>"
+						    js3-skip-newlines-re)))
+			    (progn
+			      (js3-re-search-backward (concat
+						       "\\<function\\>"
+						       js3-skip-newlines-re))
+			      (let* ((fnode (js3-node-at-point))
+				     (fnabs (js3-node-abs-pos fnode))
+				     (fparent (js3-node-parent
+					       (js3-node-at-point)))
+				     (fpabs (js3-node-abs-pos fparent))
+				     (fptype (js3-node-type fparent)))
+				(cond
+				 ((or (eq fptype js3-VAR)
+				      (eq fptype js3-RETURN)
+				      (eq fptype js3-COLON)
+				      (and (<= fptype js3-ASSIGN_URSH)
+					   (>= fptype js3-ASSIGN)))
+				  (goto-char fpabs))
+
+				 ((eq fptype js3-CALL)
+				  (let* ((target (js3-call-node-target fparent))
+					 (ttype (js3-node-type target)))
+				    (if (eq ttype js3-GETPROP)
+					(let* ((tright
+						(js3-prop-get-node-right
+						 target))
+					       (trabs
+						(js3-node-abs-pos tright)))
+					  (if (<= (count-lines trabs fnabs) 1)
+					      (goto-char fpabs)
+					    (goto-char fnabs)))
+				      (if (<= (count-lines fpabs fnabs) 1)
+					  (goto-char fpabs)
+					(goto-char fnabs)))))
+
+				 (t
+				  (goto-char fnabs)))))
+			  (back-to-indentation))
+			(cond (same-indent-p
+			       (current-column))
+			      (continued-expr-p
+			       (+ (current-column) (* 2 js3-indent-level)
+				  js3-expr-indent-offset))
+			      (t
+			       (+ (current-column) js3-indent-level
+				  (case (char-after (nth 1 parse-status))
+					(?\( js3-paren-indent-offset)
+					(?\[ js3-square-indent-offset)
+					(?\{ js3-curly-indent-offset))))))
+		    ;; If there is something following the opening
+		    ;; paren/bracket, everything else should be indented at
+		    ;; the same level.
+		    (unless same-indent-p
+		      (forward-char)
+		      (skip-chars-forward " \t"))
+		    (current-column))))))
+
 	   ;;indent control statement body without braces, if applicable
 	   ((js3-ctrl-statement-indentation))
 
@@ -10444,74 +10589,6 @@ nil."
 
 	   ;;we're in a cpp macro - indent to 4 why not
 	   ((save-excursion (js3-beginning-of-macro)) 4)
-
-	   ;;inside a parenthetical grouping
-	   ((nth 1 parse-status)
-	    ;; A single closing paren/bracket should be indented at the
-	    ;; same level as the opening statement.
-	    (let ((same-indent-p (looking-at "[]})]"))
-		  (continued-expr-p (js3-continued-expression-p)))
-	      (goto-char (nth 1 parse-status)) ; go to the opening char
-	      (if (looking-at "[({[]\\s-*\\(/[/*]\\|$\\)")
-		  (progn ; nothing following the opening paren/bracket
-		    (skip-syntax-backward " ")
-	    	    (when (eq (char-before) ?\)) (backward-list)) ;skip arg list
-	    	    (if (and (not js3-consistent-level-indent-inner-bracket)
-	    		     (js3-looking-back (concat
-	    					"\\<function\\>"
-	    					js3-skip-newlines-re)))
-	    		(progn
-	    		  (js3-re-search-backward (concat
-	    					   "\\<function\\>"
-	    					   js3-skip-newlines-re))
-			  (let* ((fnode (js3-node-at-point))
-				 (fnabs (js3-node-abs-pos fnode))
-				 (fparent (js3-node-parent (js3-node-at-point)))
-				 (fpabs (js3-node-abs-pos fparent))
-				 (fptype (js3-node-type fparent)))
-			    (cond
-			     ((or (eq fptype js3-VAR)
-				  (eq fptype js3-RETURN)
-				  (eq fptype js3-COLON)
-				  (and (<= fptype js3-ASSIGN_URSH)
-				       (>= fptype js3-ASSIGN)))
-			      (goto-char fpabs))
-
-			     ((eq fptype js3-CALL)
-			      (let* ((target (js3-call-node-target fparent))
-				     (ttype (js3-node-type target)))
-				(if (eq ttype js3-GETPROP)
-				    (let* ((tright
-					    (js3-prop-get-node-right target))
-					   (trabs (js3-node-abs-pos tright)))
-				      (if (<= (count-lines trabs fnabs) 1)
-					  (goto-char fpabs)
-					(goto-char fnabs)))
-				  (if (<= (count-lines fpabs fnabs) 1)
-				      (goto-char fpabs)
-				    (goto-char fnabs)))))
-
-			     (t
-			      (goto-char fnabs)))))
-	    	      (back-to-indentation))
-	    	    (cond (same-indent-p
-	    		   (current-column))
-	    		  (continued-expr-p
-	    		   (+ (current-column) (* 2 js3-indent-level)
-	    		      js3-expr-indent-offset))
-	    		  (t
-	    		   (+ (current-column) js3-indent-level
-	    		      (case (char-after (nth 1 parse-status))
-	    			    (?\( js3-paren-indent-offset)
-	    			    (?\[ js3-square-indent-offset)
-	    			    (?\{ js3-curly-indent-offset))))))
-	    	;; If there is something following the opening
-	    	;; paren/bracket, everything else should be indented at
-	    	;; the same level.
-	    	(unless same-indent-p
-	    	  (forward-char)
-	    	  (skip-chars-forward " \t"))
-	    	(current-column))))
 
 	   ;;in a continued expression not handled by earlier cases
 	   ((js3-continued-expression-p)
@@ -10566,12 +10643,11 @@ nil."
   (set (make-local-variable 'indent-tabs-mode) js3-indent-tabs-mode)
 
   ;; I tried an "improvement" to `c-fill-paragraph' that worked out badly
-  ;; on most platforms other than the one I originally wrote it on.  So it's
-  ;; back to `c-fill-paragraph'.  Still not perfect, though -- something to do
-  ;; with our binding of the RET key inside comments:  short lines stay short.
+  ;; on most platforms other than the one I originally wrote it on.
+  ;; So it's back to `c-fill-paragraph'.
   (set (make-local-variable 'fill-paragraph-function) #'c-fill-paragraph)
 
-  (set (make-local-variable 'before-save-hook) #'js3-before-save)
+  (add-hook 'before-save-hook #'js3-before-save nil t)
   (set (make-local-variable 'next-error-function) #'js3-next-error)
   (set (make-local-variable 'beginning-of-defun-function) #'js3-beginning-of-defun)
   (set (make-local-variable 'end-of-defun-function) #'js3-end-of-defun)
@@ -10584,17 +10660,25 @@ nil."
   (put 'js3-mode 'find-tag-default-function #'js3-mode-find-tag)
 
   ;; some variables needed by cc-engine for paragraph-fill, etc.
-  (setq c-buffer-is-cc-mode t
-        c-comment-prefix-regexp js3-comment-prefix-regexp
+  (setq c-comment-prefix-regexp js3-comment-prefix-regexp
         c-comment-start-regexp "/[*/]\\|\\s|"
+	c-line-comment-starter "//"
         c-paragraph-start js3-paragraph-start
         c-paragraph-separate "$"
         comment-start-skip js3-comment-start-skip
         c-syntactic-ws-start js3-syntactic-ws-start
         c-syntactic-ws-end js3-syntactic-ws-end
         c-syntactic-eol js3-syntactic-eol)
+
   (if js3-emacs22
-      (c-setup-paragraph-variables))
+      (let ((c-buffer-is-cc-mode t))
+	;; Copied from `js-mode'.  Also see Bug#6071.
+	(make-local-variable 'paragraph-start)
+	(make-local-variable 'paragraph-separate)
+	(make-local-variable 'paragraph-ignore-fill-prefix)
+	(make-local-variable 'adaptive-fill-mode)
+	(make-local-variable 'adaptive-fill-regexp)
+	(c-setup-paragraph-variables)))
 
   (setq js3-default-externs
         (append js3-ecma-262-externs
@@ -10607,17 +10691,9 @@ nil."
 
   ;; We do our own syntax highlighting based on the parse tree.
   ;; However, we want minor modes that add keywords to highlight properly
-  ;; (examples:  doxymacs, column-marker).  We do this by not letting
-  ;; font-lock unfontify anything, and telling it to fontify after we
-  ;; re-parse and re-highlight the buffer.  (We currently don't do any
-  ;; work with regions other than the whole buffer.)
-  (dolist (var '(font-lock-unfontify-buffer-function
-                 font-lock-unfontify-region-function))
-    (set (make-local-variable var) (lambda (&rest args) t)))
-
-  ;; Don't let font-lock do syntactic (string/comment) fontification.
-  (set (make-local-variable #'font-lock-syntactic-face-function)
-       (lambda (state) nil))
+  ;; (examples:  doxymacs, column-marker).
+  ;; To customize highlighted keywords, use `font-lock-add-keywords'.
+  (setq font-lock-defaults '(nil t))
 
   ;; Experiment:  make reparse-delay longer for longer files.
   (if (plusp js3-dynamic-idle-timer-adjust)
@@ -10634,14 +10710,17 @@ nil."
   (add-to-invisibility-spec '(js3-outline . t))
   (set (make-local-variable 'line-move-ignore-invisible) t)
   (set (make-local-variable 'forward-sexp-function) #'js3-mode-forward-sexp)
+
+  (if (fboundp 'run-mode-hooks)
+      (run-mode-hooks 'js3-mode-hook)
+    (run-hooks 'js3-mode-hook))
+
   (setq js3-mode-functions-hidden nil
         js3-mode-comments-hidden nil
         js3-mode-buffer-dirty-p t
         js3-mode-parsing nil)
-  (js3-reparse)
-  (if (fboundp 'run-mode-hooks)
-      (run-mode-hooks 'js3-mode-hook)
-    (run-hooks 'js3-mode-hook)))
+  (if (not (zerop (buffer-size)))
+      (js3-reparse)))
 
 (defun js3-mode-check-compat ()
   "Signal an error if we can't run with this version of Emacs."
@@ -10698,23 +10777,6 @@ if the edit occurred on a line different from the magic paren."
   (js3-mode-hide-overlay)
   (js3-mode-reset-timer))
 
-(defun js3-mode-run-font-lock ()
-  "Run `font-lock-fontify-buffer' after parsing/highlighting.
-This is intended to allow modes that install their own font-lock keywords
-to work with js3-mode.  In practice it never seems to work for long.
-Hopefully the Emacs maintainers can help figure out a way to make it work."
-  (when (and (boundp 'font-lock-keywords)
-             font-lock-keywords
-             (boundp 'font-lock-mode)
-             font-lock-mode)
-    ;; TODO:  font-lock and jit-lock really really REALLY don't want to
-    ;; play nicely with js3-mode.  They go out of their way to fail to
-    ;; provide any option for saying "look, fontify the goddamn buffer
-    ;; with just the keywords already".  Argh.
-    (setq font-lock-defaults (list font-lock-keywords 'keywords-only))
-    (let (font-lock-verbose)
-      (font-lock-default-fontify-buffer))))
-
 (defun js3-reparse (&optional force)
   "Re-parse current buffer after user finishes some data entry.
 If we get any user input while parsing, including cursor motion,
@@ -10747,7 +10809,6 @@ buffer will only rebuild its `js3-mode-ast' if the buffer is dirty."
                             (js3-mode-remove-suppressed-warnings)
                             (js3-mode-show-warnings)
                             (js3-mode-show-errors)
-                            (js3-mode-run-font-lock)  ; note:  doesn't work
                             (js3-mode-highlight-magic-parens)
                             (if (>= js3-highlight-level 1)
                                 (js3-highlight-jsdoc js3-mode-ast))
@@ -10778,7 +10839,7 @@ buffer will only rebuild its `js3-mode-ast' if the buffer is dirty."
         (if js3-mode-node-overlay
             (move-overlay js3-mode-node-overlay beg end)
           (setq js3-mode-node-overlay (make-overlay beg end))
-          (overlay-put js3-mode-node-overlay 'face 'highlight))
+          (overlay-put js3-mode-node-overlay 'font-lock-face 'highlight))
         (js3-with-unmodifying-text-property-changes
          (put-text-property beg end 'point-left #'js3-mode-hide-overlay))
         (message "%s, parent: %s"
@@ -10818,7 +10879,7 @@ E is a list of ((MSG-KEY MSG-ARG) BEG END)."
          (end (max (point-min) (min end (point-max))))
          (js3-highlight-level 3)    ; so js3-set-face is sure to fire
          (ovl (make-overlay beg end)))
-    (overlay-put ovl 'face face)
+    (overlay-put ovl 'font-lock-face face)
     (overlay-put ovl 'js3-error t)
     (put-text-property beg end 'help-echo (js3-get-msg key))
     (put-text-property beg end 'point-entered #'js3-echo-error)))
@@ -10847,7 +10908,7 @@ Defaults to point."
     ;; Have to reverse the recorded fontifications list so that errors
     ;; and warnings overwrite the normal fontifications.
     (dolist (f (nreverse js3-mode-fontifications))
-      (put-text-property (first f) (second f) 'face (third f)))
+      (put-text-property (first f) (second f) 'font-lock-face (third f)))
     (setq js3-mode-fontifications nil))
   (dolist (p js3-mode-deferred-properties)
     (apply #'put-text-property p))
@@ -10896,7 +10957,8 @@ This ensures that the counts and `next-error' are correct."
 (defun js3-echo-error (old-point new-point)
   "Called by point-motion hooks."
   (let ((msg (get-text-property new-point 'help-echo)))
-    (if msg
+    (if (and msg (or (not (current-message))
+		     (string= (current-message) "Quit")))
         (message msg))))
 
 (defalias #'js3-echo-help #'js3-echo-error)
@@ -10915,7 +10977,8 @@ This ensures that the counts and `next-error' are correct."
       (js3-mode-extend-comment))
      (t
       ;; should probably figure out what the mode-map says we should do
-      (if js3-indent-on-enter-key
+      (if (and js3-indent-on-enter-key
+	       (not (zerop (buffer-size))))
           (let ((js3-bounce-indent-p nil))
             (js3-indent-line)))
       (insert "\n")
@@ -11142,7 +11205,7 @@ Actually returns the quote character that begins the string."
 Sets value of `js3-magic' text property to line number at POS."
   (propertize delim
               'js3-magic (line-number-at-pos pos)
-              'face 'js3-magic-paren-face))
+              'font-lock-face 'js3-magic-paren-face))
 
 (defun js3-mode-match-delimiter (open close)
   "Insert OPEN (a string) and possibly matching delimiter CLOSE.
@@ -11240,7 +11303,7 @@ already have been inserted."
       (if (get-text-property beg 'js3-magic)
           (js3-with-unmodifying-text-property-changes
            (put-text-property beg (or end (1+ beg))
-                              'face 'js3-magic-paren-face))))))
+                              'font-lock-face 'js3-magic-paren-face))))))
 
 (defun js3-mode-mundanify-parens ()
   "Clear all magic parens and brackets."
