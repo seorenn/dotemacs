@@ -1,28 +1,9 @@
 ;; renn-devel.el
 ;; This files set the Environment for Software Develomentation to Emacs
 
-;; Auto Indentation for Development
-;(defun set-newline-and-indent ()
-  ;(local-set-key (kbd "RET") 'newline-and-indent))
-;(add-hook 'lisp-mode-hook 'set-newline-and-indent)
-;(add-hook 'python-mode-hook 'set-newline-and-indent)
-;(add-hook 'c-mode-hook 'set-newline-and-indent)
-;(add-hook 'c++-mode-hook 'set-newline-and-indent)
-;(add-hook 'html-mode-hook 'set-newline-and-indent)
-
 ;; flymake mode
 (require 'flymake)
 (require 'flymake-cursor)
-
-;; (defun my-flymake-show-error ()
-;;   "Display flymake message from current line."
-;;   (interactive)
-;;   (flymake-display-err-menu-for-current-line))
-;; (global-set-key [?\C-`] 'my-flymake-show-error)
-
-;; icicles
-;;(require 'icicles)
-;;(icicle-mode 1)
 
 ;; dot-mode.el
 ;; "C-." dot-mode-excute

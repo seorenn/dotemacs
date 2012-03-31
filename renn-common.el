@@ -2,10 +2,12 @@
 (setq hs-minor-mode-hook nil)
 (dynamic-completion-mode t)
 (when window-system
-  (scroll-bar-mode -1)                    ;hide scroll-bar
-  )
+  ; hide scroll bar
+  (scroll-bar-mode -1))
 
-(setq inhibit-splash-screen t)          ;hide splash screen
+; hide splash screen
+(setq inhibit-splash-screen t)
+
 (setq next-line-add-newlines nil)
 (setq scroll-step 1)
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
@@ -18,7 +20,7 @@
 (setq make-backup-files nil)
 (setq next-line-add-newlines nil)
 (setq track-eol nil)
-;;(setq tab-width 4)
+(setq tab-width 4)
 (setq isearch-allow-scroll t)
 (setq visible-bell nil)
 (setq ring-bell-function 'ignore)
@@ -33,17 +35,8 @@
 
 (setq-default indent-tabs-mode nil)
 (setq-default case-fold-search t)
-;;(setq-default show-trailing-whitespace t)
 
 (setq eval-expression-print-length nil)
-
-;; copy/paste with GUI Applications compatible
-;; (setq x-select-enable-primary nil)
-;;(setq x-select-enable-clipboard t)
-;;(setq interprogram-paste-function 'x-cut-buffer-or-selection-value)
-;; (global-set-key "\C-w" 'clipboard-kill-region)
-;; (global-set-key "\M-w" 'clipboard-kill-ring-save)
-;; (global-set-key "\C-y" 'clipboard-yank)
 
 (auto-image-file-mode t)
 (delete-selection-mode nil)
@@ -55,7 +48,7 @@
 (line-number-mode 1)
 (column-number-mode 1)
 (global-visual-line-mode t)
-(global-hl-line-mode t)
+;(global-hl-line-mode t)
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
