@@ -1,0 +1,4 @@
+# name: Ext.require(...)
+# key: require
+# --
+Ext.require('$1');

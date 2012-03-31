@@ -1,0 +1,11 @@
+# name: HTML5
+# key: html5
+# --
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>$1</title>
+  </head>
+  <body>
+  </body>
+</html>

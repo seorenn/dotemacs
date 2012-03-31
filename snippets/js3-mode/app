@@ -1,0 +1,15 @@
+# name: Ext.application(...)
+# key: app
+# --
+Ext.application({
+    name: '$1'
+  , views: [$2]
+  , controllers: [$3]
+  , models: [$4]
+  , stores: [$5]
+  , launch: function() {
+        this.viewport = Ext.create('$6', {
+            fullscreen: true
+        });
+    }
+});

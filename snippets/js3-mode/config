@@ -1,0 +1,9 @@
+# name: Ext.Loader.setConfig
+# key: config
+# --
+Ext.Loader.setConfig({
+    enable: true
+  , paths: {
+        app: '${app}'
+    }
+});

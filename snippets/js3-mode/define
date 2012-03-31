@@ -1,0 +1,13 @@
+# name: Ext.define(...)
+# key: define
+# --
+Ext.define('$1', {
+    extend: '$2'
+  , xtype: '$3'
+  , defaults: {
+        styleHtmlContent: true
+    }
+  , config: {
+        items: [$4]
+    }
+});
