@@ -10,8 +10,7 @@
   "Return t if a bisect session is running.
 If REQUIRED-STATUS is not nil then the current status must also
 match REQUIRED-STATUS."
-  (and (file-exists-p (concat (magit-get-top-dir default-directory)
-                          ".git/BISECT_LOG"))
+  (and (file-exists-p (concat (magit-git-dir) "BISECT_LOG"))
        (or (not required-status)
            (eq (plist-get (magit--bisect-info) :status)
                required-status))))
@@ -137,7 +136,7 @@ match REQUIRED-STATUS."
     (with-temp-buffer
       (insert "#!/bin/sh\n" command "\n")
       (write-region (point-min) (point-max) file))
-    (chmod file #o755)
+    (set-file-modes file #o755)
     (magit-run-git-async "bisect" "run" file)
     (magit-display-process)
     (setq buffer (get-buffer magit-process-buffer-name))
