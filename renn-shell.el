@@ -25,6 +25,8 @@
   (interactive)
   (ansi-term "/bin/bash"))
 
+(global-set-key (kbd "C-x t") 'sh)
+
 ;; eshell
 
 (defun m-eshell-hook ()
@@ -34,17 +36,18 @@
   (define-key eshell-mode-map [down] 'next-line))
 
 (add-hook 'eshell-mode-hook 'm-eshell-hook)
+ (defun eshell/vi (&rest args)
+      "Invoke `find-file' on the file.
+    \"vi +42 foo\" also goes to line 42 in the buffer."
+      (while args
+        (if (string-match "\\`\\+\\([0-9]+\\)\\'" (car args))
+            (let* ((line (string-to-number (match-string 1 (pop args))))
+                   (file (pop args)))
+              (find-file file)
+              (goto-line line))
+          (find-file (pop args)))))
 
-;; multi-term
-;;(autoload 'multi-term "multi-term" nil t)
-;;(autoload 'multi-term-next "multi-term" nil t)
-
-;;(setq multi-term-program "/bin/bash")
-
-;; [C-x t] command open new term or switch next if one or more terms running
-;;(global-set-key (kbd "C-x t") 'multi-term-next)
-(global-set-key (kbd "C-x t") 'sh)
-;;(global-set-key (kbd "C-x T") 'multi-term)
+;; with autopair mode
 
 (add-hook 'term-mode-hook
           #'(lambda () (setq autopair-dont-activate t)))

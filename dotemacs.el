@@ -61,3 +61,5 @@
 (load-my-library "renn-calfw")
 
 (cd "~/")
+
+(eshell)
