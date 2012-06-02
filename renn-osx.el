@@ -29,7 +29,7 @@
   ;; 의미없는 설정인 듯...
   ;; (add-to-list 'default-frame-alist '(font . "fontset-default"))
 
-  (set-face-font 'default "Monaco-12")
+  (set-face-font 'default "Menlo-12")
 
   ;; Korean Unicode SPEC.
   ;; EUC-KR(cp949)은 조잡한 미완성 한글 스펙입니다.
