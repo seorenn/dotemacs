@@ -21,7 +21,7 @@
     ;;(color-theme-vim-colors)
 
     (require 'color-theme-tomorrow)
-    (color-theme-tomorrow-real 'night-bright)
+    (color-theme-tomorrow-real 'night)
     ))
 
 (require 'face-list)

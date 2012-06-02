@@ -19,6 +19,12 @@
 
 (setenv "PAGER" "cat")
 
+;; ansi-term
+
+(defun sh ()
+  (interactive)
+  (ansi-term "/bin/bash"))
+
 ;; eshell
 
 (defun m-eshell-hook ()
@@ -37,7 +43,7 @@
 
 ;; [C-x t] command open new term or switch next if one or more terms running
 ;;(global-set-key (kbd "C-x t") 'multi-term-next)
-(global-set-key (kbd "C-x t") 'term)
+(global-set-key (kbd "C-x t") 'sh)
 ;;(global-set-key (kbd "C-x T") 'multi-term)
 
 (add-hook 'term-mode-hook
