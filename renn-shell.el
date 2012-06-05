@@ -56,6 +56,16 @@
             (setq eshell-path-env bashpath)
             (setenv "PATH" bashpath)))
 
+; eshell ansi color
+; http://www.emacswiki.org/emacs-se/EshellColor
+; this code not works :-()
+;; (require 'ansi-color)
+;; (require 'eshell)
+;; (defun eshell-handle-ansi-color ()
+;;   (ansi-color-apply-on-region eshell-last-output-start
+;;                               eshell-last-output-end))
+;; (add-to-list 'eshell-output-filter-functions 'eshell-handle-ansi-color)
+
 ;; with autopair mode
 
 (add-hook 'term-mode-hook
