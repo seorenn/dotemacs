@@ -1,9 +1,9 @@
 ;; python-mode on launchpad
 ;; https://launchpad.net/python-mode
-(require 'python-mode)
-(autoload 'python-mode "python-mode" "Python Mode." t)
-(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
-(add-to-list 'interpreter-mode-alist '("python" . python-mode))
+;(require 'python-mode)
+;(autoload 'python-mode "python-mode" "Python Mode." t)
+;(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+;(add-to-list 'interpreter-mode-alist '("python" . python-mode))
 
 ;; Pymacs + Ropemode
 ;; (autoload 'pymacs-apply "pymacs")
@@ -19,8 +19,8 @@
 ;; (setq ropemacs-enable-autoimport t)
 
 ;; find TAG automatically...
-(load "~/.emacs.d/renn-explorefile")
-(add-hook 'python-mode-hook 'explore-tag)
+;(load "~/.emacs.d/renn-explorefile")
+;(add-hook 'python-mode-hook 'explore-tag)
 
 ;; and some python-mode settings
 (add-hook 'python-mode-hook
@@ -49,5 +49,5 @@
 
 ;; iPython
 ;; (setq ansi-color-for-comint-mode t)
-(setq py-python-command-args '("-colors" "NoColor"))
-(require 'ipython)
+;(setq py-python-command-args '("-colors" "NoColor"))
+;(require 'ipython)
