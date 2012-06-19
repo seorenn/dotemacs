@@ -1,4 +1,4 @@
-This is magit.info, produced by makeinfo version 4.8 from magit.texi.
+This is magit.info, produced by makeinfo version 4.13 from magit.texi.
 
 INFO-DIR-SECTION Emacs
 START-INFO-DIR-ENTRY
@@ -220,18 +220,18 @@ the working tree and the staging area.  You can hide and show them as
 described in the previous section.
 
    The first section shows _Untracked files_, if there are any.  See
-*Note Untracked files:: for more details.
+*note Untracked files:: for more details.
 
    The next two sections show your local changes.  They are explained
-fully in the next chapter, *Note Staging and Committing::.
+fully in the next chapter, *note Staging and Committing::.
 
    If the current branch is associated with a remote tracking branch,
 the status buffer shows the differences between the current branch and
-the tracking branch.  See *Note Pushing and Pulling:: for more
+the tracking branch.  See *note Pushing and Pulling:: for more
 information.
 
    During a history rewriting session, the status buffer shows the
-_Pending changes_ and _Pending commits_ sections.  See *Note
+_Pending changes_ and _Pending commits_ sections.  See *note
 Rewriting:: for more details.
 
 
@@ -252,12 +252,8 @@ together with all changes to the tracked files.
    You can instruct Git to ignore them by typing `i'.  This will add
 the filename to the `.gitignore' file.  Typing `C-u i' will ask you for
 the name of the file to ignore.  This is useful to ignore whole
-directories, for example.  In this case, the minibuffer's future history
-(accessible with `M-n') contains predefined values (such as wildcards)
-that might be of interest. If prefix argument is negative (for example
-after typing `C-- i'), the prompt proposes wildcard by default.  The
-`I' command is similar to `i' but will add the file to
-`.git/info/exclude' instead.
+directories, for example.  The `I' command is similar to `i' but will
+add the file to `.git/info/exclude' instead.
 
    To delete an untracked file forever, use `k'.  If point is on the
 _Untracked files_ section title when you hit `k', all untracked files
@@ -442,7 +438,7 @@ File: magit.info,  Node: Commit Buffer,  Next: Diffing,  Prev: Reflogs,  Up: Top
 ***************
 
 When you view a commit (perhaps by selecting it in the log buffer,
-*Note History::), the "commit buffer" is displayed, showing you
+*note History::), the "commit buffer" is displayed, showing you
 information about the commit and letting you interact with it.
 
    By placing your cursor within the diff or hunk and typing `a', you
@@ -596,7 +592,7 @@ HEAD or its upstream branch. Unless you type `b D', that is.  Here be
 dragons...
 
    Typing `b v' will list the local and remote branches in a new buffer
-called `*magit-branches*' from which you can work with them. See *Note
+called `*magit-branches*' from which you can work with them. See *note
 The Branch Manager:: for more details.
 
 
@@ -932,7 +928,7 @@ prefix by convention. So, creating a "t/foo" branch will actually
 populate the "Topics" section with one more branch after committing
 `.topdeps' and `.topmsg'.
 
-   Also, the way we pull (see *Note Pushing and Pulling::) such a
+   Also, the way we pull (see *note Pushing and Pulling::) such a
 branch is slightly different, since it requires updating the various
 dependencies of that branch. This should be mostly transparent, except
 in case of conflicts.
@@ -1186,7 +1182,6 @@ The following variables can be used to adapt Magit to your workflow:
      commits will be rewritten. This is magit's default behaviour,
      equivalent to `git rebase -i ${REV~1}'
 
-
        A'---B'---C'---D'
        ^
 
@@ -1194,7 +1189,6 @@ The following variables can be used to adapt Magit to your workflow:
      so only subsequent commits will be rewritten. This is consistent
      with git-rebase, equivalent to `git rebase -i ${REV}', yet more
      cumbersome to use from the status buffer.
-
 
        A---B'---C'---D'
        ^
@@ -1227,7 +1221,7 @@ File: magit.info,  Node: FAQ - Changes,  Next: FAQ 1 - Troubleshooting,  Up: Fre
    * v1.1: Changed the way extensions work. Previously, they were
      enabled unconditionally once the library was loaded. Now they are
      minor modes that need to be activated explicitly (potentially on a
-     per-repository basis). See *Note Activating extensions::.
+     per-repository basis). See *note Activating extensions::.
 
 
 
@@ -1291,42 +1285,47 @@ You can disable this with one of the following approaches:
 
 
 Tag Table:
-Node: Top639
-Node: Introduction1567
-Node: Acknowledgments3039
-Node: Sections3719
-Node: Status6269
-Node: Untracked files9008
-Node: Staging and Committing10212
-Node: History14110
-Node: Reflogs17290
-Node: Commit Buffer17694
-Node: Diffing19020
-Node: Tagging20007
-Node: Resetting20456
-Node: Stashing21980
-Node: Branching23038
-Node: The Branch Manager24416
-Node: Wazzup25132
-Node: Merging25923
-Node: Rebasing26973
-Node: Rewriting27788
-Node: Pushing and Pulling30801
-Node: Submodules32728
-Node: Bisecting33148
-Node: Using Magit Extensions34363
-Node: Activating extensions34660
-Node: Interfacing with Subversion36044
-Node: Interfacing with Topgit36642
-Node: Interfacing with StGit37670
-Node: Developing Extensions38668
-Node: Using Git Directly42446
-Node: Customization42817
-Node: Frequently Asked Questions47363
-Node: FAQ - Changes47594
-Node: FAQ 1 - Troubleshooting48002
-Node: FAQ 1-148250
-Node: FAQ 2 - Display issues48554
-Node: FAQ 2-148783
+Node: Top640
+Node: Introduction1568
+Node: Acknowledgments3040
+Node: Sections3720
+Node: Status6270
+Node: Untracked files9009
+Node: Staging and Committing9960
+Node: History13858
+Node: Reflogs17038
+Node: Commit Buffer17442
+Node: Diffing18768
+Node: Tagging19755
+Node: Resetting20204
+Node: Stashing21728
+Node: Branching22786
+Node: The Branch Manager24164
+Node: Wazzup24880
+Node: Merging25671
+Node: Rebasing26721
+Node: Rewriting27536
+Node: Pushing and Pulling30549
+Node: Submodules32476
+Node: Bisecting32896
+Node: Using Magit Extensions34111
+Node: Activating extensions34408
+Node: Interfacing with Subversion35792
+Node: Interfacing with Topgit36390
+Node: Interfacing with StGit37418
+Node: Developing Extensions38416
+Node: Using Git Directly42194
+Node: Customization42565
+Node: Frequently Asked Questions47109
+Node: FAQ - Changes47340
+Node: FAQ 1 - Troubleshooting47748
+Node: FAQ 1-147996
+Node: FAQ 2 - Display issues48300
+Node: FAQ 2-148529
 
 End Tag Table
+
+
+Local Variables:
+coding: utf-8
+End:
