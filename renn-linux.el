@@ -1,3 +1,4 @@
+(set-buffer-file-coding-system 'unix)
 (unless (eq window-system nil)
   ;; This settings needs these fonts: Bitstrea Vera Sans Mono + NanumGothic(나눔고딕)
   ;; 세로크기가 안맞아서 한글이 포함되면 영문의 라인 사이 간격이 벌어집니다.

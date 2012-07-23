@@ -4,6 +4,9 @@
 (set-keyboard-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
+;; New-line
+(set-buffer-file-coding-system 'mac)
+
 ;; Command key is meta key
 (setq mac-option-key-is-meta nil)
 (setq mac-command-key-is-meta t)
