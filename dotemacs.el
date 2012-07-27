@@ -46,6 +46,7 @@
 (load-my-library "renn-devel")
 (load-my-library "renn-css")
 (load-my-library "renn-python")
+(load-my-library "renn-ruby")
 (load-my-library "renn-html")
 (load-my-library "renn-js")
 (load-my-library "renn-magit")
