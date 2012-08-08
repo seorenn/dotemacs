@@ -26,5 +26,5 @@
   (interactive "r\np")
   (if (region-active-p) (move-region-down start end n) (move-line-down n)))
 
-(global-set-key (kbd "M-p") 'move-line-region-up)
-(global-set-key (kbd "M-n") 'move-line-region-down)
+(global-set-key (kbd "M-P") 'move-line-region-up)
+(global-set-key (kbd "M-N") 'move-line-region-down)
