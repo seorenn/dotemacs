@@ -1,7 +1,9 @@
 (add-to-list 'load-path "~/.emacs.d/vendor/twittering-mode")
+(require 'alpaca)
 (require 'twittering-mode)
 
 (setq twittering-use-master-password t)
+(setq twittering-auth-method 'oauth)
 (setq twittering-icon-mode t)
 (setq twittering-timer-interval 60)
 (setq twittering-use-native-retweet t)
