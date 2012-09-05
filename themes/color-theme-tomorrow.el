@@ -20,7 +20,7 @@ theme will be used."
 
   (let ((background "#ffffff")
         (current-line "#e9efff")
-        (selection "#c5cce9")
+        (selection "#d6d6d6")
         (foreground "#4d4d4c")
         (comment "#8e908c")
         (cursor "#aeafad")
@@ -58,8 +58,8 @@ theme will be used."
                  orange "#f99157"
                  yellow "#ffcc66"
                  green "#99cc99"
-                 aqua "#009999"
-                 blue "#99cccc"
+                 aqua "#66cccc"
+                 blue "#6699cc"
                  purple "#cc99cc"))
 
           ((eq variant 'night-blue)
@@ -81,7 +81,7 @@ theme will be used."
            (setq background "#000000"
                  current-line "#2a2a2a"
                  selection "#424242"
-                 foreground "#dedede"
+                 foreground "#eaeaea"
                  comment "#969896"
                  cursor "#9f9f9f"
                  red "#d54e53"
@@ -133,7 +133,18 @@ theme will be used."
 
        ;; show-paren-mode
        (show-paren-match-face ((t (:background ,blue :foreground ,current-line))))
-       (show-paren-mismatch-face ((t (:background ,orange :foreground ,current-line))))))))
+       (show-paren-mismatch-face ((t (:background ,orange :foreground ,current-line))))
+
+       ;; rainbow-delimiters
+       (rainbow-delimiters-depth-1-face ((t (:foreground ,purple))))
+       (rainbow-delimiters-depth-2-face ((t (:foreground ,blue))))
+       (rainbow-delimiters-depth-3-face ((t (:foreground ,aqua))))
+       (rainbow-delimiters-depth-4-face ((t (:foreground ,green))))
+       (rainbow-delimiters-depth-5-face ((t (:foreground ,yellow))))
+       (rainbow-delimiters-depth-6-face ((t (:foreground ,orange))))
+       (rainbow-delimiters-depth-7-face ((t (:foreground ,red))))
+       (rainbow-delimiters-depth-8-face ((t (:foreground ,comment))))
+       (rainbow-delimiters-depth-9-face ((t (:foreground ,foreground))))))))
 
 (defun color-theme-tomorrow ()
   "Base light Tomorrow theme."

@@ -1,8 +1,8 @@
-;;; tomorrow-night-eighties-theme.el --- custom theme for faces
+;;; tomorrow-night-blue-theme.el --- custom theme for faces
 
 ;;; Commentary:
 ;;
-;;; Tomorrow Night Eighties Theme
+;;; Tomorrow Night Blue Theme
 ;;
 ;; Originally by Chris Kempson https://github.com/ChrisKempson/Tomorrow-Theme
 ;; Ported to GNU Emacs by Chris Charles
@@ -10,25 +10,25 @@
 
 ;;; Code:
 
-(deftheme tomorrow-night-eighties
+(deftheme tomorrow-night-blue
   "A Pastel Coloured Theme")
 
-(let ((background "#2d2d2d")
-      (current-line "#393939")
-      (selection "#515151")
-      (foreground "#cccccc")
-      (comment "#999999")
-      (cursor "#cccccc")
-      (red "#f2777a")
-      (orange "#f99157")
-      (yellow "#ffcc66")
-      (green "#99cc99")
-      (aqua "#009999")
-      (blue "#99cccc")
-      (purple "#cc99cc"))
+(let ((background "#002451")
+      (current-line "#00346e")
+      (selection "#003f8e")
+      (foreground "#ffffff")
+      (comment "#7285b7")
+      (cursor "#ffffff")
+      (red "#ff9da4")
+      (orange "#ffc58f")
+      (yellow "#ffeead")
+      (green "#d1f1a9")
+      (aqua "#99ffff")
+      (blue "#bbdaff")
+      (purple "#ebbbff"))
 
   (custom-theme-set-faces
-   'tomorrow-night-eighties
+   'tomorrow-night-blue
 
    ;; Built-in stuff (Emacs 23)
    `(default ((t (:background ,background :foreground ,foreground))))
@@ -63,10 +63,21 @@
 
    ;; show-paren-mode
    `(show-paren-match ((t (:background ,blue :foreground ,current-line))))
-   `(show-paren-mismatch ((t (:background ,orange :foreground ,current-line)))))
+   `(show-paren-mismatch ((t (:background ,orange :foreground ,current-line))))
+
+   ;; rainbow-delimiters
+   `(rainbow-delimiters-depth-1-face ((t (:foreground ,purple))))
+   `(rainbow-delimiters-depth-2-face ((t (:foreground ,blue))))
+   `(rainbow-delimiters-depth-3-face ((t (:foreground ,aqua))))
+   `(rainbow-delimiters-depth-4-face ((t (:foreground ,green))))
+   `(rainbow-delimiters-depth-5-face ((t (:foreground ,yellow))))
+   `(rainbow-delimiters-depth-6-face ((t (:foreground ,orange))))
+   `(rainbow-delimiters-depth-7-face ((t (:foreground ,red))))
+   `(rainbow-delimiters-depth-8-face ((t (:foreground ,comment))))
+   `(rainbow-delimiters-depth-9-face ((t (:foreground ,foreground)))))
 
   (custom-theme-set-variables
-   'tomorrow-night-eighties
+   'tomorrow-night-blue
 
    `(ansi-color-names-vector
      ;; black, red, green, yellow, blue, magenta, cyan, white
@@ -75,6 +86,6 @@
      ;; black, red, green, yellow, blue, magenta, cyan, white
      [unspecified ,background ,red ,green ,yellow ,blue ,purple ,blue ,foreground])))
 
-(provide-theme 'tomorrow-night-eighties)
+(provide-theme 'tomorrow-night-blue)
 
-;;; tomorrow-night-eighties-theme.el ends here
+;;; tomorrow-night-blue-theme.el ends here
