@@ -57,7 +57,6 @@
 (load-my-library "renn-maxframe")
 (load-my-library "renn-theme")
 (load-my-library "renn-shortcuts")
-(load-my-library "renn-calfw")
 
 (cd "~/")
 
