@@ -4,3 +4,9 @@
 [submodule "vendor/twittering-mode"]
 	path = vendor/twittering-mode
 	url = git://github.com/hayamiz/twittering-mode.git
+[submodule "vendor/coffee-mode"]
+	path = vendor/coffee-mode
+	url = git://github.com/defunkt/coffee-mode.git
+[submodule "vendor/js2-mode"]
+	path = vendor/js2-mode
+	url = git://github.com/mooz/js2-mode.git

@@ -52,6 +52,11 @@
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
+;; whitespace-mode
+(setq whitespace-action '(auto-cleanup))
+(setq whitespace-style '(trailing space-before-tab indentation empty space-after-tab))
+(global-whitespace-mode t)
+
 ;; auto reload opened file on buffer when file edited by outside of emacs...
 (global-auto-revert-mode t)
 
@@ -62,10 +67,10 @@
       '(("\\.mm?$" (".h"))
         ("\\.cc$"  (".hh" ".h"))
         ("\\.hh$"  (".cc" ".C"))
-        
+
         ("\\.c$"   (".h"))
         ("\\.h$"   (".c" ".cc" ".C" ".CC" ".cxx" ".cpp" ".m" ".mm"))
-        
+
         ("\\.C$"   (".H"  ".hh" ".h"))
         ("\\.H$"   (".C"  ".CC"))
 
