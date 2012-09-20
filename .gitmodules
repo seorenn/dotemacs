@@ -13,3 +13,6 @@
 [submodule "vendor/multi-web-mode"]
 	path = vendor/multi-web-mode
 	url = git://github.com/fgallina/multi-web-mode.git
+[submodule "vendor/scss-mode"]
+	path = vendor/scss-mode
+	url = git://github.com/antonj/scss-mode.git
