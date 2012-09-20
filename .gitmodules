@@ -10,3 +10,6 @@
 [submodule "vendor/js2-mode"]
 	path = vendor/js2-mode
 	url = git://github.com/mooz/js2-mode.git
+[submodule "vendor/multi-web-mode"]
+	path = vendor/multi-web-mode
+	url = git://github.com/fgallina/multi-web-mode.git
