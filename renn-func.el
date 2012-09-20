@@ -8,7 +8,7 @@
                                      (message "Load %s" dotemacs-default)
                                      (load-file dotemacs-default)
                                      )
-      (if (file-exists-p dotemacs-window) (progn 
+      (if (file-exists-p dotemacs-window) (progn
                                        (message "Load %s" dotemacs-window)
                                        (load-file dotemacs-window)
                                        )
@@ -211,7 +211,7 @@
         tmp-files))
      target-dirs)
     result))
-       
+
 (setq my-index-paths '("~/.emacs.d"
                        "~/Devel/apiserver"
                        "~/Dropbox/notes"))
@@ -238,7 +238,7 @@
       (write-region (point-min)
                     (point-max)
                     my-index-output-file))))
-      
+
 ;; (defun index-home-files ()
 ;;   "Index all files without some directory and file."
 ;;   (interactive)
@@ -295,7 +295,7 @@
        (message "Current line is copied.")
        (list (line-beginning-position) (line-beginning-position 2)) ) ) ))
 
-(defadvice kill-region (before slick-copy activate compile)
+(defadvice completion-kill-region (before slick-copy activate compile)
   "When called interactively with no active region, cut the current line."
   (interactive
    (if mark-active
