@@ -51,6 +51,7 @@
 (load-my-library "renn-magit")
 (load-my-library "renn-yasnippet")
 (load-my-library "renn-autocomplete")
+(load-my-library "renn-expand-region")
 (load-my-library "renn-org")
 (load-my-library "renn-markdown")
 (load-my-library "renn-zencoding")
