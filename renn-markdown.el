@@ -4,6 +4,7 @@
 (setq auto-mode-alist (cons '("\\.txt$" . markdown-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.md$" . markdown-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.mdown$" . markdown-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.markdown$" . markdown-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.mdwn$" . markdown-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.mdt$" . markdown-mode) auto-mode-alist))
 

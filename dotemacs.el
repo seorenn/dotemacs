@@ -55,6 +55,7 @@
 (load-my-library "renn-org")
 (load-my-library "renn-markdown")
 (load-my-library "renn-zencoding")
+(load-my-library "renn-speedbar")
 (load-my-library "renn-maxframe")
 (load-my-library "renn-theme")
 (load-my-library "renn-shortcuts")
