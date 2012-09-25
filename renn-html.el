@@ -3,6 +3,12 @@
             (set (make-local-variable 'sgml-basic-offset) 2)
             (sgml-guess-indent)))
 
+;;;; php-mode
+;; https://github.com/ejmr/php-mode
+
+(add-to-list 'load-path "~/.emacs.d/vendor/php-mode")
+(require 'php-mode)
+
 ;;;; multi-web-mode
 ;; https://github.com/fgallina/multi-web-mode
 

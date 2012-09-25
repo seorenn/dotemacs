@@ -19,3 +19,6 @@
 [submodule "vendor/expand-region"]
 	path = vendor/expand-region
 	url = git://github.com/magnars/expand-region.el.git
+[submodule "vendor/php-mode"]
+	path = vendor/php-mode
+	url = git://github.com/ejmr/php-mode.git
