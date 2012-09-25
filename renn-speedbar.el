@@ -1,3 +1,7 @@
+;; Shortcut
+
+(global-set-key (kbd "C-x p") 'speedbar)
+
 ;; Some file extensions for speedbar showing
 
 (speedbar-add-supported-extension ".php")
