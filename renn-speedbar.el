@@ -1,3 +1,7 @@
+;; Hidden
+
+(setq speedbar-directory-unshown-regexp "^\\(CVS\\|RCS\\|SCCS\\|\\.\\.*$\\)\\'")
+
 ;; Some file extensions for speedbar showing
 
 (speedbar-add-supported-extension ".c")
@@ -52,3 +56,5 @@
         (sr-speedbar-select-window))))
 
 (global-set-key (kbd "C-x p") 'my-speedbar)
+
+(provide 'renn-speedbar)
