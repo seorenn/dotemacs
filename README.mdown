@@ -1,7 +1,7 @@
 DotEmacs
 ========
 
-Here are Seorenn's emacs-configurations included many extensions.
+Seorenn's Emacs 24.x initialization scripts including many extensions.
 
 Usage
 -----
