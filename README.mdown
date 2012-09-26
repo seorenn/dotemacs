@@ -15,3 +15,7 @@ Usage
 (load-library "dotemacs")
 </pre>
 
+Submodules
+----------
+
+Must run <code>update_submodules.sh</code>.
