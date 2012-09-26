@@ -45,15 +45,18 @@
 
 (setq sr-speedbar-right-side nil)
 (setq sr-speedbar-auto-refresh t)
-(setq sr-speedbar-width-x 400)
+(setq sr-speedbar-width-x 30)
+(setq sr-speedbar-max-width 30)
+(setq sr-speedbar-width-console 30)
+(setq sr-speedbar-skip-other-window-p t)
 
 (defun my-speedbar ()
   "Toggle sr-speedbar and select"
   (interactive)
   (progn
-    (sr-speedbar-toggle)
-    (if (sr-speedbar-exist-p)
-        (sr-speedbar-select-window))))
+    (unless (sr-speedbar-exist-p)
+      (sr-speedbar-open))
+    (sr-speedbar-select-window)))
 
 (global-set-key (kbd "C-x p") 'my-speedbar)
 

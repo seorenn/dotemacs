@@ -30,6 +30,7 @@
 ;;(load-my-library "renn-lively")
 
 ;; load configurations :)
+(load-my-library "renn-gui")
 (load-my-library "renn-encoding")
 (load-my-library "renn-korean")
 (load-my-library "renn-common")
@@ -39,7 +40,6 @@
 (load-my-library "renn-ibuffer")
 (load-my-library "renn-uniquify")
 (load-my-library "renn-twitter")
-(load-my-library "renn-gui")
 (load-my-library "renn-ido")
 (load-my-library "renn-autoinstall")
 (load-my-library "renn-shell")
@@ -62,4 +62,5 @@
 
 (cd "~/")
 
+;; Default Start-up Mode
 (eshell)
