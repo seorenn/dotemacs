@@ -39,7 +39,6 @@
 (load-my-library "renn-autopair")
 (load-my-library "renn-ibuffer")
 (load-my-library "renn-uniquify")
-(load-my-library "renn-twitter")
 (load-my-library "renn-ido")
 (load-my-library "renn-autoinstall")
 (load-my-library "renn-shell")
