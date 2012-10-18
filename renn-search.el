@@ -16,16 +16,16 @@
       (beginning-of-thing 'word))
   (isearch-yank-word-or-char)
   ;; Revert to 'isearch-yank-word-or-char for subsequent calls
-  (substitute-key-definition 'my-isearch-yank-word-or-char-from-beginning 
-			     'isearch-yank-word-or-char
-			     isearch-mode-map))
+  (substitute-key-definition 'my-isearch-yank-word-or-char-from-beginning
+                             'isearch-yank-word-or-char
+                             isearch-mode-map))
 
 (add-hook 'isearch-mode-hook
  (lambda ()
    "Activate my customized Isearch word yank command."
-   (substitute-key-definition 'isearch-yank-word-or-char 
-			      'my-isearch-yank-word-or-char-from-beginning
-			      isearch-mode-map)))
+   (substitute-key-definition 'isearch-yank-word-or-char
+                              'my-isearch-yank-word-or-char-from-beginning
+                              isearch-mode-map)))
 
 ;;;; memory-and-search
 ;; memory current position and back to position
@@ -45,9 +45,5 @@
 (defun back-to-search-point ()
   (interactive)
   (bookmark-jump "search-point"))
-
-(global-set-key (kbd "C-s") 'memory-and-search)
-(global-set-key (kbd "C-r") 'memory-and-search-backward)
-(global-set-key (kbd "C--") 'back-to-search-point)
 
 (provide 'renn-search)

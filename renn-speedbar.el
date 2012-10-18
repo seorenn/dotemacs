@@ -58,6 +58,4 @@
       (sr-speedbar-open))
     (sr-speedbar-select-window)))
 
-(global-set-key (kbd "C-x p") 'my-speedbar)
-
 (provide 'renn-speedbar)

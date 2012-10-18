@@ -52,11 +52,15 @@
 (load-my-library "renn-autocomplete")
 (load-my-library "renn-expand-region")
 (load-my-library "renn-org")
+(load-my-library "renn-dired")
+(load-my-library "renn-jumpchar")
 (load-my-library "renn-markdown")
 (load-my-library "renn-zencoding")
 (load-my-library "renn-speedbar")
 (load-my-library "renn-maxframe")
 (load-my-library "renn-theme")
+
+;; LAST: reassign keymaps
 (load-my-library "renn-shortcuts")
 
 (cd "~/")

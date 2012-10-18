@@ -7,6 +7,3 @@
 ;; disable vc-git
 ;; ... not works! (T _ T)
 ;;(eval-after-load "vc" '(remove-hook 'find-file-hook 'vc-find-file-hook))
-
-(global-set-key (kbd "C-x G") 'magit-status)
-

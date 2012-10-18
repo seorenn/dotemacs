@@ -1,14 +1,5 @@
 (require 'ido)
 
-(global-set-key (kbd "C-x b") 'ido-switch-buffer)
-(global-set-key [(ctrl tab)] 'ido-switch-buffer)
-(global-set-key [(ctrl shift tab)] 'ido-switch-buffer)
-
-(add-hook 'ido-setup-hook
-          (lambda ()
-            (define-key ido-buffer-completion-map [(ctrl tab)] 'ido-next-match)
-            (define-key ido-buffer-completion-map [(ctrl shift tab)] 'ido-prev-match)))
-
 (setq ido-confirm-unique-completion t)
 (setq ido-enable-flex-matching t)
 ;;(setq ido-default-buffer-method 'samewindow)
@@ -30,7 +21,3 @@
 ; SMEX - Smart M-x Enhancer (require IDO)
 (require 'smex)
 (smex-initialize)
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-;; This is your old M-x.
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)

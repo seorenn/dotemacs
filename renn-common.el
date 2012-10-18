@@ -81,7 +81,3 @@
         ("\\.cpp$" (".hpp" ".hh" ".h"))
 
         ("\\.hpp$" (".cpp" ".c"))))
-
-(add-hook 'objc-mode-hook
-          (lambda ()
-            (define-key c-mode-base-map (kbd "C-c o") 'ff-find-other-file)))

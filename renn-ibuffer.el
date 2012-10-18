@@ -10,6 +10,4 @@
           (lambda ()
             (ibuffer-switch-to-saved-filter-groups "default")))
 
-(global-set-key (kbd "C-x C-b") 'ibuffer)
-
 (provide 'renn-ibuffer)

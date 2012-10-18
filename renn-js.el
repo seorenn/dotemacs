@@ -45,8 +45,8 @@
 
   (setq coffee-args-compile '("-c" "--bare"))
 
-  (define-key coffee-mode-map [(meta r)] 'coffee-compile-buffer)
-  (define-key coffee-mode-map [(meta R)] 'coffee-compile-region)
+  ;(define-key coffee-mode-map [(meta r)] 'coffee-compile-buffer)
+  ;(define-key coffee-mode-map [(meta R)] 'coffee-compile-region)
 
   ;(and (file-exists-p (buffer-file-name))
   ;     (file-exists-p (coffee-compiled-file-name))

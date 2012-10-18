@@ -13,6 +13,3 @@
   (if my-fullscreen-p
       (restore-frame)
     (maximize-frame)))
-
-(global-set-key (kbd "M-RET") 'my-toggle-fullscreen)
-

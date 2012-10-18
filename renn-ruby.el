@@ -11,5 +11,5 @@
             (set (make-local-variable 'indent-tabs-mode) nil)
             (set (make-local-variable 'tab-width) 2)
             (imenu-add-to-menubar "IMENU")
-            (define-key ruby-mode-map "\C-m" 'newline-and-indent)
+            ;(define-key ruby-mode-map "\C-m" 'newline-and-indent)
             ))

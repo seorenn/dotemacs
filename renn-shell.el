@@ -25,27 +25,18 @@
   (interactive)
   (ansi-term "/bin/bash"))
 
-(global-set-key (kbd "C-x t") 'sh)
-
 ;; eshell
 
-(defun m-eshell-hook ()
-  (define-key eshell-mode-map [(control p)] 'eshell-previous-matching-input-from-input)
-  (define-key eshell-mode-map [(control n)] 'eshell-next-matching-input-from-input)
-  (define-key eshell-mode-map [up] 'previous-line)
-  (define-key eshell-mode-map [down] 'next-line))
-
-(add-hook 'eshell-mode-hook 'm-eshell-hook)
- (defun eshell/vi (&rest args)
-      "Invoke `find-file' on the file.
+(defun eshell/vi (&rest args)
+  "Invoke `find-file' on the file.
     \"vi +42 foo\" also goes to line 42 in the buffer."
-      (while args
-        (if (string-match "\\`\\+\\([0-9]+\\)\\'" (car args))
-            (let* ((line (string-to-number (match-string 1 (pop args))))
-                   (file (pop args)))
-              (find-file file)
-              (goto-line line))
-          (find-file (pop args)))))
+  (while args
+    (if (string-match "\\`\\+\\([0-9]+\\)\\'" (car args))
+        (let* ((line (string-to-number (match-string 1 (pop args))))
+               (file (pop args)))
+          (find-file file)
+          (goto-line line))
+      (find-file (pop args)))))
 
 ; eshell path with bash
 (add-hook 'eshell-mode-hook

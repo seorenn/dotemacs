@@ -15,6 +15,4 @@
 (setq grep-command (cons (concat grep-command-before-query " .")
                          (+ (length grep-command-before-query) 1)))
 
-(define-key global-map (kbd "C-x g") 'grep)
-
 (provide 'renn-grep)
