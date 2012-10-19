@@ -7,7 +7,8 @@
 
 (setq org-directory "~/Dropbox/notes")
 (setq org-agenda-files (list "~/Dropbox/notes/todo.org"
-                             "~/Dropbox/notes/worktodo.org"))
+                             "~/Dropbox/notes/worktodo.org"
+                             "~/Dropbox/notes/sapzillatodo.org"))
 
 (setq org-startup-truncated t)
 

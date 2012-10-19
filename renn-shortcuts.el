@@ -1,3 +1,25 @@
+;;;; Cursor Movement
+
+;; C-f / C-b: forward-char / backward-char
+;; M-f / M-b: forward-word / backward-word
+;; C-M-f / C-M-b: forward-sexp / backward-sexp
+
+;; M-} / M-{: forward-paragraph / backward-paragraph
+
+;; C-a / C-e: beginning-of-line / end-of-line
+;; M-a / M-e: backward-sentence / forward-sentence
+;; C-M-a / C-M-e: beginning-of-defun / end-of-defun
+
+;; M-< / M->: beginning-of-buffer / end-of-buffer
+
+;; C-n / C-p: next-line / previous-line
+
+;; C-v / M-v: scroll-up / scroll-down
+
+;;;; Universial Argument
+
+;; C-u [COUNT] [KEY-COMMAND]: run KEY-COMMAND to COUNT times
+
 (global-set-key (kbd "C->") 'other-window)
 (global-set-key (kbd "C-<") 'other-window-reverse) ; in renn-func.el
 ;; (global-set-key (kbd "C-S-O") 'find-file-at-point)
@@ -82,7 +104,7 @@
 
 ;; from renn-org.el
 (define-key global-map "\C-cl" 'org-store-link)
-(define-key global-map "\C-ca" 'org-agenda)
+(define-key global-map "\C-xa" 'org-agenda)
 (add-hook 'org-load-hook
           (lambda ()
             (define-key org-mode-map "\C-co" 'renn-open-url)))
