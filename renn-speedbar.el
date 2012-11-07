@@ -38,13 +38,19 @@
 (speedbar-add-supported-extension ".coffee")
 (speedbar-add-supported-extension ".scss")
 
+(speedbar-add-supported-extension ".wsgi")
+
+;; etc
+
+(setq speedbar-use-images nil)
+
 ;;;; sr-speedbar.el
 ;; http://www.emacswiki.org/emacs/SrSpeedbar
 
 (require 'sr-speedbar)
 
 (setq sr-speedbar-right-side nil)
-(setq sr-speedbar-auto-refresh t)
+(setq sr-speedbar-auto-refresh nil)
 (setq sr-speedbar-width-x 30)
 (setq sr-speedbar-max-width 30)
 (setq sr-speedbar-width-console 30)
