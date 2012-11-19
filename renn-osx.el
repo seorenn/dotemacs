@@ -34,6 +34,7 @@
 
   ;(set-face-font 'default "Menlo-12")
   (set-face-font 'default "Monaco-12")
+  (set-face-attribute 'default nil :family "Monaco" :height 120 :weight 'bold)
 
   ;; Korean Unicode SPEC.
   ;; EUC-KR(cp949)은 조잡한 미완성 한글 스펙입니다.
@@ -46,6 +47,8 @@
   ;; Unicode User Area
   (set-fontset-font "fontset-default" '(#xe0bc . #xf66e)
                     '("NanumGothic" . "iso10646-1"))
+
+  (set-fontset-font t 'hangul (font-spec :name "NanumGothic"))
 
   ;; Japanese & Chinese
   ;; I don't know Chinese. So configured all type of Chinese/Kanji/Han to Japanese Font Spec

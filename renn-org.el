@@ -1,4 +1,6 @@
-(require 'org-install)
+;; The file org-install is obsolete in Emacs 24.x
+;;(require 'org-install)
+(require 'org)
 
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 (add-to-list 'auto-mode-alist '("\\.todo$" . org-mode))
