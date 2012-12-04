@@ -16,25 +16,19 @@
 (setq inhibit-startup-echo-area-message t)
 
 (unless (eq window-system nil)
-  ;; Aquamacs specific options ---------
-  ;; (aquamacs-autoface-mode nil)
-  ;; (tabbar-mode nil)
-  ;; (one-buffer-one-frame-mode 0)
+  ;; Enable Anti-Aliases
+  ;(setq mac-allow-anti-aliasing t)
+  ;(setq ns-antialias-text t)
 
-  ;; Font Set -----------
-  ;; Hint) 1. Select font by Menu [Options - Set Default Font] - (select you wanted)
-  ;;       2. Move point to some character, then press C-u C-x =
-  ;;          (or command M-x what-cursor-position)
-  ;;       3. Emasc will display font-spec in splited window (buffer named *Help*)
-  ;;
-  ;; Tools) M-x anything-select-xfont will listing fonts list, but not all. :(
-
-  ;; 의미없는 설정인 듯...
-  ;; (add-to-list 'default-frame-alist '(font . "fontset-default"))
+  ;; Main Font Face
+  ;(set-face-font 'default "Monaco-12")
+  (set-face-attribute 'default nil :font "Monaco" :height 120)
+  ;(set-face-font 'default "Monaco-12")
 
   ;(set-face-font 'default "Menlo-12")
-  (set-face-font 'default "Monaco-12")
-  (set-face-attribute 'default nil :family "Monaco" :height 120 :weight 'bold)
+  ;(set-face-attribute 'default nil :font "Menlo-12")
+  ;(set-face-attribute 'default nil :family "Menlo" :height 120)
+  ;(setq-default line-spacing 2)
 
   ;; Korean Unicode SPEC.
   ;; EUC-KR(cp949)은 조잡한 미완성 한글 스펙입니다.
@@ -67,8 +61,8 @@
   (set-fontset-font "fontset-default" 'katakana-jisx0201
                     '("Hiragino Kaku Gothic Pro" . "iso10646-1"))
 
-  (setq fixed-width-use-QuickDraw-for-ascii t) ; is need this? ;)
-  (setq mac-allow-anti-aliasing t)             ; OK! I hate bitmap font
+  ;(setq fixed-width-use-QuickDraw-for-ascii t) ; is need this? ;)
+  ;(setq mac-allow-anti-aliasing t)             ; OK! I hate bitmap font
 
   ;; Options for scales each font
   ;; 각 폰트 사이의 크기를 기준폰트(default-font) 배수로 설정
