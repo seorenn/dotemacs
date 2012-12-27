@@ -22,13 +22,13 @@
 
   ;; Main Font Face
   ;(set-face-font 'default "Monaco-12")
-  (set-face-attribute 'default nil :font "Monaco" :height 120)
+  ;(set-face-attribute 'default nil :font "Monaco" :height 120)
   ;(set-face-font 'default "Monaco-12")
 
-  ;(set-face-font 'default "Menlo-12")
+  (set-face-font 'default "Menlo-12")
   ;(set-face-attribute 'default nil :font "Menlo-12")
   ;(set-face-attribute 'default nil :family "Menlo" :height 120)
-  ;(setq-default line-spacing 2)
+  (setq-default line-spacing 2)
 
   ;; Korean Unicode SPEC.
   ;; EUC-KR(cp949)은 조잡한 미완성 한글 스펙입니다.

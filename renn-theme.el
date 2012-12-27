@@ -6,7 +6,8 @@
 
 ;;(if window-system
 ;;    (require 'tomorrow-night-bright-theme))
-(require 'tomorrow-night-bright-theme)
+;(require 'tomorrow-night-bright-theme)
+(require 'solarized-light-theme)
 
 (require 'face-list)
 ;; M-x list-faces-display

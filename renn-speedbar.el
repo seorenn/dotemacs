@@ -1,3 +1,5 @@
+(require 'speedbar)
+
 ;; Hidden
 
 (setq speedbar-directory-unshown-regexp "^\\(CVS\\|RCS\\|SCCS\\|\\.\\.*$\\)\\'")
