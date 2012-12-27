@@ -36,13 +36,13 @@
 
   ;; 나눔고딕(네이버 나눔글꼴 패키지)을 기본 한글 서체로 사용.
   (set-fontset-font "fontset-default" '(#x1100 . #xffdc)
-                    '("NanumGothic" . "iso10646-1"))
+                    '("Apple SD Gothic Neo" . "iso10646-1"))
 
   ;; Unicode User Area
   (set-fontset-font "fontset-default" '(#xe0bc . #xf66e)
-                    '("NanumGothic" . "iso10646-1"))
+                    '("Apple SD Gothic Neo" . "iso10646-1"))
 
-  (set-fontset-font t 'hangul (font-spec :name "NanumGothic"))
+  (set-fontset-font t 'hangul (font-spec :name "Apple SD Gothic Neo"))
 
   ;; Japanese & Chinese
   ;; I don't know Chinese. So configured all type of Chinese/Kanji/Han to Japanese Font Spec
@@ -68,7 +68,7 @@
   ;; 각 폰트 사이의 크기를 기준폰트(default-font) 배수로 설정
   (setq face-font-rescale-alist
         '((".*hiragino.*" . 1.2)
-          (".*nanum.*" . 1.3))))
+          (".*sd.*gothic.*" . 1.4))))
 
 ;; Copy/Paste Integration for Emacs in Terminal
 
