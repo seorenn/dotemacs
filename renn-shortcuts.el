@@ -25,8 +25,6 @@
 ;; (global-set-key (kbd "C-S-O") 'find-file-at-point)
 (global-set-key (kbd "C-S-O") 'renn-open-url)
 (global-set-key (kbd "M-\?") 'apropos)
-;; original C-z was bind suspend-emacs, but i don't need that.
-(global-set-key (kbd "C-z") 'undo)
 
 ;; move window using meta-arrow
 (windmove-default-keybindings 'meta)
@@ -37,6 +35,8 @@
 
 ;; UNDO
 (global-set-key (kbd "C-_") 'undo)
+;;;; original C-z was bind suspend-emacs, but i don't need that.
+(global-set-key (kbd "C-z") 'undo)
 
 ;; goto match paren
 (global-set-key (kbd "C-%") 'goto-match-paren)
