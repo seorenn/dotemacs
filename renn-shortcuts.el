@@ -58,7 +58,7 @@
             (define-key c-mode-base-map (kbd "C-c o") 'ff-find-other-file)))
 
 ;; from renn-expand-region.el
-(global-set-key (kbd "C-@") 'er/expand-region)
+;(global-set-key (kbd "C-@") 'er/expand-region)
 
 ;; from renn-grep.el
 (define-key global-map (kbd "C-x g") 'grep)
