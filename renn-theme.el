@@ -4,12 +4,6 @@
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
 
-;; solarized-emacs
-(add-to-list 'load-path "~/.emacs.d/vendor/solarized-emacs")
-(add-to-list 'custom-theme-load-path "~/.emacs.d/vendor/solarized-emacs")
-(require 'solarized)
-(require 'solarized-dark-theme)
-
 ;;(load "term/xterm")
 
 ;; (defun my-solarized-term-theme ()
@@ -24,9 +18,16 @@
 ;;(if window-system
 ;;    (require 'tomorrow-night-bright-theme))
 ;(require 'tomorrow-night-bright-theme)
+
 ;; (if window-system
 ;;     (require 'solarized-light-theme)
-;;   ;(require 'solarized-dark-theme))
+;;   (require 'solarized-dark-theme))
+
+(load-theme 'solarized-dark t)
+;(require 'solarized-definitions)
+;(if window-system
+;    (require 'solarized-dark-theme)
+;  (load-theme 'solarized-dark t))
 ;;   ;(load-theme 'solarized-dark t))
 ;;   (my-solarized-term-theme))
 
