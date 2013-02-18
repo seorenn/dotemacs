@@ -26,9 +26,6 @@
 (global-set-key (kbd "C-S-O") 'renn-open-url)
 (global-set-key (kbd "M-\?") 'apropos)
 
-;; move window using meta-arrow
-(windmove-default-keybindings 'meta)
-
 (define-key global-map (kbd "RET") 'newline-and-indent)
 
 (global-set-key (kbd "C-S-T") 'open-google-translate)
@@ -92,6 +89,12 @@
 (global-set-key (kbd "<Hangul>") 'toggle-input-method)
 (global-set-key (kbd "<Hangul_Hanja>") 'hangul-to-hanja-conversion)
 
+;; from renn-python.el
+(defun python-custom-key ()
+  "Customization for python.el mode"
+  (define-key python-mode-map (kbd "C-c C-c") 'python-shell-send-buffer-and-switch))
+(add-hook 'python-mode-hook 'python-custom-key)
+
 ;; from renn-magit.el
 (global-set-key (kbd "C-x G") 'magit-status)
 
@@ -132,6 +135,13 @@
   (define-key eshell-mode-map [up] 'previous-line)
   (define-key eshell-mode-map [down] 'next-line))
 (add-hook 'eshell-mode-hook 'm-eshell-hook)
+
+;; move window using meta-arrow
+(windmove-default-keybindings 'meta)
+(global-set-key (kbd "C-M-<up>") 'windmove-up)
+(global-set-key (kbd "C-M-<down>") 'windmove-down)
+(global-set-key (kbd "C-M-<left>") 'windmove-left)
+(global-set-key (kbd "C-M-<right>") 'windmove-right)
 
 ;; from renn-speedbar.el
 (global-set-key (kbd "C-x p") 'my-speedbar)

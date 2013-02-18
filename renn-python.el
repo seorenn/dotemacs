@@ -51,3 +51,25 @@
 ;; (setq ansi-color-for-comint-mode t)
 ;(setq py-python-command-args '("-colors" "NoColor"))
 ;(require 'ipython)
+
+;; With auto-complete
+(defvar ac-source-python
+  '((candidates .
+                (lambda ()
+                  (mapcar '(lambda (completion)
+                             (first (last (split-string completion "\\." t))))
+                          (python-symbol-completions (python-partial-symbol)))))))
+
+(add-hook 'python-mode-hook
+          (lambda () (setq ac-sources '(ac-source-python))))
+
+;;;; Python Shell Configurations for builtin python.el
+
+(setq python-shell-buffer-name "PYTHON SHELL")
+
+;; send buffer and switch to python shell buffer
+;; this function will be used from renn-shortcuts.el
+(defun python-shell-send-buffer-and-switch ()
+  (interactive)
+  (python-shell-send-buffer 4)
+  (python-shell-switch-to-shell))
