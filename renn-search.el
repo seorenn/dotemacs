@@ -27,6 +27,12 @@
                               'my-isearch-yank-word-or-char-from-beginning
                               isearch-mode-map)))
 
+;; auto-highlight-symbol-mode
+; https://github.com/mitsuo-saito/auto-highlight-symbol-mode
+(add-to-list 'load-path "~/.emacs.d/vendor/auto-highlight-symbol-mode")
+(require 'auto-highlight-symbol)
+(global-auto-highlight-symbol-mode t)
+
 ;;;; memory-and-search
 ;; memory current position and back to position
 

@@ -121,6 +121,8 @@
 (global-set-key (kbd "C-s") 'memory-and-search)
 (global-set-key (kbd "C-r") 'memory-and-search-backward)
 (global-set-key (kbd "C--") 'back-to-search-point)
+(global-set-key (kbd "C-*") 'ahs-forward)
+(global-set-key (kbd "M-*") 'ahs-backward)
 
 ;; from renn-shell.el
 (global-set-key (kbd "C-x t") 'sh)
