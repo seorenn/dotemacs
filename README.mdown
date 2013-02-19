@@ -1,7 +1,7 @@
-DotEmacs
-========
+Seorenn DotEmacs
+================
 
-Seorenn's Emacs 24.x initialization scripts including many extensions.
+Seorenn's Emacs 24.x initialization scripts that include many extensions. ;-)
 
 Usage
 -----
@@ -18,25 +18,32 @@ Usage
 Submodules
 ----------
 
-## First, Install Submodules
+### Install Submodules
 
-<code>git submodule init</code>
+<pre>
+git submodule init
+git submodule update
+</pre>
 
-<code>git submodule update</code>
-
-## How to update submodules recently
+### Update Submodules
 
 Run <code>update_submodules.sh</code> script. It will be pull all submodules from original repositories, then checkout master branch.
 
-Installation More Steps for 3rd Party Modules
----------------------------------------------
+More Steps for 3rd Party Modules
+--------------------------------
 
-## Pymacs (for OS X or *NIX)
+### Pymacs (for OS X or *NIX)
 
-* <code>cd vendor/pymacs</code>
-* <code>make</code>
-* <code>make install</code>
+<pre>
+cd vendor/pymacs
+make
+code>make install
+</pre>
 
-## Ropemacs
+### Ropemacs
 
-<code>pip install ropemacs</code>
+You can install rope and ropemacs using pip.
+
+<pre>
+pip install ropemacs
+</pre>
