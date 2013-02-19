@@ -28,3 +28,6 @@
 [submodule "vendor/pymacs"]
 	path = vendor/pymacs
 	url = git://github.com/pinard/Pymacs.git
+[submodule "vendor/yasnippet"]
+	path = vendor/yasnippet
+	url = git://github.com/capitaomorte/yasnippet.git
