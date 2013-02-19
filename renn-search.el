@@ -27,11 +27,26 @@
                               'my-isearch-yank-word-or-char-from-beginning
                               isearch-mode-map)))
 
-;; auto-highlight-symbol-mode
-; https://github.com/mitsuo-saito/auto-highlight-symbol-mode
-(add-to-list 'load-path "~/.emacs.d/vendor/auto-highlight-symbol-mode")
-(require 'auto-highlight-symbol)
-(global-auto-highlight-symbol-mode t)
+
+;;;; Search current curror word
+;; http://www.emacswiki.org/emacs/SearchAtPoint
+;; (extension) http://nschum.de/src/emacs/highlight-symbol/
+
+(load-library "highlight-symbol")
+
+(defun hl-symbol-and-jump ()
+  (interactive)
+  (let ((symbol (highlight-symbol-get-symbol)))
+    (unless symbol (error "No symbol at point"))
+    (unless hi-lock-mode (hi-lock-mode 1))
+    (if (member symbol highlight-symbol-list)
+        (highlight-symbol-next)
+      (highlight-symbol-at-point)
+      (highlight-symbol-next))))
+(defun hl-symbol-cleanup ()
+  (interactive)
+  (mapc 'hi-lock-unface-buffer highlight-symbol-list)
+  (setq highlight-symbol-list ()))
 
 ;;;; memory-and-search
 ;; memory current position and back to position
