@@ -6,6 +6,11 @@
 ;(add-to-list 'interpreter-mode-alist '("python" . python-mode))
 
 ;; Pymacs + Ropemode
+(add-to-list 'load-path "~/.emacs.d/vendor/pymacs")
+(require 'pymacs)
+(pymacs-load "ropemacs" "rope-")
+(setq ropemacs-enable-autoimport t)
+
 ;; (autoload 'pymacs-apply "pymacs")
 ;; (autoload 'pymacs-call "pymacs")
 ;; (autoload 'pymacs-eval "pymacs" nil t)

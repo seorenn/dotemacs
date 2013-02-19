@@ -18,4 +18,25 @@ Usage
 Submodules
 ----------
 
-Must run <code>update_submodules.sh</code>.
+## First, Install Submodules
+
+<code>git submodule init</code>
+
+<code>git submodule update</code>
+
+## How to update submodules recently
+
+Run <code>update_submodules.sh</code> script. It will be pull all submodules from original repositories, then checkout master branch.
+
+Installation More Steps for 3rd Party Modules
+---------------------------------------------
+
+## Pymacs (for OS X or *NIX)
+
+* <code>cd vendor/pymacs</code>
+* <code>make</code>
+* <code>make install</code>
+
+## Ropemacs
+
+<code>pip install ropemacs</code>

@@ -25,3 +25,6 @@
 [submodule "vendor/emacs-git-gutter"]
 	path = vendor/emacs-git-gutter
 	url = git://github.com/syohex/emacs-git-gutter.git
+[submodule "vendor/pymacs"]
+	path = vendor/pymacs
+	url = git://github.com/pinard/Pymacs.git
