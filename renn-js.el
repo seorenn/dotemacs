@@ -1,7 +1,6 @@
 ;;;; Configurations for JavaScript Editing ;;;;
 ;;;; with js2-mode
 
-(add-to-list 'load-path "~/.emacs.d/vendor/js2-mode")
 (autoload 'js2-mode "js2-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
@@ -33,7 +32,6 @@
 ;;;; Configurations for Coffee-Script ;;;;
 ;;https://github.com/defunkt/coffee-mode
 
-(add-to-list 'load-path "~/.emacs.d/vendor/coffee-mode")
 (require 'coffee-mode)
 (add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
 (add-to-list 'auto-mode-alist '("Cakefile" . coffee-mode))

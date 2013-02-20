@@ -6,13 +6,11 @@
 ;;;; php-mode
 ;; https://github.com/ejmr/php-mode
 
-(add-to-list 'load-path "~/.emacs.d/vendor/php-mode")
 (require 'php-mode)
 
 ;;;; multi-web-mode
 ;; https://github.com/fgallina/multi-web-mode
 
-(add-to-list 'load-path "~/.emacs.d/vendor/multi-web-mode")
 (require 'multi-web-mode)
 (setq mweb-default-major-mode 'html-mode)
 (setq mweb-tags '((php-mode "<\\?php\\|<\\? \\|<\\?=" "\\?>")
@@ -24,7 +22,6 @@
 ;;;; scss-mode
 ;; https://github.com/antonj/scss-mode
 
-(add-to-list 'load-path "~/.emacs.d/vendor/scss-mode")
 (autoload 'scss-mode "scss-mode")
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
 (defun scss-custom ()

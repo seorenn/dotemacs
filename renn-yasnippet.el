@@ -1,7 +1,6 @@
-(add-to-list 'load-path "~/.emacs.d/vendor/yasnippet")
-
 (require 'yasnippet)
-(setq yas-snippet-dirs '("~/.emacs.d/vendor/yasnippet/snippets" "~/.emacs.d/snippets"))
+;(setq yas/snippet-dirs '(list "~/.emacs.d/snippets" yas/snippet-dirs))
+(yas-load-directory "~/.emacs.d/snippets")
 (yas-global-mode 1)
 
 ;;;; for nxhtml-mode
