@@ -39,7 +39,7 @@ More Steps for 3rd Party Modules
 <pre>
 cd vendor/pymacs
 make
-code>make install
+make install
 </pre>
 
 ### Ropemacs

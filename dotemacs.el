@@ -15,6 +15,12 @@
  ((eq system-type 'windows-nt) (load-library "renn-win32"))
  ((eq system-type 'gnu/linux) (load-library "renn-linux")))
 
+;; ELPA and MELPA for Emacs 24.x
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(package-initialize)
+(setq url-http-attempt-keepalives nil)
+
 ;; load default functions
 (load-library "renn-func")
 
