@@ -31,9 +31,3 @@
 [submodule "vendor/yasnippet"]
 	path = vendor/yasnippet
 	url = git://github.com/capitaomorte/yasnippet.git
-[submodule "vendor/auto-complete"]
-	path = vendor/auto-complete
-	url = https://github.com/auto-complete/auto-complete
-[submodule "vendor/popup-el"]
-	path = vendor/popup-el
-	url = https://github.com/auto-complete/popup-el
