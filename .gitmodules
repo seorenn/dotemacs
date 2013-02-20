@@ -1,33 +1,3 @@
-[submodule "vendor/magit"]
-	path = vendor/magit
-	url = https://github.com/magit/magit.git
-[submodule "vendor/coffee-mode"]
-	path = vendor/coffee-mode
-	url = git://github.com/defunkt/coffee-mode.git
-[submodule "vendor/js2-mode"]
-	path = vendor/js2-mode
-	url = git://github.com/mooz/js2-mode.git
-[submodule "vendor/multi-web-mode"]
-	path = vendor/multi-web-mode
-	url = git://github.com/fgallina/multi-web-mode.git
-[submodule "vendor/scss-mode"]
-	path = vendor/scss-mode
-	url = git://github.com/antonj/scss-mode.git
-[submodule "vendor/expand-region"]
-	path = vendor/expand-region
-	url = git://github.com/magnars/expand-region.el.git
-[submodule "vendor/php-mode"]
-	path = vendor/php-mode
-	url = git://github.com/ejmr/php-mode.git
-[submodule "vendor/jump-char"]
-	path = vendor/jump-char
-	url = git://github.com/lewang/jump-char.git
-[submodule "vendor/emacs-git-gutter"]
-	path = vendor/emacs-git-gutter
-	url = git://github.com/syohex/emacs-git-gutter.git
 [submodule "vendor/pymacs"]
 	path = vendor/pymacs
 	url = git://github.com/pinard/Pymacs.git
-[submodule "vendor/yasnippet"]
-	path = vendor/yasnippet
-	url = git://github.com/capitaomorte/yasnippet.git
