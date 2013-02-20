@@ -112,23 +112,28 @@
           (lambda ()
             (define-key org-mode-map "\C-co" 'renn-open-url)))
 
-;; from renn-recentf.el
+;;;; from renn-recentf.el
+
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
 
-;; from renn-ruby.el
+;;;; from renn-ruby.el
+
 (add-hook 'ruby-mode-hook
           (lambda ()
             (define-key ruby-mode-map "\C-m" 'newline-and-indent)))
 
-;; from renn-search.el
+;;;; from renn-search.el
+
 (global-set-key (kbd "C-s") 'memory-and-search)
 (global-set-key (kbd "C-r") 'memory-and-search-backward)
 (global-set-key (kbd "C--") 'back-to-search-point)
-(global-set-key (kbd "C-*") 'hl-symbol-and-jump)
-(global-set-key (kbd "M-*") 'highlight-symbol-prev)
-(global-set-key (kbd "C-M-*") 'hl-symbol-cleanup)
 
-;; from renn-shell.el
+(global-set-key (kbd "C-*") 'sr-highlight-symbol-and-jump)
+(global-set-key (kbd "M-*") 'highlight-symbol-prev)
+(global-set-key (kbd "C-M-*") 'highlight-symbol-remove-all)
+
+;;;; from renn-shell.el
+
 (global-set-key (kbd "C-x t") 'sh)
 (defun m-eshell-hook ()
   (define-key eshell-mode-map [(control p)] 'eshell-previous-matching-input-from-input)
