@@ -46,6 +46,15 @@
       (highlight-symbol-at-point)
       (highlight-symbol-next))))
 
+(defun sr-highlight-symbol-and-jump-prev ()
+  (interactive)
+  (let ((symbol (highlight-symbol-get-symbol)))
+    (unless symbol (error "No symbol at point"))
+    (if (member symbol highlight-symbol-list)
+        (highlight-symbol-next)
+      (highlight-symbol-at-point)
+      (highlight-symbol-prev))))
+
 ;;;; memory-and-search
 ;; memory current position and back to position
 
