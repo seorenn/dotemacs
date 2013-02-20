@@ -29,6 +29,8 @@ git submodule update
 
 Run <code>update_submodules.sh</code> script. It will be pull all submodules from original repositories, then checkout master branch.
 
+NOTE: This script was tested on OS X Mountain Lion and Homebrew environment.
+
 More Steps for 3rd Party Modules
 --------------------------------
 
