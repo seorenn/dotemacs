@@ -15,22 +15,6 @@ Usage
 (load-library "dotemacs")
 </pre>
 
-Submodules
-----------
-
-### Install Submodules
-
-<pre>
-git submodule init
-git submodule update
-</pre>
-
-### Update Submodules
-
-Run <code>update_submodules.sh</code> script. It will be pull all submodules from original repositories, then checkout master branch.
-
-NOTE: This script was tested on OS X Mountain Lion and Homebrew environment.
-
 More Steps for 3rd Party Modules
 --------------------------------
 
