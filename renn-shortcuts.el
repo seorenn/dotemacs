@@ -142,12 +142,19 @@
   (define-key eshell-mode-map [down] 'next-line))
 (add-hook 'eshell-mode-hook 'm-eshell-hook)
 
-;; move window using meta-arrow
+;;;; move window using meta-arrow
+
 (windmove-default-keybindings 'meta)
 (global-set-key (kbd "C-M-<up>") 'windmove-up)
 (global-set-key (kbd "C-M-<down>") 'windmove-down)
 (global-set-key (kbd "C-M-<left>") 'windmove-left)
 (global-set-key (kbd "C-M-<right>") 'windmove-right)
 
-;; from renn-speedbar.el
-(global-set-key (kbd "C-x p") 'my-speedbar)
+;;;; from renn-speedbar.el
+
+;(global-set-key (kbd "C-x p") 'my-speedbar)
+
+;;;; Helm
+
+(global-set-key (kbd "M-t") 'helm-for-files)
+(global-set-key (kbd "C-x p") 'helm-projectile)

@@ -15,8 +15,9 @@
  ((eq system-type 'windows-nt) (load-library "renn-win32"))
  ((eq system-type 'gnu/linux) (load-library "renn-linux")))
 
-;; ELPA and MELPA for Emacs 24.x
+;; ELPA and MELPA, Marmalade for Emacs 24.x
 (require 'package)
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 (setq url-http-attempt-keepalives nil)
@@ -65,11 +66,14 @@
 (load-my-library "renn-speedbar")
 (load-my-library "renn-maxframe")
 (load-my-library "renn-theme")
+(load-my-library "renn-helm")
+(load-my-library "renn-projectile")
 
 ;; LAST: reassign keymaps
 (load-my-library "renn-shortcuts")
 
 (cd "~/")
 
-;; Default Start-up Mode
+;;;; Start with EShell!
+
 (eshell)
