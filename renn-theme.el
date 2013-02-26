@@ -1,8 +1,11 @@
 ;(require 'facemenu+)
 
 ;; with Emacs 24
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-(add-to-list 'load-path "~/.emacs.d/themes")
+(color-theme-sanityinc-tomorrow-bright)
+
+;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+;(add-to-list 'load-path "~/.emacs.d/themes")
+
 
 ;;(load "term/xterm")
 
@@ -23,7 +26,7 @@
 ;;     (require 'solarized-light-theme)
 ;;   (require 'solarized-dark-theme))
 
-(load-theme 'solarized-dark t)
+;(load-theme 'solarized-dark t)
 ;(require 'solarized-definitions)
 ;(if window-system
 ;    (require 'solarized-dark-theme)

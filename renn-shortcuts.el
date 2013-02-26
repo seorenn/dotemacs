@@ -156,5 +156,6 @@
 
 ;;;; Helm
 
-(global-set-key (kbd "M-t") 'helm-for-files)
+;(global-set-key (kbd "M-t") 'helm-for-files)
+(global-set-key (kbd "M-t") 'helm-mini)
 (global-set-key (kbd "C-x p") 'helm-projectile)
