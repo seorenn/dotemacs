@@ -1,8 +1,10 @@
-(add-to-list 'load-path "~/.emacs.d/vendor")
-
 (require 'autopair)
+
 ;;(autopair-global-mode 1)
-(defun turn-on-autopair () (autopair-mode 1))
+
+(defun turn-on-autopair ()
+  (autopair-mode 1))
+
 (add-hook 'lisp-mode-hook 'turn-on-autopair)
 (add-hook 'emacs-lisp-mode-hook 'turn-on-autopair)
 (add-hook 'c-mode-hook 'turn-on-autopair)

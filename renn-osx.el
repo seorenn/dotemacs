@@ -16,53 +16,68 @@
 (setq inhibit-startup-echo-area-message t)
 
 (unless (eq window-system nil)
-  ;; Enable Anti-Aliases
-  ;(setq mac-allow-anti-aliasing t)
-  ;(setq ns-antialias-text t)
+  ;; OS X Specific Font Options
+  (setq fixed-width-use-QuickDraw-for-ascii t)
+  (setq mac-allow-anti-aliasing t)
 
   ;; Main Font Face
   ;(set-face-font 'default "Monaco-12")
-  ;(set-face-attribute 'default nil :font "Monaco" :height 120)
-  ;(set-face-font 'default "Monaco-12")
+  ;(set-face-font 'default "Menlo-12")
+  (set-face-attribute 'default nil
+                      :family "Monaco"
+                      :height 120)
 
-  (set-face-font 'default "Menlo-12")
-  ;(set-face-attribute 'default nil :font "Menlo-12")
-  ;(set-face-attribute 'default nil :family "Menlo" :height 120)
-  (setq-default line-spacing 2)
+  (setq-default line-spacing 1)
 
   ;; Korean Unicode SPEC.
   ;; EUC-KR(cp949)은 조잡한 미완성 한글 스펙입니다.
   ;; 쓰지맙시다. 윈도우를 죽입시다. 나쁜 윈도우!
 
   ;; 나눔고딕(네이버 나눔글꼴 패키지)을 기본 한글 서체로 사용.
-  (set-fontset-font "fontset-default" '(#x1100 . #xffdc)
+  (set-fontset-font (frame-parameter nil 'font)
+                    '(#x1100 . #xffdc)
                     '("Apple SD Gothic Neo" . "iso10646-1"))
 
   ;; Unicode User Area
-  (set-fontset-font "fontset-default" '(#xe0bc . #xf66e)
-                    '("Apple SD Gothic Neo" . "iso10646-1"))
+  ;; (set-fontset-font (frame-parameter nil 'font)
+  ;;                   '(#xe0bc . #xf66e)
+  ;;                   '("Apple SD Gothic Neo" . "iso10646-1"))
 
-  (set-fontset-font t 'hangul (font-spec :name "Apple SD Gothic Neo"))
+  ;(set-fontset-font t 'hangul (font-spec :name "Apple SD Gothic Neo"))
+  (set-fontset-font (frame-parameter nil 'font)
+                    'hangul
+                    '("Apple SD Gothic Neo" . "iso10646-1"))
 
   ;; Japanese & Chinese
   ;; I don't know Chinese. So configured all type of Chinese/Kanji/Han to Japanese Font Spec
   ;; 일본어나 특수 한자를 쓰지 않는다면 이 설정은 의미 없을지도 모른답니다. ;)
-  (set-fontset-font "fontset-default" 'kana
+  (set-fontset-font (frame-parameter nil 'font)
+                    'latin-jisx0201
                     '("Hiragino Kaku Gothic Pro" . "iso10646-1"))
-  (set-fontset-font "fontset-default" 'han
+  (set-fontset-font (frame-parameter nil 'font)
+                    'katakana-jisx0201
                     '("Hiragino Kaku Gothic Pro" . "iso10646-1"))
-  (set-fontset-font "fontset-default" 'japanese-jisx0208
+  (set-fontset-font (frame-parameter nil 'font)
+                    'japanese-jisx0208-1978
                     '("Hiragino Kaku Gothic Pro" . "iso10646-1"))
-  (set-fontset-font "fontset-default" 'japanese-jisx0213.2004-1
+  (set-fontset-font (frame-parameter nil 'font)
+                    'japanese-jisx0208
                     '("Hiragino Kaku Gothic Pro" . "iso10646-1"))
-  (set-fontset-font "fontset-default" 'japanese-jisx0213-2
+  (set-fontset-font (frame-parameter nil 'font)
+                    'japanese-jisx0212
                     '("Hiragino Kaku Gothic Pro" . "iso10646-1"))
-  ;; half-width katakana
-  (set-fontset-font "fontset-default" 'katakana-jisx0201
+  (set-fontset-font (frame-parameter nil 'font)
+                    'kana
                     '("Hiragino Kaku Gothic Pro" . "iso10646-1"))
-
-  ;(setq fixed-width-use-QuickDraw-for-ascii t) ; is need this? ;)
-  ;(setq mac-allow-anti-aliasing t)             ; OK! I hate bitmap font
+  (set-fontset-font (frame-parameter nil 'font)
+                    'han
+                    '("Hiragino Kaku Gothic Pro" . "iso10646-1"))
+  (set-fontset-font (frame-parameter nil 'font)
+                    'japanese-jisx0213.2004-1
+                    '("Hiragino Kaku Gothic Pro" . "iso10646-1"))
+  (set-fontset-font (frame-parameter nil 'font)
+                    'japanese-jisx0213-2
+                    '("Hiragino Kaku Gothic Pro" . "iso10646-1"))
 
   ;; Options for scales each font
   ;; 각 폰트 사이의 크기를 기준폰트(default-font) 배수로 설정

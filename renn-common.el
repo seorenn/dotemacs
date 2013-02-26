@@ -18,7 +18,6 @@
 (setq sentence-end-double-space nil)
 (setq confirm-kill-emacs 'y-or-n-p)
 (setq make-backup-files nil)
-(setq next-line-add-newlines nil)
 (setq track-eol nil)
 (setq tab-width 4)
 (setq isearch-allow-scroll t)
@@ -48,7 +47,6 @@
 (line-number-mode 1)
 (column-number-mode 1)
 (global-visual-line-mode t)
-;(global-hl-line-mode t)
 
 (fset 'yes-or-no-p 'y-or-n-p)
 
