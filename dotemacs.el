@@ -7,7 +7,7 @@
 
 (add-to-list 'load-path "~/.emacs.d")
 ;; (add-to-list 'load-path "~/.emacs.d/elpa")
-;; (add-to-list 'load-path "~/.emacs.d/vendor")
+(add-to-list 'load-path "~/.emacs.d/vendor")
 
 ;; system-type: gnu, gnu/linux, darwin, ms-dos, windows-nt, cygwin, ...
 (cond
@@ -39,6 +39,7 @@
 (load-my-library "renn-korean")
 (load-my-library "renn-common")
 (load-my-library "renn-grep")
+(load-my-library "renn-quickrun")
 (load-my-library "renn-search")
 (load-my-library "renn-autopair")
 ;(load-my-library "renn-ibuffer")

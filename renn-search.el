@@ -37,23 +37,40 @@
 (setq highlight-symbol-colors '("#eee8d5"))
 (highlight-symbol-mode t)
 
-(defun sr-highlight-symbol-and-jump ()
+(defun sr-highlight-symbol ()
+  "Highlight symbol using highlight-symbol.el. Then set search keyword with symbol"
   (interactive)
   (let ((symbol (highlight-symbol-get-symbol)))
-    (unless symbol (error "No symbol at point"))
-    (if (member symbol highlight-symbol-list)
-        (highlight-symbol-next)
-      (highlight-symbol-at-point)
-      (highlight-symbol-next))))
+    (if symbol
+        (progn
+          (unless (member symbol highlight-symbol-list)
+            (highlight-symbol-remove-all))
+          (unless (string= symbol (first highlight-symbol-list))
+            (highlight-symbol-at-point)
+            (isearch-update-ring (thing-at-point 'symbol))
+            symbol))
+      (progn
+       (error "No symbol at point")
+       nil))))
 
-(defun sr-highlight-symbol-and-jump-prev ()
-  (interactive)
-  (let ((symbol (highlight-symbol-get-symbol)))
-    (unless symbol (error "No symbol at point"))
-    (if (member symbol highlight-symbol-list)
-        (highlight-symbol-next)
-      (highlight-symbol-at-point)
-      (highlight-symbol-prev))))
+;; (defun sr-highlight-symbol-and-jump ()
+;;   (interactive)
+;;   (let ((symbol (highlight-symbol-get-symbol)))
+;;     (unless symbol (error "No symbol at point"))
+;;     (unless (member symbol highlight-symbol-list)
+;;       (highlight-symbol-remove-all))
+;;     (if (member symbol highlight-symbol-list)
+;;         (highlight-symbol-next)
+;;       (highlight-symbol-at-point))))
+
+;; (defun sr-highlight-symbol-and-jump-prev ()
+;;   (interactive)
+;;   (let ((symbol (highlight-symbol-get-symbol)))
+;;     (unless symbol (error "No symbol at point"))
+;;     (if (member symbol highlight-symbol-list)
+;;         (highlight-symbol-next)
+;;       (highlight-symbol-at-point)
+;;       (highlight-symbol-prev))))
 
 ;;;; memory-and-search
 ;; memory current position and back to position

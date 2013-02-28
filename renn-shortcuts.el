@@ -128,8 +128,10 @@
 (global-set-key (kbd "C-r") 'memory-and-search-backward)
 (global-set-key (kbd "C--") 'back-to-search-point)
 
-(global-set-key (kbd "C-*") 'sr-highlight-symbol-and-jump)
-(global-set-key (kbd "M-*") 'sr-highlight-symbol-and-jump-prev)
+(global-set-key (kbd "C-*") 'sr-highlight-symbol)
+;; (global-set-key (kbd "C-*") 'sr-highlight-symbol-and-jump)
+;; (global-set-key (kbd "M-*") 'sr-highlight-symbol-and-jump-prev)
+(global-set-key (kbd "M-*") 'highlight-symbol-remove-all)
 (global-set-key (kbd "C-M-*") 'highlight-symbol-remove-all)
 
 ;;;; from renn-shell.el
