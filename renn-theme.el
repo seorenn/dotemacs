@@ -3,6 +3,11 @@
 ;(color-theme-sanityinc-tomorrow-bright)
 ;(require 'solarized)
 (require 'solarized-dark-theme)
+(unless window-system
+    (setq solarized-use-terminal-theme t))
+
+(load-theme 'solarized-dark t)
+
 ;(load-theme solarized-dark-theme t)
 ;(require 'sanityinc-tomorrow-bright-theme)
 ;(require 'color-theme-sanityinc-tomorrow-bright)
