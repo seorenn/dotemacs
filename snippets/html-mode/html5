@@ -2,7 +2,8 @@
 # key: html5
 # --
 <!DOCTYPE HTML>
-<html>
+<!--[if lt IE 9]> <html class="oldie"> <![endif]-->
+<!--[if gt IE 8]><!--> <html> <!--<![endif]-->
   <head>
     <title>$1</title>
   </head>

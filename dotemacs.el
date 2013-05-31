@@ -60,6 +60,7 @@
 (load-my-library "renn-org")
 ;(load-my-library "renn-dired")
 ;(load-my-library "renn-jumpchar")
+(load-my-library "renn-switch-window")
 (load-my-library "renn-markdown")
 ;(load-my-library "renn-zencoding")
 ;(load-my-library "renn-speedbar")

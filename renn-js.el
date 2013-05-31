@@ -1,8 +1,13 @@
 ;;;; Configurations for JavaScript Editing ;;;;
 ;;;; with js2-mode
 
-(autoload 'js2-mode "js2-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+;(autoload 'js2-mode "js2-mode" nil t)
+;(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+
+;;;; with js3-mode
+
+(autoload 'js3-mode "js3-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.js$" . js3-mode))
 
 ;; Configurations for js3-mode
 ;; (add-to-list 'load-path "~/.emacs.d/vendor/js3-mode")
@@ -10,7 +15,9 @@
 ;; (add-to-list 'auto-mode-alist '("\\.js$" . js3-mode))
 ;; (add-to-list 'auto-mode-alist '("\\.js$" . js-mode))
 
-
+(setq js3-auto-indent-p t)
+(setq js3-enter-indents-newline t)
+(setq js3-indent-on-enter-key t)
 ;; (setq js3-lazy-commas t)
 ;; (setq js3-lazy-operators t)
 ;; (setq js3-lazy-dots t)
@@ -75,6 +82,17 @@
 
 ;;(add-hook 'js-mode-hook (lambda () (flymake-mode t)))
 ;;(add-hook 'js3-mode-hook (lambda () (flymake-mode t)))
+
+;;;; with js-mode
+;; Fix for Greasemonkey scripts
+(eval-after-load 'js
+  '(progn
+     (setq js--regexp-literal-fix
+           "[^=][=(,:]\\(?:\\s-\\|\n\\)*\\(/\\)\\(?:\\\\.\\|[^/*\\]\\)\\(?:\\\\.\\|[^/\\]\\)*\\(/\\)")
+     (setq js-font-lock-syntactic-keywords-fix
+           ;; "|" means generic string fence
+           `((,js--regexp-literal-fix (1 "|") (2 "|"))))
+     (setq js-font-lock-syntactic-keywords js-font-lock-syntactic-keywords-fix)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
