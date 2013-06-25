@@ -11,4 +11,4 @@
   (interactive)
   (if (projectile-project-p)
       (helm-projectile)
-    (ido-find-file)))
+    (helm-for-files)))
