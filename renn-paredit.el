@@ -28,4 +28,4 @@
              'paredit-close-round)
             (local-set-key (kbd "RET") 'electrify-return-if-match)
             (eldoc-add-command 'electrify-return-if-match)
-            (show-paren-mode t)))
+            ))

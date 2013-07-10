@@ -42,8 +42,14 @@
 (which-function-mode t)
 (global-font-lock-mode t)
 (transient-mark-mode t)
+
 (show-paren-mode t)
-(setq show-paren-style 'parenthesis)
+;(setq show-paren-style 'parenthesis)
+;; with moe-theme
+(setq show-paren-style 'expression)
+
+;(global-linum-mode t)
+
 (line-number-mode 1)
 (column-number-mode 1)
 (global-visual-line-mode t)
