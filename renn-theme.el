@@ -11,6 +11,10 @@
   (set-face-attribute 'git-gutter:deleted nil :foreground "#CF6A4C")
   ;; flymake
   (set-face-attribute 'flymake-errline nil :background "#661111")
+  ;; eshell
+  (set-face-attribute 'eshell-prompt nil :foreground "#CDA869")
+  (set-face-attribute 'eshell-ls-executable nil :foreground "#CF6A4C")
+  (set-face-attribute 'eshell-ls-symlink nil :foreground "SlateBlue")
   )
 
 (if (window-system)
