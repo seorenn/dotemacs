@@ -54,7 +54,6 @@
 (load-my-library "renn-ruby")
 (load-my-library "renn-js")
 (load-my-library "renn-html")
-(load-my-library "renn-rainbow")
 (load-my-library "renn-git")
 (load-my-library "renn-yasnippet")
 ;(load-my-library "renn-expand-region")
