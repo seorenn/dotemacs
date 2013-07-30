@@ -13,6 +13,11 @@
   (load-theme 'twilight t)
   ;; flymake
   (set-face-attribute 'flymake-errline nil :background "#661111")
+  (set-face-attribute 'helm-selection nil :foreground "white" :background "grey20")
+  (set-face-attribute 'helm-source-header nil
+                      :font (face-attribute 'default :font)
+                      :foreground "black"
+                      :background "grey75" :weight 'bold)
   ;; eshell
   (add-hook 'eshell-mode-hook 'renn-eshell-with-twilight)
   )
