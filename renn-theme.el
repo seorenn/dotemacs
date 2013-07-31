@@ -9,17 +9,22 @@
   (set-face-attribute 'eshell-ls-symlink nil :foreground "SlateBlue")
   )
 
-(defun renn-twilight ()
-  (load-theme 'twilight t)
-  ;; flymake
-  (set-face-attribute 'flymake-errline nil :background "#661111")
+(defun renn-helm-with-twilight ()
   (set-face-attribute 'helm-selection nil :foreground "white" :background "grey20")
   (set-face-attribute 'helm-source-header nil
                       :font (face-attribute 'default :font)
                       :foreground "black"
                       :background "grey75" :weight 'bold)
+  )
+
+(defun renn-twilight ()
+  (load-theme 'twilight t)
+  ;; flymake
+  (set-face-attribute 'flymake-errline nil :background "#661111")
   ;; eshell
   (add-hook 'eshell-mode-hook 'renn-eshell-with-twilight)
+  ;; helm
+  (add-hook 'helm-after-initialize-hook 'renn-helm-with-twilight)
   )
 
 (if (window-system)
