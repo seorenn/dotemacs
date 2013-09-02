@@ -1,7 +1,5 @@
 (require 'autopair)
 
-;;(autopair-global-mode 1)
-
 (defun turn-on-autopair ()
   (autopair-mode 1))
 
