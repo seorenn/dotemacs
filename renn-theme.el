@@ -19,6 +19,8 @@
 
 (defun renn-twilight ()
   (load-theme 'twilight t)
+  ;; hl-line
+  (set-face-background 'hl-line "#222")
   ;; flymake
   (set-face-attribute 'flymake-errline nil :background "#661111")
   ;; eshell

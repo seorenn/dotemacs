@@ -47,6 +47,7 @@
 (setq show-paren-style 'parenthesis)
 
 (global-linum-mode 0)
+(global-hl-line-mode t)
 
 (line-number-mode 1)
 (column-number-mode 0)
