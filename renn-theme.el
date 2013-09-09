@@ -17,6 +17,12 @@
                       :background "grey75" :weight 'bold)
   )
 
+(defun renn-git-gutter-with-twilight ()
+  (set-face-attribute 'git-gutter:added nil :foreground "Aquamarine")
+  (set-face-attribute 'git-gutter:deleted nil :foreground "#CF6A4C")
+  (set-face-attribute 'git-gutter:modified nil :foreground "#8F9D6A")
+  )
+
 (defun renn-twilight ()
   (load-theme 'twilight t)
   ;; hl-line
@@ -27,6 +33,8 @@
   (add-hook 'eshell-mode-hook 'renn-eshell-with-twilight)
   ;; helm
   (add-hook 'helm-after-initialize-hook 'renn-helm-with-twilight)
+  ;; git-gutter
+  (renn-git-gutter-with-twilight)
   )
 
 (if (window-system)
