@@ -40,4 +40,4 @@
 (if (window-system)
     ;(load-theme 'solarized-dark t)
     (renn-twilight)
-    (setup-terminal-theme))
+   (setup-terminal-theme))

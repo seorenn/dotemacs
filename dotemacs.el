@@ -5,6 +5,8 @@
 ;; 2) or Link dotemacs.el to ~/.emacs
 ;;    (Here's were some problem what emacs over-writtable .emacs)
 
+(setq debug-on-error t)
+
 (add-to-list 'load-path "~/.emacs.d")
 ;; (add-to-list 'load-path "~/.emacs.d/elpa")
 (add-to-list 'load-path "~/.emacs.d/vendor")
@@ -15,12 +17,23 @@
  ((eq system-type 'windows-nt) (load-library "renn-win32"))
  ((eq system-type 'gnu/linux) (load-library "renn-linux")))
 
+;; set the path as terminal path [http://lists.gnu.org/archive/html/help-gnu-emacs/2011-10/msg00237.html]
+(setq explicit-bash-args (list "--login" "-i"))
+
+;; fix the PATH variable for GUI [http://clojure-doc.org/articles/tutorials/emacs.html#osx]
+(defun set-exec-path-from-shell-PATH ()
+  (let ((path-from-shell
+         (shell-command-to-string "$SHELL -i -l -c 'echo $PATH'")))
+    (setenv "PATH" path-from-shell)
+    (setq exec-path (split-string path-from-shell path-separator))))
+
+(when window-system (set-exec-path-from-shell-PATH))
+
 ;; ELPA and MELPA, Marmalade for Emacs 24.x
 (require 'package)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
 (package-initialize)
-(setq url-http-attempt-keepalives nil)
 
 ;; load default functions
 (load-library "renn-func")
@@ -53,6 +66,7 @@
 (load-my-library "renn-python")
 (load-my-library "renn-ruby")
 (load-my-library "renn-js")
+(load-my-library "renn-clojure")
 (load-my-library "renn-webdevel")
 (load-my-library "renn-yasnippet")
 (load-my-library "renn-git")
@@ -68,7 +82,7 @@
 (load-my-library "renn-theme")
 (load-my-library "renn-helm")
 (load-my-library "renn-projectile")
-(load-my-library "renn-modeline")
+;(load-my-library "renn-modeline")
 
 ;; LAST: reassign keymaps
 (load-my-library "renn-shortcuts")

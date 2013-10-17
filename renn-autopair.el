@@ -5,6 +5,7 @@
 
 (add-hook 'lisp-mode-hook 'turn-on-autopair)
 (add-hook 'emacs-lisp-mode-hook 'turn-on-autopair)
+(add-hook 'clojure-mode-hook 'turn-on-autopair)
 (add-hook 'c-mode-hook 'turn-on-autopair)
 (add-hook 'c++-mode-hook 'turn-on-autopair)
 (add-hook 'python-mode-hook 'turn-on-autopair)
