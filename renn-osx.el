@@ -25,7 +25,7 @@
   ;(set-face-font 'default "Menlo-12")
   (set-face-attribute 'default nil
                       :family "Menlo"
-                      :height 120)
+                      :height 110)
 
   (setq-default line-spacing 1)
 

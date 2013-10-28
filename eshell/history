@@ -1,0 +1,4 @@
+cd .emacs.d
+ls
+ls
+touch renn-private.el
