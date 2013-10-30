@@ -82,9 +82,12 @@
 
   ;; Options for scales each font
   ;; 각 폰트 사이의 크기를 기준폰트(default-font) 배수로 설정
+  ;; (setq face-font-rescale-alist
+  ;;       '((".*hiragino.*" . 1.2)
+  ;;         (".*sd.*gothic.*" . 1.4))))
   (setq face-font-rescale-alist
-        '((".*hiragino.*" . 1.2)
-          (".*sd.*gothic.*" . 1.4))))
+        '((".*hiragino.*" . 1.0)
+          (".*sd.*gothic.*" . 1.0))))
 
 ;; Copy/Paste Integration for Emacs in Terminal
 
