@@ -54,8 +54,8 @@
 (setq sr-speedbar-right-side nil)
 (setq sr-speedbar-auto-refresh nil)
 (setq sr-speedbar-width-x 30)
-(setq sr-speedbar-max-width 30)
-(setq sr-speedbar-width-console 30)
+(setq sr-speedbar-max-width 60)
+(setq sr-speedbar-width-console 60)
 (setq sr-speedbar-skip-other-window-p t)
 
 (defun my-speedbar ()
