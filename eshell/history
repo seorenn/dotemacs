@@ -61,3 +61,14 @@ cd vendor/
 ls
 rm sr-speedbar.el 
 ls
+ls
+ls
+cd Devel/
+ls
+cd ..
+cd .emacs.d/
+cd ..
+cd Devel/
+ls
+cd iplateia-console/
+ls

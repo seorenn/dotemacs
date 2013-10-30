@@ -162,3 +162,4 @@
 ;;;; renn-speedbar
 
 (global-set-key (kbd "C-x p") 'my-speedbar)
+(global-set-key (kbd "C-x P") 'sr-speedbar-close)
