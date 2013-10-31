@@ -53,9 +53,9 @@
 ;;(add-hook 'find-file-hook 'flymake-find-file-hook)
 
 ;; iPython
-;; (setq ansi-color-for-comint-mode t)
-;(setq py-python-command-args '("-colors" "NoColor"))
-;(require 'ipython)
+(setq ansi-color-for-comint-mode t)
+(setq py-python-command-args '("-colors" "NoColor"))
+(require 'ipython)
 
 ;;;; Python Shell Configurations for builtin python.el
 
