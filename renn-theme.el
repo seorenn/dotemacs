@@ -14,6 +14,8 @@
   (set-face-attribute 'magit-log-reflog-label-cherry-pick nil :foreground "red")
   (set-face-attribute 'magit-log-reflog-label-commit nil :foreground "blue")
   (set-face-attribute 'magit-log-reflog-label-merge nil :foreground "cyan")
+  (set-face-attribute 'mode-line nil :foreground "white" :background "navy")
+  (set-face-attribute 'mode-line-inactive nil :foreground "black" :background "navy")
   )
 
 (defun renn-eshell-with-twilight ()
