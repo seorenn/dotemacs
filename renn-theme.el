@@ -1,12 +1,5 @@
 (defun setup-terminal-theme ()
-  (require 'color-theme)
-  (require 'color-theme-solarized)
-  (color-theme-solarized-dark)
   ;; Color Correction
-  ;(set-face-attribute 'bg:erc-color-face0 nil :foreground "black")
-  ;(set-face-attribute 'bg:erc-color-face15 nil :foreground "blue")
-  (set-face-attribute 'column-marker-1 nil :foreground "black")
-  (set-face-attribute 'eshell-ls-unreadable nil :foreground "red")
   (set-face-attribute 'header-line nil :foreground "black")
   (set-face-attribute 'highlight-indent-face nil :foreground "black")
   (set-face-attribute 'highlight-symbol-face nil :foreground "red")
@@ -16,7 +9,16 @@
   (set-face-attribute 'magit-log-reflog-label-merge nil :foreground "cyan")
   (set-face-attribute 'mode-line nil :foreground "white" :background "navy")
   (set-face-attribute 'mode-line-inactive nil :foreground "black" :background "navy")
+
+  (add-hook 'eshell-mode-hook 'renn-term-eshell-color)
+  (add-hook 'erc-mode-hook 'renn-term-erc-color)
   )
+
+(defun renn-term-eshell-color ()
+  (set-face-attribute 'eshell-ls-unreadable nil :foreground "red"))
+
+(defun renn-term-erc-color ()
+  (set-face-attribute 'column-marker-1 nil :foreground "black"))
 
 (defun renn-eshell-with-twilight ()
   (set-face-attribute 'eshell-prompt nil :foreground "#CDA869")
@@ -56,3 +58,17 @@
     ;(load-theme 'solarized-dark t)
     (renn-twilight)
    (setup-terminal-theme))
+
+;; Renn Terminal Theme
+
+;; (deftheme renn-term-theme
+;;   "Seorenn's Terminal Color Theme for Emacs 24 or higher")
+
+;; (unless window-system
+;;   (custom-theme-set-faces
+;;    'renn-term-theme
+;;    '(bold ((t (:weight bold :inherit (default)))))
+;;    '(bold-italic ((t (:weight bold :inherit (italic)))))
+;;    '(default ((t (:forground "white" :background "black"))))
+;;    )
+;;   )

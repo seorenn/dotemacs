@@ -43,8 +43,11 @@
 (global-font-lock-mode t)
 (transient-mark-mode t)
 
-(show-paren-mode t)
-(setq show-paren-style 'parenthesis)
+;(show-paren-mode t)
+;(setq show-paren-style 'parenthesis)
+;; Smartparens
+(require 'smartparens)
+(show-smartparens-global-mode +1)
 
 (global-linum-mode 0)
 (when window-system (global-hl-line-mode t))
