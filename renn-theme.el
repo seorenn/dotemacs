@@ -1,8 +1,8 @@
+(require 'erc)
+
 (defun setup-terminal-theme ()
   ;; Color Correction
   (set-face-attribute 'header-line nil :foreground "black")
-  (set-face-attribute 'highlight-indent-face nil :foreground "black")
-  (set-face-attribute 'highlight-symbol-face nil :foreground "red")
   (set-face-attribute 'magit-log-head-label-tags nil :foreground "red")
   (set-face-attribute 'magit-log-reflog-label-cherry-pick nil :foreground "red")
   (set-face-attribute 'magit-log-reflog-label-commit nil :foreground "blue")
@@ -11,14 +11,21 @@
   (set-face-attribute 'mode-line-inactive nil :foreground "black" :background "navy")
 
   (add-hook 'eshell-mode-hook 'renn-term-eshell-color)
-  (add-hook 'erc-mode-hook 'renn-term-erc-color)
+  ;(add-hook 'erc-join-hook 'renn-erc-color)
+
+  ;(custom-declare-face column-marker-1 '((t (:foreground "black"))))
   )
 
 (defun renn-term-eshell-color ()
   (set-face-attribute 'eshell-ls-unreadable nil :foreground "red"))
 
-(defun renn-term-erc-color ()
-  (set-face-attribute 'column-marker-1 nil :foreground "black"))
+(defun renn-erc-color ()
+  (set-face-attribute 'column-marker-1 nil :foreground "black")
+  )
+
+(defun renn-highlight-color ()
+  (set-face-attribute 'highlight-indent-face nil :foreground "black")
+  (set-face-attribute 'highlight-symbol-face nil :foreground "red"))
 
 (defun renn-eshell-with-twilight ()
   (set-face-attribute 'eshell-prompt nil :foreground "#CDA869")

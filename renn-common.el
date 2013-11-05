@@ -46,8 +46,7 @@
 ;(show-paren-mode t)
 ;(setq show-paren-style 'parenthesis)
 ;; Smartparens
-(require 'smartparens)
-(show-smartparens-global-mode +1)
+(require 'smartparens-config)
 
 (global-linum-mode 0)
 (when window-system (global-hl-line-mode t))
