@@ -11,10 +11,16 @@
   (set-face-attribute 'mode-line-inactive nil :foreground "black" :background "navy")
 
   (add-hook 'eshell-mode-hook 'renn-term-eshell-color)
+  (add-hook 'flymake-mode-hook 'renn-term-flymake-color)
   ;(add-hook 'erc-join-hook 'renn-erc-color)
 
   ;(custom-declare-face column-marker-1 '((t (:foreground "black"))))
   )
+
+(defun renn-term-flymake-color ()
+  (set-face-attribute 'flymake-errline nil :background "black" :underline t)
+  (set-face-attribute 'flymake-infoline nil :background "black" :underline t)
+  (set-face-attribute 'flymake-warnline nil :background "black" :underline t))
 
 (defun renn-term-eshell-color ()
   (set-face-attribute 'eshell-ls-unreadable nil :foreground "red"))
