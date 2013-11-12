@@ -12,11 +12,16 @@
 
   (add-hook 'eshell-mode-hook 'renn-term-eshell-color)
   (add-hook 'flymake-mode-hook 'renn-term-flymake-color)
+
+  (add-hook 'company-mode-hook 'renn-term-company-color)
   ;(add-hook 'erc-join-hook 'renn-erc-color)
 
-  ;(custom-declare-face column-marker-1 '((t (:foreground "black"))))
+  ;(custom-declare-face column-marker-1 '((t (:foreground "w"))))
   )
 
+(defun renn-term-company-color ()
+  (set-face-attribute 'company-tooltip nil :foreground "white" :background "blue")
+  )
 (defun renn-term-flymake-color ()
   (set-face-attribute 'flymake-errline nil :background "black" :underline t)
   (set-face-attribute 'flymake-infoline nil :background "black" :underline t)
