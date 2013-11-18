@@ -1,6 +1,6 @@
 (require 'clojure-mode)
 (require 'nrepl)
-;(require 'ac-nrepl)
+(require 'ac-nrepl)
 
 ;(add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
 
@@ -19,6 +19,6 @@
 
 (add-hook 'nrepl-mode-hook 'subword-mode)
 
-;; (eval-after-load "auto-complete"
-;;   '(add-to-list 'ac-modes 'nrepl-mode))
-;; (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
+(eval-after-load "auto-complete"
+  '(add-to-list 'ac-modes 'nrepl-mode))
+(add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
