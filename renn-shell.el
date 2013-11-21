@@ -61,3 +61,8 @@
 
 (add-hook 'term-mode-hook
           #'(lambda () (setq autopair-dont-activate t)))
+
+;; shell-switcher-mode
+
+(require 'shell-switcher)
+(setq shell-switcher-mode t)

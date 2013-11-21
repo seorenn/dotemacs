@@ -90,7 +90,3 @@
 (load-my-library "renn-shortcuts")
 
 (cd "~/")
-
-;;;; Start with EShell!
-
-(eshell)
