@@ -82,6 +82,7 @@
 (load-my-library "renn-speedbar")
 ;(load-my-library "renn-maxframe")
 (load-my-library "renn-theme")
+(load-my-library "renn-term")
 (load-my-library "renn-helm")
 (load-my-library "renn-projectile")
 ;(load-my-library "renn-modeline")
