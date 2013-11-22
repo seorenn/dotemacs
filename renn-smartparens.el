@@ -1,2 +1,2 @@
-(require 'smartparents)
+(require 'smartparens)
 (require 'smartparens-config)
