@@ -5,7 +5,7 @@
 ;; 2) or Link dotemacs.el to ~/.emacs
 ;;    (Here's were some problem what emacs over-writtable .emacs)
 
-(setq debug-on-error t)
+(setq debug-on-error nil)               ; put t if you want debug elisp
 
 (add-to-list 'load-path "~/.emacs.d")
 ;; (add-to-list 'load-path "~/.emacs.d/elpa")
