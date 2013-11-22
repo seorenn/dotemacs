@@ -61,7 +61,7 @@
 (load-my-library "renn-ido")
 ;(load-my-library "renn-autoinstall")
 (load-my-library "renn-shell")
-;(load-my-library "renn-paredit")
+(load-my-library "renn-paredit")
 (load-my-library "renn-devel")
 (load-my-library "renn-autocomplete")
 (load-my-library "renn-python")

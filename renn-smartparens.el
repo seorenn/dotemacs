@@ -1,3 +1,2 @@
+(require 'smartparents)
 (require 'smartparens-config)
-
-(smartparens-global-mode t)
