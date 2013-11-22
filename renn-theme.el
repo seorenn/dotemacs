@@ -1,22 +1,22 @@
 (require 'erc)
+(require 'color-theme)
+(require 'cyberpunk-theme)
 
 (defun setup-terminal-theme ()
+  (set-cursor-color "yellow")
   ;; Color Correction
-  (set-face-attribute 'header-line nil :foreground "black")
-  (set-face-attribute 'magit-log-head-label-tags nil :foreground "red")
-  (set-face-attribute 'magit-log-reflog-label-cherry-pick nil :foreground "red")
-  (set-face-attribute 'magit-log-reflog-label-commit nil :foreground "blue")
-  (set-face-attribute 'magit-log-reflog-label-merge nil :foreground "cyan")
-  (set-face-attribute 'mode-line nil :foreground "white" :background "blue" :inverse-video nil)
-  (set-face-attribute 'mode-line-inactive nil :foreground "blue" :background "black" :inverse-video nil)
+  ;; (set-face-attribute 'header-line nil :foreground "black")
+  ;; (set-face-attribute 'magit-log-head-label-tags nil :foreground "red")
+  ;; (set-face-attribute 'magit-log-reflog-label-cherry-pick nil :foreground "red")
+  ;; (set-face-attribute 'magit-log-reflog-label-commit nil :foreground "blue")
+  ;; (set-face-attribute 'magit-log-reflog-label-merge nil :foreground "cyan")
+  ;; (set-face-attribute 'mode-line nil :foreground "white" :background "blue" :inverse-video nil)
+  ;; (set-face-attribute 'mode-line-inactive nil :foreground "blue" :background "black" :inverse-video nil)
 
-  (add-hook 'eshell-mode-hook 'renn-term-eshell-color)
-  (add-hook 'flymake-mode-hook 'renn-term-flymake-color)
+  ;; (add-hook 'eshell-mode-hook 'renn-term-eshell-color)
+  ;; (add-hook 'flymake-mode-hook 'renn-term-flymake-color)
 
-  (add-hook 'company-mode-hook 'renn-term-company-color)
-  ;(add-hook 'erc-join-hook 'renn-erc-color)
-
-  ;(custom-declare-face column-marker-1 '((t (:foreground "w"))))
+  ;; (add-hook 'company-mode-hook 'renn-term-company-color)
   )
 
 (defun renn-term-company-color ()
@@ -72,10 +72,13 @@
   (renn-git-gutter-with-twilight)
   )
 
-(if (window-system)
-    ;(load-theme 'solarized-dark t)
-    (renn-twilight)
-   (setup-terminal-theme))
+(unless window-system
+  (setup-terminal-theme))
+
+;; (if (window-system)
+;;     ;(load-theme 'solarized-dark t)
+;;     (renn-twilight)
+;;    (setup-terminal-theme))
 
 ;; Renn Terminal Theme
 
