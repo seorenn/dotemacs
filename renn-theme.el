@@ -7,8 +7,8 @@
   (set-face-attribute 'magit-log-reflog-label-cherry-pick nil :foreground "red")
   (set-face-attribute 'magit-log-reflog-label-commit nil :foreground "blue")
   (set-face-attribute 'magit-log-reflog-label-merge nil :foreground "cyan")
-  (set-face-attribute 'mode-line nil :foreground "white" :background "navy")
-  (set-face-attribute 'mode-line-inactive nil :foreground "black" :background "navy")
+  (set-face-attribute 'mode-line nil :foreground "white" :background "blue" :inverse-video nil)
+  (set-face-attribute 'mode-line-inactive nil :foreground "blue" :background "black" :inverse-video nil)
 
   (add-hook 'eshell-mode-hook 'renn-term-eshell-color)
   (add-hook 'flymake-mode-hook 'renn-term-flymake-color)
