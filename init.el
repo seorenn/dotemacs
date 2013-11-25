@@ -91,3 +91,6 @@
 (load-my-library "renn-shortcuts")
 
 (cd "~/")
+
+;; Change iTerm2 Title
+(send-string-to-terminal "\033]0;Emacs\007")
