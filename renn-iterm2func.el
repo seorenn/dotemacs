@@ -10,9 +10,8 @@
   (interactive)
   (iterm2-set-title (format "Emacs - %s" subtitle)))
 
-(defun sr-when-buffer-changed
+(defun sr-when-buffer-changed ()
   (interactive)
   (iterm2-set-subtitle (buffer-name)))
 
-;; (defadvice ()
-;;   (sr-when-buffer-changed))
+;(add-hook 'change-major-mode-hook 'sr-when-buffer-changed)
