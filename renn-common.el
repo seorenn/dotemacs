@@ -39,7 +39,7 @@
 
 (auto-image-file-mode t)
 (delete-selection-mode nil)
-(which-function-mode 0)
+(which-function-mode t)
 (global-font-lock-mode t)
 (transient-mark-mode t)
 
