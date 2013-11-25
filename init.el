@@ -87,10 +87,11 @@
 (load-my-library "renn-projectile")
 ;(load-my-library "renn-modeline")
 
+(load-my-library "renn-iterm2func")
+
 ;; LAST: reassign keymaps
 (load-my-library "renn-shortcuts")
 
 (cd "~/")
 
-;; Change iTerm2 Title
-(send-string-to-terminal "\033]0;Emacs\007")
+(iterm2-set-title "Emacs")
