@@ -15,7 +15,7 @@
 
 (setq inhibit-startup-echo-area-message t)
 
-(unless (eq window-system nil)
+(when window-system
   ;; OS X Specific Font Options
   (setq fixed-width-use-QuickDraw-for-ascii t)
   (setq mac-allow-anti-aliasing t)
@@ -95,7 +95,7 @@
 
 ;; Copy/Paste Integration for Emacs in Terminal
 
-(when (eq window-system nil)
+(unless window-system
   (defun mac-copy ()
     (shell-command-to-string "pbpaste"))
 
