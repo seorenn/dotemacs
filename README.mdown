@@ -1,19 +1,15 @@
 Seorenn DotEmacs
 ================
 
-Seorenn's Emacs 24.x initialization scripts that include many extensions. ;-)
+Seorenn's Emacs 24.x initialization scripts that include many extensions.
+
+This repository contains many byte-compiled objects. Sorry, but I need its :-)
 
 Usage
 -----
 
-* Download: `git clone git://github.com/seorenn/dotemacs.git`
-* Install: `mv dotemacs ~/.emacs.d`
-* Configuration: write these to ~/.emacs
-
-<pre>
-(add-to-list 'load-path "~/.emacs.d")
-(load-library "dotemacs")
-</pre>
+* Clone this repository: `git clone git://github.com/seorenn/dotemacs.git`
+* Rename to: `mv dotemacs ~/.emacs.d`
 
 More Steps for 3rd Party Modules
 --------------------------------
@@ -21,15 +17,23 @@ More Steps for 3rd Party Modules
 ### Pymacs (for OS X or *NIX)
 
 <pre>
-cd vendor/pymacs
-make
-make install
+$ git clone https://github.com/pinard/Pymacs.git
+$ cd Pymacs
+$ cp -R * ~/.emacs.d/vendor/pymacs
+$ cd ~/.emacs.d/vendor/pymacs
+$ make
+$ make install
 </pre>
 
 ### Ropemacs
 
-You can install rope and ropemacs using pip.
+You can install rope and ropemacs using pip (or easy_install).
 
 <pre>
 pip install ropemacs
 </pre>
+
+NOTE
+----
+
+`renn-iterm2.el` contains iTerm2 OS X App feature. If you not using iTerm2, disable loading `renn-iterm2.el` from `init.el`
