@@ -85,6 +85,10 @@
   ;; (setq face-font-rescale-alist
   ;;       '((".*hiragino.*" . 1.2)
   ;;         (".*sd.*gothic.*" . 1.4))))
+
+  ;; 만약 한글이 영문2자 넓이를 가지게 하려면 위의 스케일 설정 주석을 해제하고
+  ;; 이 부분을 주석처리 하세요.
+  ;; 터미널에서는 의미 없는 설정입니다. ;-)
   (setq face-font-rescale-alist
         '((".*hiragino.*" . 1.0)
           (".*sd.*gothic.*" . 1.0))))
