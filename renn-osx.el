@@ -16,7 +16,7 @@
   (setq mac-command-modifier 'meta)
   (setq mac-option-modifier nil)
 
-;; OS X Specific Font Options
+  ;; OS X Specific Font Options
   (setq fixed-width-use-QuickDraw-for-ascii t)
   (setq mac-allow-anti-aliasing t)
 
