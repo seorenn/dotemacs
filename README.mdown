@@ -36,4 +36,4 @@ pip install ropemacs
 NOTE
 ----
 
-`renn-iterm2.el` contains iTerm2 OS X App feature. If you not using iTerm2, disable loading `renn-iterm2.el` from `init.el`
+`renn-iterm2func.el` contains iTerm2 OS X App only features. If you not using iTerm2, disable loading `renn-iterm2func.el` from `init.el`
