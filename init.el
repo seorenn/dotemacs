@@ -93,5 +93,3 @@
 (load-my-library "renn-shortcuts")
 
 (cd "~/")
-
-(iterm2-set-title "Emacs")

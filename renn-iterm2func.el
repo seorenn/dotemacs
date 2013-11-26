@@ -15,3 +15,7 @@
   (iterm2-set-subtitle (buffer-name)))
 
 ;(add-hook 'change-major-mode-hook 'sr-when-buffer-changed)
+
+;; Default Title
+(unless window-system
+  (iterm2-set-title "Emacs"))
