@@ -37,6 +37,8 @@
 
 (setq eval-expression-print-length nil)
 
+(setq scroll-error-top-bottom t)
+
 (auto-image-file-mode t)
 (delete-selection-mode nil)
 (which-function-mode t)

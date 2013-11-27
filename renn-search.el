@@ -75,17 +75,22 @@
 ;;;; memory-and-search
 ;; memory current position and back to position
 
+(require 'visual-regexp)
+(require 'visual-regexp-steroids)
+
 (defun memory-and-search ()
   (interactive)
   (when buffer-file-name
     (bookmark-set "search-point"))
-  (isearch-forward))
+  ;(isearch-forward)
+  (vr/isearch-forward))
 
 (defun memory-and-search-backward ()
   (interactive)
   (when buffer-file-name
     (bookmark-set "search-point"))
-  (isearch-backward))
+  ;(isearch-backward)
+  (vr/isearch-backward))
 
 (defun back-to-search-point ()
   (interactive)

@@ -26,6 +26,9 @@
 (global-set-key (kbd "C-S-O") 'renn-open-url)
 (global-set-key (kbd "M-\?") 'apropos)
 
+(global-set-key (kbd "M-n") 'scroll-up-command)
+(global-set-key (kbd "M-p") 'scroll-down-command)
+
 (define-key global-map (kbd "RET") 'newline-and-indent)
 
 (global-set-key (kbd "C-S-T") 'open-google-translate)
@@ -167,3 +170,8 @@
 ;;;; shell-switcher
 
 (global-set-key (kbd "M-'") 'shell-switcher-switch-buffer)
+
+;;;; visual-regexp
+
+(global-set-key (kbd "C-c r") 'vr/replace)
+(global-set-key (kbd "C-c q") 'vr/query-replace)
