@@ -11,6 +11,7 @@
 (setq org-agenda-files (list "~/Dropbox/notes/todo.org"
                              "~/Dropbox/notes/worktodo.org"))
 
+
 (setq org-startup-truncated t)
 
 (setq org-return-follows-link t)
