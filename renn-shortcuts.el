@@ -162,6 +162,10 @@
 (global-set-key (kbd "M-o") 'sr-open-file)
 (global-set-key (kbd "M-x") 'helm-M-x)
 
+(global-set-key (kbd "M-i") 'helm-swoop)
+(global-set-key (kbd "M-I") 'helm-swoop-back-to-last-point)
+(define-key isearch-mode-map (kbd "M-i") 'helm-swoop-from-isearch)
+
 ;;;; renn-speedbar
 
 (global-set-key (kbd "C-x p") 'my-speedbar)
