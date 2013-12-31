@@ -30,13 +30,16 @@
 (when window-system (set-exec-path-from-shell-PATH))
 
 ;; ELPA and MELPA, Marmalade for Emacs 24.x
-(require 'package)
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
-(package-initialize)
+;; (require 'package)
+;; (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+;; (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+;; (package-initialize)
 
 ;; load default functions
 (load-library "renn-func")
+
+;; load default package list and install if not installed
+(load-my-library "renn-packages")
 
 ;; load private variables
 (load-my-library "renn-private")
