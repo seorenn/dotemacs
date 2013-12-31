@@ -1,10 +1,3 @@
-;; USAGE
-;; 1) Create ~/.emacs, write these:
-;;    (add-to-list 'load-path "~/.emacs.d")
-;;    (load-library "dotemacs")
-;; 2) or Link dotemacs.el to ~/.emacs
-;;    (Here's were some problem what emacs over-writtable .emacs)
-
 (setq debug-on-error nil)               ; put t if you want debug elisp
 
 (add-to-list 'load-path "~/.emacs.d")
@@ -28,12 +21,6 @@
     (setq exec-path (split-string path-from-shell path-separator))))
 
 (when window-system (set-exec-path-from-shell-PATH))
-
-;; ELPA and MELPA, Marmalade for Emacs 24.x
-;; (require 'package)
-;; (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-;; (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
-;; (package-initialize)
 
 ;; load default functions
 (load-library "renn-func")
