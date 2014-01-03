@@ -1,9 +1,7 @@
 Seorenn DotEmacs
 ================
 
-Seorenn's Emacs 24.x initialization scripts that include many extensions.
-
-This repository contains many byte-compiled objects. Sorry, but I need its :-)
+Seorenn's Emacs 24.x initialization scripts
 
 Usage
 -----
@@ -32,6 +30,11 @@ You can install rope and ropemacs using pip (or easy_install).
 <pre>
 pip install ropemacs
 </pre>
+
+### Run
+
+Run emacs anyway, emacs will install all requried 3rd-party extensions automatically.
+Then, you need to quit and re-run emacs for perform valid color theme.
 
 NOTE
 ----
