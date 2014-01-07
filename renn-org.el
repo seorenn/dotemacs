@@ -27,3 +27,7 @@
 
 ;; for MacTexs
 (setq org-export-latex-default-class "article")
+
+;; cal-korea
+;; http://jmjeong.com/emacscalkorea/
+(require 'cal-korea)
