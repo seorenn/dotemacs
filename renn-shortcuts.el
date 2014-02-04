@@ -174,6 +174,7 @@
 ;;;; shell-switcher
 
 (global-set-key (kbd "M-'") 'shell-switcher-switch-buffer)
+(global-set-key (kbd "C-x '") 'shell-switcher-switch-buffer)
 
 ;;;; visual-regexp
 
