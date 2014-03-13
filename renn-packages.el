@@ -13,7 +13,7 @@
    coffee-mode
    color-theme
    cyberpunk-theme
-   dash
+   ;dash
    epl
    expand-region
    flymake
@@ -26,7 +26,7 @@
    helm-projectile
    helm-swoop
    highlight-symbol
-   ipython
+   ;ipython
    js2-mode
    js3-mode
    jump-char
