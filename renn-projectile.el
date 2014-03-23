@@ -2,6 +2,9 @@
 (require 'helm-projectile)
 
 (projectile-global-mode)
+(setq projectile-indexing-method 'native) ; use system command like find, git...
+(setq projectile-enable-caching nil)
+(setq projectile-require-project-root t)
 
 ;;;; Integrated find-file
 ;; If current working directory is project, use help-projectile
