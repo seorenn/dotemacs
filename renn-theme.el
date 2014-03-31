@@ -72,7 +72,11 @@
   (renn-git-gutter-with-twilight)
   )
 
-(unless window-system
+(defun gui-theme ()
+  (load-theme 'solarized-light t))
+
+(if (window-system)
+    (gui-theme)
   (setup-terminal-theme))
 
 ;; (if (window-system)
