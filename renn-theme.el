@@ -73,7 +73,7 @@
   )
 
 (defun gui-theme ()
-  (load-theme 'solarized-light t))
+  (load-theme 'solarized-dark t))
 
 (if (window-system)
     (gui-theme)
