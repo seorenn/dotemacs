@@ -81,6 +81,11 @@
   )
 
 (defun gui-theme ()
+  (setq solarized-org-use-variable-pitch nil)
+  (setq solarized-use-variable-pitch nil)
+  (setq solarized-high-contrast-mode-line t)
+  (setq solarized-use-more-italic t)
+  (setq solarized-emphasize-indicators nil)
   (load-theme 'solarized-dark t))
 
 (if (window-system)
