@@ -12,6 +12,7 @@
 
 (defun setup-terminal-theme ()
   (set-cursor-color "yellow")
+  (load-theme 'cyberpunk t)
   ;; Color Correction
   ;; (set-face-attribute 'header-line nil :foreground "black")
   ;; (set-face-attribute 'magit-log-head-label-tags nil :foreground "red")
