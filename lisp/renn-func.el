@@ -23,7 +23,7 @@
 
 (defun load-my-library (fname)
   "load-library if file(fname) was exists..."
-  (if (file-exists-p (concat (concat "~/.emacs.d/" fname) ".el")) (progn
+  (if (file-exists-p (concat (concat "~/.emacs.d/lisp" fname) ".el")) (progn
                                              (load-library fname))))
 
 (defun smart-beginning-of-line ()
