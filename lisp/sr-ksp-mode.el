@@ -1,3 +1,9 @@
+;; References:
+;; http://ergoemacs.org/emacs/elisp_syntax_coloring.html
+;; http://www.emacswiki.org/emacs/SampleMode
+;; http://www.gnu.org/software/emacs/manual/html_node/elisp/Example-Major-Modes.html
+;; http://beonit2.tistory.com/m/post/41
+
 ;; font-lock-warning-face
 ;; for a construct that is peculiar, or that greatly changes the meaning of other text, like ‘;;;###autoload’ in Emacs Lisp and ‘#error’ in C.
 ;; font-lock-function-name-face
