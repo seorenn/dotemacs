@@ -1,0 +1,2 @@
+(require 'cask)
+(cask-initialize)

@@ -7,7 +7,9 @@ Usage
 -----
 
 * Clone this repository: `git clone git://github.com/seorenn/dotemacs.git`
-* Rename to: `mv dotemacs ~/.emacs.d`
+* Rename to `.emacs.d`: `mv dotemacs ~/.emacs.d`
+* Install Cask: `brew install cask`
+* Install Packages: `cd ~/.emacs.d; cask install`
 
 More Steps for 3rd Party Modules
 --------------------------------
@@ -30,11 +32,6 @@ You can install rope and ropemacs using pip (or easy_install).
 <pre>
 pip install ropemacs
 </pre>
-
-### Run
-
-Run emacs anyway, emacs will install all requried 3rd-party extensions automatically.
-Then, you need to quit and re-run emacs for perform valid color theme.
 
 NOTE
 ----

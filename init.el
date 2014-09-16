@@ -25,7 +25,8 @@
 (load-library "renn-func")
 
 ;; load default package list and install if not installed
-(load-library "renn-packages")
+;(load-library "renn-packages")
+(load-library "renn-cask")
 
 ;; load private variables
 (load-library "renn-private")
