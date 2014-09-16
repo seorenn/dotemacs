@@ -1,7 +1,7 @@
 Seorenn DotEmacs
 ================
 
-Seorenn's Emacs 24.x initialization scripts
+Seorenn's Emacs 24.x initialization scripts. This scripts optimized with OS X and Homebrew
 
 Usage
 -----
@@ -38,7 +38,7 @@ pip install ropemacs
 NOTE
 ----
 
-## Cask
+### Cask
 
 If you use Cask installed manually or another way, update cask.el path from lisp/renn-cask.el like this:
 
@@ -47,6 +47,6 @@ If you use Cask installed manually or another way, update cask.el path from lisp
 (cask-initialize)
 </pre>
 
-## renn-iterm2func.el
+### renn-iterm2func.el
 
 `renn-iterm2func.el` contains iTerm2 OS X App only features. If you not using iTerm2, disable loading `renn-iterm2func.el` from `init.el`.
