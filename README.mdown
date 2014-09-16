@@ -36,4 +36,6 @@ pip install ropemacs
 NOTE
 ----
 
-`renn-iterm2func.el` contains iTerm2 OS X App only features. If you not using iTerm2, disable loading `renn-iterm2func.el` from `init.el`
+If you use Cask installed manually or another way, update cask.el path from lisp/renn-cask.el.
+
+`renn-iterm2func.el` contains iTerm2 OS X App only features. If you not using iTerm2, disable loading `renn-iterm2func.el` from `init.el`.
