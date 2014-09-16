@@ -6,10 +6,12 @@ Seorenn's Emacs 24.x initialization scripts
 Usage
 -----
 
+* Install Emacs: `brew install emacs --cocoa --srgb --with-gnutls`
 * Clone this repository: `git clone git://github.com/seorenn/dotemacs.git`
 * Rename to `.emacs.d`: `mv dotemacs ~/.emacs.d`
 * Install Cask: `brew install cask`
 * Install Packages: `cd ~/.emacs.d; cask install`
+* Run Emacs :-)
 
 More Steps for 3rd Party Modules
 --------------------------------
@@ -36,6 +38,15 @@ pip install ropemacs
 NOTE
 ----
 
-If you use Cask installed manually or another way, update cask.el path from lisp/renn-cask.el.
+## Cask
+
+If you use Cask installed manually or another way, update cask.el path from lisp/renn-cask.el like this:
+
+<pre>
+(require 'cask "/foo/bar/cask.el")
+(cask-initialize)
+</pre>
+
+## renn-iterm2func.el
 
 `renn-iterm2func.el` contains iTerm2 OS X App only features. If you not using iTerm2, disable loading `renn-iterm2func.el` from `init.el`.
