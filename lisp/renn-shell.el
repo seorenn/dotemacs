@@ -47,6 +47,8 @@
             (setq eshell-path-env bashpath)
             (setenv "PATH" bashpath)))
 
+(setenv "LANG" "ko_KR.UTF-8")
+
 ; eshell ansi color
 ; http://www.emacswiki.org/emacs-se/EshellColor
 ; this code not works :-()
