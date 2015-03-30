@@ -65,3 +65,4 @@
 (depends-on "switch-window")
 (depends-on "visual-regexp")
 (depends-on "visual-regexp-steroids")
+(depends-on "persp-mode")

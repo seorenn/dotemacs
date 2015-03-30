@@ -10,8 +10,10 @@
 (defadvice load-theme (before disable-themes-first activate)
   (disable-all-themes))
 
-(defun sr-solarized-theme ()
+(defun sr-solarized-light-theme ()
   (load-theme 'solarized-light t))
+(defun sr-solarized-dark-theme ()
+  (load-theme 'solarized-dark t))
 
 (defun setup-terminal-theme ()
   (set-cursor-color "yellow")
@@ -94,8 +96,7 @@
 
 (if (window-system)
     (gui-theme)
-                                        ;(setup-terminal-theme))
-  (sr-solarized-theme))
+  (setup-terminal-theme))
 
 ;; (if (window-system)
 ;;     ;(load-theme 'solarized-dark t)
