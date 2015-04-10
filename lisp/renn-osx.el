@@ -4,6 +4,10 @@
 (set-keyboard-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
+;; Fix Korean Encoding for OSX
+(require 'ucs-normalize)
+(set-file-name-coding-system 'utf-8-hfs)
+
 ;; New-line
 (set-buffer-file-coding-system 'mac)
 
