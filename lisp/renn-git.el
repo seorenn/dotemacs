@@ -2,6 +2,9 @@
 
 (require 'magit)
 
+; Do not shows The Magit 1.4.0 Warning Message
+(setq magit-last-seen-setup-instructions "1.4.0")
+
 ;; git-gutter
 
 (require 'git-gutter)
