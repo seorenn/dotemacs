@@ -168,8 +168,12 @@
 
 ;;;; renn-speedbar
 
-(global-set-key (kbd "C-x p") 'my-speedbar)
-(global-set-key (kbd "C-x P") 'sr-speedbar-close)
+;(global-set-key (kbd "C-x p") 'my-speedbar)
+;(global-set-key (kbd "C-x P") 'sr-speedbar-close)
+
+;;;; neotree
+(require 'neotree)
+(global-set-key (kbd "C-x p") 'neotree-toggle)
 
 ;;;; shell-switcher
 

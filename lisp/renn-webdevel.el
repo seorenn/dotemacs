@@ -8,6 +8,14 @@
 (setq web-mode-indent-style 1)
 (setq web-mode-comment-style 2)
 
+(setq web-mode-style-padding 0)
+(setq web-mode-script-padding 0)
+(setq web-mode-block-padding 0)
+
+(setq web-mode-enable-auto-pairing t)
+(setq web-mode-enable-css-colorization t)
+(setq web-mode-enable-current-column-highlight t)
+
 (setq web-mode-engines-alist
       '(("php" . "\\.phtml\\'")
         ("jinja" . "\\.html\\'")))

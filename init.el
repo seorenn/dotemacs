@@ -68,7 +68,7 @@
 (load-library "renn-switch-window")
 (load-library "renn-markdown")
 ;(load-library "renn-zencoding")
-(load-library "renn-speedbar")
+;(load-library "renn-speedbar")
 ;(load-library "renn-maxframe")
 (load-library "renn-theme")
 (load-library "renn-git")

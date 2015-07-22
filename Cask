@@ -61,7 +61,7 @@
 (depends-on "scss-mode")
 (depends-on "shell-switcher")
 (depends-on "solarized-theme")
-(depends-on "sr-speedbar")
 (depends-on "switch-window")
 (depends-on "visual-regexp")
 (depends-on "visual-regexp-steroids")
+(depends-on "neotree")
