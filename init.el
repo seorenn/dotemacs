@@ -75,6 +75,7 @@
 (load-library "renn-term")
 (load-library "renn-helm")
 (load-library "renn-projectile")
+(load-library "renn-neotree")
 ;(load-library "renn-modeline")
 
 ;(load-my-library "renn-iterm2func")

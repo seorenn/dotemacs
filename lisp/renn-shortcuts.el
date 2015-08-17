@@ -172,8 +172,7 @@
 ;(global-set-key (kbd "C-x P") 'sr-speedbar-close)
 
 ;;;; neotree
-(require 'neotree)
-(global-set-key (kbd "C-x p") 'neotree-toggle)
+(global-set-key (kbd "C-x p") 'neotree-show)
 
 ;;;; shell-switcher
 

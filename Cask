@@ -48,7 +48,6 @@
 (depends-on "helm-projectile")
 (depends-on "helm-swoop")
 (depends-on "highlight-symbol")
-(depends-on "ipython")
 (depends-on "js2-mode")
 (depends-on "js3-mode")
 (depends-on "jump-char")
@@ -65,3 +64,4 @@
 (depends-on "visual-regexp")
 (depends-on "visual-regexp-steroids")
 (depends-on "neotree")
+(depends-on "elpy")
