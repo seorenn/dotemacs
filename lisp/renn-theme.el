@@ -101,8 +101,7 @@
 
 (if (window-system)
     (gui-theme)
-                                        ;(setup-terminal-theme))
-  (use-solarized-dark-theme-for-terminal))
+  (setup-terminal-theme))
 
 ;; (if (window-system)
 ;;     ;(load-theme 'solarized-dark t)
