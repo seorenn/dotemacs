@@ -89,9 +89,20 @@
   (setq solarized-emphasize-indicators nil)
   (load-theme 'solarized-dark t))
 
+(defun use-solarized-dark-theme-for-terminal ()
+  ;; (setq solarized-use-less-bold t)
+  ;; (setq solarized-use-more-italic t)
+  ;; (setq solarized-emphasize-indicators nil)
+  ;; (setq solarized-distint-fringe-background nil)
+  ;; (setq solarized-high-contrast-mode-line nil)
+  (load-theme 'solarized-dark t)
+  (custom-set-faces (if (not window-system) '(default ((t (:background "nil"))))))
+  )
+
 (if (window-system)
     (gui-theme)
-  (setup-terminal-theme))
+                                        ;(setup-terminal-theme))
+  (use-solarized-dark-theme-for-terminal))
 
 ;; (if (window-system)
 ;;     ;(load-theme 'solarized-dark t)
