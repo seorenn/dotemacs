@@ -87,7 +87,7 @@
   (setq solarized-high-contrast-mode-line t)
   (setq solarized-use-more-italic t)
   (setq solarized-emphasize-indicators nil)
-  (load-theme 'solarized-dark t))
+  (load-theme 'solarized-light t))
 
 (defun use-solarized-dark-theme-for-terminal ()
   ;; (setq solarized-use-less-bold t)
