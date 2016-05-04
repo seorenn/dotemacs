@@ -65,3 +65,4 @@
 (depends-on "visual-regexp-steroids")
 (depends-on "neotree")
 (depends-on "elpy")
+(depends-on "org-bullets")

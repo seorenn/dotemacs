@@ -1,5 +1,3 @@
-;; The file org-install is obsolete in Emacs 24.x
-;;(require 'org-install)
 (require 'org)
 
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
@@ -27,6 +25,12 @@
 
 ;; for MacTexs
 (setq org-export-latex-default-class "article")
+
+;; Hide italic
+(setq org-hide-emphasis-markers t)
+
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 
 ;; cal-korea
 ;; http://jmjeong.com/emacscalkorea/
