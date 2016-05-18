@@ -66,3 +66,4 @@
 (depends-on "neotree")
 (depends-on "elpy")
 (depends-on "org-bullets")
+(depends-on "evil")
