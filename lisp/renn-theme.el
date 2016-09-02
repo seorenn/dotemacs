@@ -1,6 +1,7 @@
 (require 'erc)
 (require 'color-theme)
 (require 'cyberpunk-theme)
+(require 'twilight-theme)
 
 (defun disable-all-themes ()
   "disable all active themes."
@@ -81,13 +82,33 @@
   (renn-git-gutter-with-twilight)
   )
 
-(defun gui-theme ()
+(defun gui-theme-twilight ()
+  (load-theme 'twilight t))
+
+(defun gui-theme-solarized ()
   (setq solarized-org-use-variable-pitch nil)
   (setq solarized-use-variable-pitch nil)
   (setq solarized-high-contrast-mode-line t)
   (setq solarized-use-more-italic t)
   (setq solarized-emphasize-indicators nil)
   (load-theme 'solarized-light t))
+
+(defun gui-theme-solarized-dark ()
+  (setq solarized-org-use-variable-pitch nil)
+  (setq solarized-use-variable-pitch nil)
+  (setq solarized-high-contrast-mode-line t)
+  (setq solarized-use-more-italic t)
+  (setq solarized-emphasize-indicators nil)
+  (load-theme 'solarized-dark t))
+
+(defun gui-theme-cyberpunk ()
+  (load-theme 'cyberpunk t))
+
+(defun gui-theme ()
+  ;;(gui-theme-solarized)
+  ;;(gui-theme-cyberpunk)
+  ;;(gui-theme-twilight)
+  (gui-theme-solarized-dark))
 
 (defun use-solarized-dark-theme-for-terminal ()
   ;; (setq solarized-use-less-bold t)

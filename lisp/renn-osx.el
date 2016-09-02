@@ -28,7 +28,7 @@
   ;(set-face-font 'default "Monaco-12")
   ;(set-face-font 'default "Menlo-12")
   (set-face-attribute 'default nil
-                      :family "Menlo"
+                      :family "Monaco"
                       :width 'normal
                       :height 120)
 

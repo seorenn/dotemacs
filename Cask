@@ -67,3 +67,4 @@
 (depends-on "elpy")
 (depends-on "org-bullets")
 (depends-on "evil")
+(depends-on "twilight-theme")
