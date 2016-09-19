@@ -68,3 +68,4 @@
 (depends-on "org-bullets")
 (depends-on "evil")
 (depends-on "twilight-theme")
+(depends-on "swift-mode")
