@@ -1,3 +1,5 @@
+**This project is no more updated. Because, I use a [Spacemacs](http://spacemacs.org) instead. Spacemacs is lovely and very great solution to solve complex configuration.**
+
 Seorenn DotEmacs
 ================
 
